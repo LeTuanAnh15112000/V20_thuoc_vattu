@@ -10,9 +10,9 @@ class DanhsachnhacungcapController extends Controller
     //
     public function list($idHealthFacility, $idMedicalStation){
         $title = "Danh sách nhà cung cấp";
-        $MedicalStation = DB::table('medical_stations')->find($idMedicalStation);
-        $nameMedicalStation = $MedicalStation->ten_tram_y_te;
-        $nhacungcap = DB::table('danhmucnhacungcap')->where('id_tramyte', $idMedicalStation)->get();
+        $MedicalStation = DB::table('health_facilities')->find($idMedicalStation);
+        $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
+        $nhacungcap = DB::table('danhmucnhacungcap')->where('id_tramyte', $idHealthFacility)->get();
         return view('thuoc_vattu.detail.list_nhacungcap', [
             'title'=>$title,
             'nhacungcap'=>$nhacungcap,

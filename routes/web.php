@@ -27,6 +27,8 @@ use App\Http\Controllers\thuoc_vattu\DanhsachThuoc35Controller;
 use App\Http\Controllers\thuoc_vattu\DanhsachThuoc65Controller;
 use App\Http\Controllers\thuoc_vattu\DanhsachThuoc95Controller;
 use App\Http\Controllers\thuoc_vattu\DanhsachThuoc125Controller;
+use App\Http\Controllers\thuoc_vattu\ThanhlyThuochethanController;
+use App\Http\Controllers\thuoc_vattu\PhieulapController;
 Route::middleware('PreventBackHistory')->group(function(){
     Route::view('/', 'login');
     Route::view('login', 'login')->name('login');
@@ -191,8 +193,8 @@ Route::prefix('manager')->name('manager.')->group(function(){
            // danh sách thuốc dưới 125 ngày
            Route::get('list_medicine125/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc125Controller::class, 'list'])->name('list_medicine125');
 
-        //    // Lập phiếu nhâp
-        //    Route::get('lapphieunhap/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'lapphieu'])->name('lapphieunhap');
+           // Lập phiếu nhâp
+           Route::get('lapphieunhap/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'lapphieu'])->name('lapphieunhap');
         //    // luu dữ liệu vào data vs trang thai là 0 (tụa như là chức năng thêm)
         //    Route::post('lapphieu/Add', [PhieulapController::class, 'themlapphieu'])->name('themlapphieu');
            
@@ -200,8 +202,8 @@ Route::prefix('manager')->name('manager.')->group(function(){
         //    // Route::get('confirm', [DanhsachThuoc125Controller::class, 'confirm'])->name('confirm');
 
 
-        //    // thanh lý thuốc hết hạn
-        //    Route::get('thanhlythuochethan/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'list'])->name('list_thanhlythuoc');
+           // thanh lý thuốc hết hạn
+           Route::get('thanhlythuochethan/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'list'])->name('list_thanhlythuoc');
             
         });
 

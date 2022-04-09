@@ -11,9 +11,9 @@ class DanhsachThuoc35Controller extends Controller
     public function list($idHealthFacility, $idMedicalStation){
         $title = "Danh sách thuốc";
         // $tramyte = DB::select('select * from danhmucthuoc where handung = :id', ['id' => $id]);
-        $MedicalStation = DB::table('medical_stations')->find($idMedicalStation);
-        $nameMedicalStation = $MedicalStation->ten_tram_y_te;
-        $medicine = DB::table('danhmucthuoc')->where('handung', '<', '36')->where('id_tramyte', $idMedicalStation)->get();
+        $MedicalStation = DB::table('health_facilities')->find($idMedicalStation);
+        $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
+        $medicine = DB::table('danhmucthuoc')->where('handung', '<', '36')->where('id_tramyte', $idHealthFacility)->get();
         return view('thuoc_vattu.detail.list_thuoc35', [
             'title'=>$title,
             'medicine'=>$medicine,

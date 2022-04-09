@@ -10,9 +10,9 @@ class DanhsachnuocsanxuatController extends Controller
     //
     public function list($idHealthFacility, $idMedicalStation){
         $title = "Danh sách nước sản xuất";
-        $MedicalStation = DB::table('medical_stations')->find($idMedicalStation);
-        $nameMedicalStation = $MedicalStation->ten_tram_y_te;
-        $nuocsanxuat = DB::table('danhmucnuocsanxuat')->get();
+        $MedicalStation = DB::table('health_facilities')->find($idMedicalStation);
+        $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
+        $nuocsanxuat = DB::table('danhmucnuocsanxuat')->where('id_tramyte', $idHealthFacility)->get();
         return view('thuoc_vattu.detail.list_nuocsanxuat', [
             'title'=>$title,
             'nuocsanxuat'=>$nuocsanxuat,
