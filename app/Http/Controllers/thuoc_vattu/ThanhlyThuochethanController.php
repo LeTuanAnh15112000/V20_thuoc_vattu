@@ -12,8 +12,8 @@ class ThanhlyThuochethanController extends Controller
     // danh sách thuốc hết hạn
     public function list($idHealthFacility, $idMedicalStation){
         $title = 'Thanh lý thuốc hết hạn';
-        $tenthuoc = DB::table('danhmucthuoc')->where('handung', '<' , 10)->get();
-        $MedicalStation = DB::table('health_facilities')->find($idMedicalStation);
+        $tenthuoc = DB::table('danhmucthuoc')->where('id_tramyte',$idMedicalStation )->where('handung', '<' , 10)->get();
+        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
         return view('thuoc_vattu.thanhlythuoc.list_thanhlythuoc', 
         [
@@ -29,10 +29,9 @@ class ThanhlyThuochethanController extends Controller
     // gui yeu cầu thanh lý đến trung tâm y tế
     public function guiyeucau($idHealthFacility, $idMedicalStation){
         $title = 'Gửi yêu cầu thanh lý thuốc hết hạn';
-        $tenthuoc = DB::table('danhmucthuoc')->where('handung', '<' , 10)->get();
-        $MedicalStation = DB::table('health_facilities')->find($idMedicalStation);
+        $tenthuoc = DB::table('danhmucthuoc')->where('id_tramyte',$idMedicalStation )->where('handung', '<' , 10)->get();
+        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
-        $nguonnhap = DB::table('danhmucnguon')->get();
 
         return view('thuoc_vattu.thanhlythuoc.guiyeucau', 
         [
@@ -40,7 +39,6 @@ class ThanhlyThuochethanController extends Controller
              'idMedicalStation'=> $idMedicalStation,
              'idHealthFacility'=> $idHealthFacility,
              'nameMedicalStation'=> $nameMedicalStation,
-             'nguonnhap'=>$nguonnhap,
              'tenthuoc'=>$tenthuoc
         ]);
     }

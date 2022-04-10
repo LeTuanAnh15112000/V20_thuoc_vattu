@@ -29,6 +29,7 @@ use App\Http\Controllers\thuoc_vattu\DanhsachThuoc95Controller;
 use App\Http\Controllers\thuoc_vattu\DanhsachThuoc125Controller;
 use App\Http\Controllers\thuoc_vattu\ThanhlyThuochethanController;
 use App\Http\Controllers\thuoc_vattu\PhieulapController;
+use App\Http\Controllers\thuoc_vattu\PhieuxuatController;
 use App\Http\Controllers\thuoc_vattu\NguonnhapController;
 use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\HuythuocController;
 use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\DuyetController;
@@ -200,11 +201,16 @@ Route::prefix('manager')->name('manager.')->group(function(){
            // danh sách thuốc dưới 125 ngày
            Route::get('list_medicine125/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc125Controller::class, 'list'])->name('list_medicine125');
 
-           // Lập phiếu nhâp
+           // Lập phiếu nhâp phiếu lập controller ở đây là phiếu nhập
            Route::get('lapphieunhap/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'lapphieu'])->name('lapphieunhap');
-        //    // luu dữ liệu vào data vs trang thai là 0 (tụa như là chức năng thêm)
-        //    Route::post('lapphieu/Add', [PhieulapController::class, 'themlapphieu'])->name('themlapphieu');
+           // luu dữ liệu vào data vs trang thai là 0 (tụa như là chức năng thêm)
+           Route::post('lapphieu/Add/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'themlapphieu'])->name('themlapphieu');
            
+            // lập phiếu xuất
+           Route::get('lapphieuxuat/{idHealthFacility}/{idMedicalStation}', [PhieuxuatController::class, 'lapphieu'])->name('lapphieuxuat');
+
+
+
         //    // Xác nhận phiếu nhập xuất chỉ ở cấp trung tâm y tế
         //    // Route::get('confirm', [DanhsachThuoc125Controller::class, 'confirm'])->name('confirm');
 

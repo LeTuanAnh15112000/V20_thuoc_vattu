@@ -12,8 +12,8 @@ class PhieulapController extends Controller
     //
     public function lapphieu($idHealthFacility, $idMedicalStation){
         $title = 'Lập phiếu nhập kho';
-        $tenthuoc = DB::table('danhmucthuoc')->where('id_tramyte',$idMedicalStation)->get();
-        $MedicalStation = DB::table('health_facilities')->find($idMedicalStation);
+        $tenthuoc = DB::table('danhmucthuoc')->where('id_tramyte', $idMedicalStation)->get();
+        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
         $nguonnhap = DB::table('danhmucnguon')->get();
         return view('thuoc_vattu.quanlynhap.lapphieu', 
@@ -39,7 +39,7 @@ class PhieulapController extends Controller
        ],
        [
         'tenthuoc.required'=>'Bạn chưa nhập tên tên thuốc',
-        'nguonnhap.required'=>'Bạn chưa nhập nguồn nhập',
+        'nguonnhap.required'=>'Bạn chưa chọn nguồn nhập',
         'nguoilapphieu.required'=> 'Bạn chưa nhập tên người lập phiếu',
         'ngaynhap.required'=> 'Bạn chưa chọn ngày nhập',
         'sophieu.required'=>'Bạn chưa nhập số phiếu',

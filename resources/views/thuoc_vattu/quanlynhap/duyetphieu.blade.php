@@ -75,7 +75,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12 mb-3">
-            <form action="/manager/thuoc_vattu/lapphieu/Add" method="post">
+            <form action="/manager/thuoc_vattu/lapphieu/Add/{{$idHealthFacility}}/{{$idMedicalStation}}" method="post">
                 @csrf
                     <div class="container-fluid">
                       <!-- SELECT2 EXAMPLE -->

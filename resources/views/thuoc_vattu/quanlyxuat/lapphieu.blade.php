@@ -65,7 +65,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             @include('thuoc_vattu.layouts.alert')
-            <h1>Phiếu nhập thuốc</h1>
+            <h1>Phiếu xuất thuốc</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -106,14 +106,12 @@
 
                             <!-- /.col -->
                             <div class="col-md-6">
-                              <div class="form-group">
-                                <label>Tên nguồn nhập</label><br>
-                                <select class="form-control select2" name="nguonnhap" style="width: 100%;">
-                                  @foreach ($nguonnhap as $nn)
-                                  <option>{{$nn->tennguon}}</option>
-                                  @endforeach
-                              </select>
-                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Nơi xuất</label><br>
+                                  <input type="text" name="nguoilapphieu" id="" placeholder="Người lập phiếu"><br>
+                                </div>
+                            </div>
                             </div>
                           
                             <div class="col-md-6">
@@ -125,7 +123,7 @@
                               <!-- /.col -->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Ngày nhập</label><br>
+                                  <label>Ngày xuất</label><br>
                                  <input type="date" name="ngaynhap" id="">
                                 </div>
                             </div>
@@ -139,7 +137,7 @@
                             <!-- /.col -->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Số lượng yêu cầu</label><br>
+                                  <label>Số lượng xuất</label><br>
                                 <input type="number" name="soluongyeucau" placeholder="Số lượng yêu cầu" id="">
                                 </div>
                             </div>

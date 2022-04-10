@@ -9,17 +9,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">thống kê (
+                        <h1 class="m-0">Thống kê (
                             {{$medicalCenterById->ten_trung_tam_y_te}}
                             )</h1>
                             <a href="{{ route('manager.dashboard.medical-station.list',['idMedicalCenter'=>$medicalCenterById->id]) }}" class="small-box-footer">Trạm y tế <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item active">thống kê (
-                                    {{$medicalCenterById->ten_trung_tam_y_te}}
-                                )</li>
-                        </ol>
                     </div>
                 </div>
             </div>
