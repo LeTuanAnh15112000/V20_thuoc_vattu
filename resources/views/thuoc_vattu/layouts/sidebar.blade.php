@@ -223,6 +223,24 @@
                 </li>
               </ul>
             </li>
+            {{-- ban do --}}
+            <li  onclick="menu_open()" class="nav-item click_menu">
+              <a href="#" onclick="click_thanhlythuochethan()" class="nav-link click_thanhlythuochethan">
+                <i class="nav-icon 	fa fa-file"></i>
+                <p>
+              Vị trí {{$nameMedicalStation}}
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li onclick="click_hethan()"  class="nav-item">
+                  <a  href="/manager/thuoc_vattu/thanhlythuochethan/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_hethan">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Xem vị trí</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
             {{-- Logout --}}
             <li class="nav-item">
               <a href="http://127.0.0.1:8000" class="nav-link bg-danger"  style="cursor: pointer">

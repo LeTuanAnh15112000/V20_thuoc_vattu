@@ -94,6 +94,9 @@
               </li>
             </ul>
           </li>
+
+          @hasrole('medical_center')
+                            
           <li class="nav-item">
             <a href="#" onclick="click_xacnhan()" class="nav-link click_xacnhan">
               <i class="nav-icon 	fa fa-plus-square"></i>
@@ -132,20 +135,38 @@
             <a href="#" onclick="click_xacnhanhuythuoc()" class="nav-link click_xacnhanhuythuoc">
               <i class="nav-icon 	fa fa-plus-square"></i>
               <p>
-                Xác nhận hủy thuốc hết hạn
+                Xác nhận thanh lý thuốc
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="/manager/thuoc_vattu/xemchitiet/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Xem chi tiết</p>
                 </a>
               </li>
             </ul>
           </li>
-         
+          @endhasrole
+          {{-- ban đồ vị trí trạm y tế --}}
+          <li  onclick="menu_open()" class="nav-item click_menu">
+            <a href="#" onclick="click_thanhlythuochethan()" class="nav-link click_thanhlythuochethan">
+              <i class="nav-icon 	fa fa-file"></i>
+              <p>
+            Vị trí {{$nameMedicalStation}}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li onclick="click_hethan()"  class="nav-item">
+                <a  href="/manager/thuoc_vattu/thanhlythuochethan/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_hethan">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Xem vị trí</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           {{-- Logout --}}
           <li class="nav-item">
             <a href="http://127.0.0.1:8000" class="nav-link bg-danger"  style="cursor: pointer">

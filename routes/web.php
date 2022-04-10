@@ -30,6 +30,9 @@ use App\Http\Controllers\thuoc_vattu\DanhsachThuoc125Controller;
 use App\Http\Controllers\thuoc_vattu\ThanhlyThuochethanController;
 use App\Http\Controllers\thuoc_vattu\PhieulapController;
 use App\Http\Controllers\thuoc_vattu\NguonnhapController;
+use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\HuythuocController;
+use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\DuyetController;
+
 Route::middleware('PreventBackHistory')->group(function(){
     Route::view('/', 'login');
     Route::view('login', 'login')->name('login');
@@ -205,13 +208,17 @@ Route::prefix('manager')->name('manager.')->group(function(){
         //    // Xác nhận phiếu nhập xuất chỉ ở cấp trung tâm y tế
         //    // Route::get('confirm', [DanhsachThuoc125Controller::class, 'confirm'])->name('confirm');
 
-           // thanh lý thuốc hết hạn
+           // thanh lý thuốc hết hạn bên trạm y tế
            Route::get('thanhlythuochethan/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'list'])->name('list_thanhlythuoc');
         //    Gửi yêu cầu thanh lý thuốc đến trung tâm y tế
            Route::get('guiyeucauthanhly/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'guiyeucau'])->name('guiyeucau');
         //    them thông tin vào cơ sở dữ liệu và gửi đi đến trung tâm y tế
            Route::post('/thanhlythuoc/guiyeucau/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'themvaodanhsach'])->name('themvaodanhsach');
-            
+            // xác nhận hủy thuốc bên trung tâm y tế
+            Route::get('/xemchitiet/{idHealthFacility}/{idMedicalStation}',[HuythuocController::class, 'xemchitiet'])->name('xemchitiet');
+            // duyệt phiếu 
+            Route::get('/duyetphieu/{idHealthFacility}/{idMedicalStation}',[DuyetController::class, 'xoa'])->name('xoa');
+
         });
 
         // 

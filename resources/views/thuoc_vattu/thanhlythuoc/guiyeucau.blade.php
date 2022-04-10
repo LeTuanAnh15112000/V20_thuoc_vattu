@@ -59,15 +59,17 @@
   <!-- Main Sidebar Container -->
   @include('thuoc_vattu.layouts.sidebar')
   <!-- Content Wrapper. Contains page content -->
+ 
   <div class="content-wrapper">
+    <div class="col" style="width: 100%;">
+      @include('thuoc_vattu.layouts.alert')
+    </div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <div class="row">
-              @include('thuoc_vattu.layouts.alert')
-            </div>
+           
             <h1>Phiếu thanh lý thuốc</h1>
           </div>
         </div>
@@ -112,7 +114,7 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label>Số phiếu</label><br>
-                                <input type="text" name="sophieu" id=""  placeholder="Số phiếu"><br>
+                                <input type="number" name="sophieu" id=""  placeholder="Số phiếu"><br>
                               </div>
                             </div>
                             <div class="col-md-6">
