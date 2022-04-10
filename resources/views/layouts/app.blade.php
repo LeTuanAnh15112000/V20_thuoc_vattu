@@ -66,52 +66,7 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-
-
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <div class="dropdown dropstart">
-                        <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="far fa-bell"></i>
-                            <span class="badge bg-warning">15</span>
-                        </a>
-
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li>
-                                {{-- <a class="dropdown-item" href="#">Action</a> --}}
-                                <a href="#" class="dropdown-item">
-                                    <i class="fas fa-envelope mr-2"></i> 4 new messages
-                                    <span class="float-right text-muted text-sm">3 mins</span>
-                                </a>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
-                </li>
+               
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
@@ -200,7 +155,7 @@
                             </li>
                         @endhasrole
                         
-                        @hasrole('admin|department_of_health|medical_center')
+                        {{-- @hasrole('admin|department_of_health|medical_center')
                             <li class="nav-item">
                                 <a href="{{ route('manager.health-facilities.index') }}" class="nav-link">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -209,7 +164,7 @@
                                     </p>
                                 </a>
                             </li>
-                        @endhasrole
+                        @endhasrole --}}
                         
                         <li class="nav-item">
                             <a href="{{ route('manager.cardres.index') }}" class="nav-link">

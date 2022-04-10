@@ -5,17 +5,19 @@ namespace App\Http\Controllers\thuoc_vattu;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-class DanhsachVattuController extends Controller
+class NguonnhapController extends Controller
 {
     //
-    public function list($idHealthFacility, $idMedicalStation){
-        $title = "Danh sách vật tư ";
-        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
+    function list($idHealthFacility, $idMedicalStation){
+        $title = "Danh sách nguồn nhập";
+        // lay tên tram y tế
+        $MedicalStation = DB::table('health_facilities')->find($idMedicalStation);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
-        $vattu = DB::table('danhmucvattu')->where('id_tramyte', $idMedicalStation)->get();
-        return view('thuoc_vattu.detail.list_vattu', [
+        // 
+        $nguonnhap = DB::table('danhmucnguon')->get();
+        return view('thuoc_vattu.detail.list_nguonnhap', [
             'title'=>$title,
-            'vattu'=>$vattu,
+            'nguonnhap'=>$nguonnhap,
             'idMedicalStation'=> $idMedicalStation,
             'idHealthFacility'=> $idHealthFacility,
             'nameMedicalStation'=> $nameMedicalStation

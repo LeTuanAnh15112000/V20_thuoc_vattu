@@ -73,16 +73,9 @@
             </div>
             <!-- /.card-body -->
         </div>
-        <a href="/manager/thuoc_vattu/dashboard/{{$idHealthFacility}}/{{$idMedicalStation}}">
-
-            <button type="button" onclick="xuly()" style="width: 200px;" class="btn btn-danger float-right">Thanh lý</button>
-        </a>
+              <button type="button" style="width: 200px;"  class="btn btn-danger float-right js-thanhly">Lập phiếu thanh lý</button>
           <!-- /.card -->
-          <script>
-            function xuly() {
-              alert('Yêu cầu đã được gửi về trung tâm y tế long xuyên xin hãy chờ phê duyệt');
-            }
-            </script>
+       
         </div>
         <!-- /.col -->
       </div>
@@ -92,4 +85,62 @@
   </section>
   <!-- /.content -->
 </div>
+
+{{-- model yeu yeu cau thành công --}}
+<div class="modal">
+  <div class="modal-container">
+       <div class="modal-close">
+          <i class="ti-close"></i>
+       </div>
+          <header class="modal-header">
+             Bạn có chắc chán muốn lập phiếu thanh lý thuốc hết hạn không ?
+          </header>
+          <a href="/manager/thuoc_vattu/dashboard/{{$idHealthFacility}}/{{$idMedicalStation}}">
+            <div class="d-flex justify-content-center mt-4">
+              <a href="/manager/thuoc_vattu/guiyeucauthanhly/{{$idHealthFacility}}/{{$idMedicalStation}}">
+              <button class="btn btn-danger">Đồng ý</button>
+              </a>
+              <a href="/manager/thuoc_vattu/thanhlythuochethan/{{$idHealthFacility}}/{{$idMedicalStation}}">
+                <button class="btn btn-primary ml-2">Quay lại</button>
+                </a>
+            </div>
+          </a>
+          
+      </div>
+  </div>
+</div> 
+
+
+<script>
+// ẩn button thanh lý thuốc sao khi cliick vào button hien buttun đã gửi lên
+
+
+
+  // model
+  var lickbtns=document.querySelector('.js-thanhly');
+  var hiddenmodal=document.querySelector('.modal');
+  var open=document.querySelector('.modal-close');
+
+  var noibot=document.querySelector('.modal-container');
+ 
+
+      lickbtns.onclick = function(){
+          hiddenmodal.classList.add('open');
+          console.log("123");
+       }
+         
+  
+  open.onclick = function(){
+      hiddenmodal.classList.remove('open');
+     
+  }
+
+  hiddenmodal.onclick = function(){
+      hiddenmodal.classList.remove('open');
+     
+  }
+  noibot.addEventListener('click', function(event){
+      event.stopPropagation();
+  })
+</script>
 @endsection

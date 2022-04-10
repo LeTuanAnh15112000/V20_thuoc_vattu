@@ -13,22 +13,22 @@
         <div class="image">
           <img src="{{ asset('images/user/'.Auth::user()->anh_dai_dien) }}" class="img-circle elevation-2" alt="User Image"
               id="nav-left-avatar">
-      </div>
-      <div class="info">
-          <a href="{{ route('manager.profile') }}" class="d-block"
-              id="nav-left-name">
-              {{ Auth::user()->cardresByUserAuth()->ho_ten }}
-              <br/>
-              <span style="font-size: 14px;">
-                  @if (gettype(Auth::user()->healthFacilityByUser()) == 'object')
-                  {{Auth::user()->healthFacilityByUser()->ten_co_so_y_te}}
-                  @else
-                      {{Auth::user()->healthFacilityByUser()}}
-                  @endif
-              </span>
-          </a>
-      </div>
-      </div>
+       </div>
+       <div class="info">
+        <a href="{{ route('manager.profile') }}" class="d-block"
+            id="nav-left-name">
+            {{ Auth::user()->cadresByUserAuth()->ho_ten }}
+            <br/>
+            <span style="font-size: 14px;">
+                @if (Auth::user()->healthFacilityByUser() !=  null)
+                    {{Auth::user()->healthFacilityByUser()->ten_co_so_y_te}}
+                @else
+                    Quản trị viên
+                @endif
+            </span>
+        </a>
+    </div>
+    </div>
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">
@@ -47,8 +47,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
+          <li class="nav-item">
+            <a href="#" onclick="click_danhmuc()" class="nav-link click_danhmuc">
               <i class="nav-icon 	fa fa-user-md"></i>
               <p>
                 DANH MỤC
@@ -56,38 +56,38 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/manager/thuoc_vattu/list_thuoc/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
+              <li onclick="click_thuoc()" class="nav-item">
+                <a href="/manager/thuoc_vattu/list_thuoc/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_thuoc">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Thuốc</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/manager/thuoc_vattu/list_vattu/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
+                <a href="/manager/thuoc_vattu/list_vattu/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_vattu">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Vật tư</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/manager/thuoc_vattu/list_duongdung/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
+                <a href="/manager/thuoc_vattu/list_duongdung/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_duongdung">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Đường dung</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/manager/thuoc_vattu/list_nhacungcap/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link ">
+                <a href="/manager/thuoc_vattu/list_nhacungcap/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_nhacungcap">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nhà cung cấp</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/manager/thuoc_vattu/list_hangsanxuat/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link ">
+                <a href="/manager/thuoc_vattu/list_hangsanxuat/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_hangsanxuat">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Hãng sản xuất</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/manager/thuoc_vattu/list_nuocsanxuat/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link ">
+                <a href="/manager/thuoc_vattu/list_nuocsanxuat/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_nuocsanxuat">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nước sản xuất</p>
                 </a>
@@ -95,10 +95,10 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" onclick="click_xacnhan()" class="nav-link click_xacnhan">
               <i class="nav-icon 	fa fa-plus-square"></i>
               <p>
-                Quản lý kho
+                Xác nhận nhập thuốc
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -106,39 +106,59 @@
               <li class="nav-item">
                 <a href="pages/layout/top-nav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kho chính</p>
+                  <p>Xem chi tiết</p>
                 </a>
               </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" onclick="click_xuat()" class="nav-link click_xuat">
+              <i class="nav-icon 	fa fa-plus-square"></i>
+              <p>
+                Xác nhận xuất thuốc
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="pages/layout/top-nav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kho lẻ</p>
+                  <p>Xem chi tiết</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" onclick="click_xacnhanhuythuoc()" class="nav-link click_xacnhanhuythuoc">
+              <i class="nav-icon 	fa fa-plus-square"></i>
+              <p>
+                Xác nhận hủy thuốc hết hạn
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/layout/top-nav.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Xem chi tiết</p>
                 </a>
               </li>
             </ul>
           </li>
          
-           {{-- Logout --}}
-           <li class="nav-item">
-                <a href="http://127.0.0.1:8000" class="nav-link bg-danger"  style="cursor: pointer">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p >
-                        Đăng xuất
-                    </p>
-                </a>
-            </li>
-        {{-- Logout --}}
+          {{-- Logout --}}
+          <li class="nav-item">
+            <a href="http://127.0.0.1:8000" class="nav-link bg-danger"  style="cursor: pointer">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p >
+                    Đăng xuất
+                </p>
+            </a>
+        </li>
+          {{-- Logout --}}
 
 
-        <script>
-            $(document).ready(function() {
-                $("#logout").click(function() {
-                    $("#formLogout").submit();
-                });
-            });
-        </script>
-          
-          
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

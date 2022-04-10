@@ -199,7 +199,10 @@
                                 <i class="fas fa-capsules"></i>
                             </div>
                             @role('department_of_health|medical_center')
-                                <a href="{{ route('manager.thuoc_vattu.detail') }}" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('manager.thuoc_vattu.statistical', [
+                                    'idMedicalStation'=>$medicalStationById->id,
+                                    'idHealthFacility'=>$healthFacility->id
+                                    ])  }}" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
                             @endrole
                             @role('admin|medical_station')
                                 <a href="{{ route('manager.thuoc_vattu.dashboard', [

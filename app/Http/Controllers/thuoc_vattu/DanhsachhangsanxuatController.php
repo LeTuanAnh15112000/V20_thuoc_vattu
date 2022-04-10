@@ -9,10 +9,10 @@ class DanhsachhangsanxuatController extends Controller
 {
     //
     public function list($idHealthFacility, $idMedicalStation){
-        $MedicalStation = DB::table('health_facilities')->find($idMedicalStation);
+        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
         $title = "Danh sách hãng sản xuất";
-        $hangsanxuat = DB::table('danhmuchangsanxuat')->where('id_tramyte', $idHealthFacility)->get();
+        $hangsanxuat = DB::table('danhmuchangsanxuat')->where('id_tramyte', $idMedicalStation)->get();
         return view('thuoc_vattu.detail.list_hangsanxuat', [
             'title'=>$title,
             'hangsanxuat'=>$hangsanxuat,

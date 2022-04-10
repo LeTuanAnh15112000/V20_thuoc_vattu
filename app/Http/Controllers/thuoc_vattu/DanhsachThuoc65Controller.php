@@ -10,9 +10,9 @@ class DanhsachThuoc65Controller extends Controller
     //
     public function list($idHealthFacility, $idMedicalStation){
         $title = "Danh sách thuốc dưới 65 ngày";
-        $MedicalStation = DB::table('health_facilities')->find($idMedicalStation);
+        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
-        $medicine = DB::table('danhmucthuoc')->where('handung', '<', '66')->where('handung', '>', '35')->where('id_tramyte', $idHealthFacility)->get();
+        $medicine = DB::table('danhmucthuoc')->where('handung', '<', '66')->where('handung', '>', '35')->where('id_tramyte', $idMedicalStation)->get();
         return view('thuoc_vattu.detail.list_thuoc65', [
             'title'=>$title,
             'medicine'=>$medicine,

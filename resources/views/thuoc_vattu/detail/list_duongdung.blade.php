@@ -32,9 +32,9 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Số thứ tự</th>
-                  <th>Mã đường dùng</th>
-                  <th>Tên đường dùng</th>
+                  <th>STT</th>
+                  <th>MÃ ĐƯỜNG DÙNG</th>
+                  <th>TÊN ĐƯỜNG DÙNG</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,9 +48,9 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Số thứ tự</th>
-                  <th>Mã đường dùng</th>
-                  <th>Tên đường dùng</th>
+                  <th>STTT</th>
+                  <th>MÃ ĐƯỜNG DÙNG</th>
+                  <th>TÊN ĐƯỜNG DÙNG</th>
                 </tr>
                 </tfoot>
               </table>

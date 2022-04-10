@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{$title}}</title>
 
+
+  {{-- css modal hienj thông báo gửi yêu cầu thành công --}}
+  <link rel="stylesheet" href="/style/css/model.css">
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -69,8 +73,9 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
 
+<!-- jQuery -->
+<script src="/js/thuoc_vattu/click.js"></script>
 <script src="/template/admin/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="/template/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -28,7 +28,7 @@
               </span>
           </a>
       </div>
-        </div>
+      </div>
   
         <!-- SidebarSearch Form -->
         <div class="form-inline">
@@ -47,8 +47,8 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
-            <li class="nav-item ">
-              <a href="#" class="nav-link">
+            <li class="nav-item">
+              <a href="#" onclick="click_danhmuc()" class="nav-link click_danhmuc">
                 <i class="nav-icon 	fa fa-user-md"></i>
                 <p>
                   DANH MỤC
@@ -56,46 +56,52 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/manager/thuoc_vattu/list_thuoc/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
+                <li onclick="click_thuoc()" class="nav-item">
+                  <a href="/manager/thuoc_vattu/list_thuoc/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_thuoc">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Thuốc</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/manager/thuoc_vattu/list_vattu/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
+                  <a href="/manager/thuoc_vattu/list_vattu/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_vattu">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Vật tư</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/manager/thuoc_vattu/list_duongdung/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
+                  <a href="/manager/thuoc_vattu/list_duongdung/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_duongdung">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Đường dung</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/manager/thuoc_vattu/list_nhacungcap/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link ">
+                  <a href="/manager/thuoc_vattu/list_nhacungcap/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_nhacungcap">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Nhà cung cấp</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/manager/thuoc_vattu/list_hangsanxuat/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link ">
+                  <a href="/manager/thuoc_vattu/list_hangsanxuat/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_hangsanxuat">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Hãng sản xuất</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/manager/thuoc_vattu/list_nuocsanxuat/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link ">
+                  <a href="/manager/thuoc_vattu/list_nuocsanxuat/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_nuocsanxuat">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Nước sản xuất</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/manager/thuoc_vattu/list_nguonnhap/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_nuocsanxuat">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Nguồn nhập</p>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="#" onclick="click_quanlykho()" class="nav-link click_quanlykho">
                 <i class="nav-icon 	fa fa-plus-square"></i>
                 <p>
                   Quản lý kho
@@ -118,7 +124,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="#" onclick="click_quanlynhapkho()" class="nav-link click_quanlynhapkho">
                 <i class="nav-icon 	fa fa-clipboard"></i>
                 <p>
                   Quản lý nhập kho
@@ -142,7 +148,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="#" onclick="click_quanlyxuatkho()" class="nav-link click_quanlyxuatkho">
                 <i class="nav-icon 	fa fa-file"></i>
                 <p>
                   Quản lý xuất kho
@@ -165,8 +171,8 @@
                
               </ul>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li  onclick="menu_open()" class="nav-item click_menu">
+              <a href="#" onclick="click_thanhlythuochethan()" class="nav-link click_thanhlythuochethan">
                 <i class="nav-icon 	fa fa-file"></i>
                 <p>
                   Thanh lý thuốc hết hạn
@@ -174,16 +180,22 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/manager/thuoc_vattu/thanhlythuochethan/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
+                <li onclick="click_hethan()"  class="nav-item">
+                  <a  href="/manager/thuoc_vattu/thanhlythuochethan/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_hethan">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh sách thuốc hết hạn</p>
+                    <p>Danh sách thuốc sắp hết hạn</p>
+                  </a>
+                </li>
+                <li onclick="click_guiyeucau()" style="display: none;" class="nav-item ">
+                  <a  href="/manager/thuoc_vattu/guiyeucauthanhly/{{$idHealthFacility}}/{{$idMedicalStation}}"  class="nav-link click_guiyeucau">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Thanh lý</p>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="#" onclick="click_baocao()" class="nav-link click_baocao">
                 <i class="nav-icon 	fa fa-clipboard"></i>
                 <p>
                   Quản lý và kết xuất các thông tin báo cáo

@@ -6,12 +6,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="text-primary">Danh sách vật tư</h1>
+          <h1 class="text-primary">Danh sách nguồn nhập</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Danh sách nhà cung cấp</li>
+            <li class="breadcrumb-item active">Danh sách đường dùng</li>
           </ol>
         </div>
       </div>
@@ -33,36 +33,27 @@
                 <thead>
                 <tr>
                   <th>STT</th>
-                  <th>TÊN VẬT TƯ Y TẾ</th>
-                  <th>MÃ SẢN PHẨM</th>
-                  <th>NHÓM VẬT TƯ Y TẾ</th>
-                  <th>SỐ LƯỢNG</th>
-                  <th>HÃNG SỞ HỮU</th>
-                  <th>GIÁ NIÊM YẾT (VNĐ)</th>
+                  <th>TÊN NGUỒN NHẬP</th>
+                  <th>MÃ NGUỒN NHẬP</th>
+                  <th>GHI CHÚ</th>
                 </tr>
                 </thead>
                 <tbody>
-                  @foreach($vattu as $vt)
+                  @foreach($nguonnhap as $nn)
                 <tr>   
-                  <th>{{$vt->id}}</th>
-                  <th>{{$vt->tenvattu}}</th>
-                  <th>{{$vt->mavattu}}</th>
-                  <th>{{$vt->nhomvattu}}</th>
-                  <th>{{$vt->soluong}}</th>
-                  <th>{{$vt->hangsohuu}}</th>
-                  <th>{{$vt->dongia}}</th>
+                  <th>{{$nn->id}}</th>
+                  <th>{{$nn->tennguon}}</th>
+                  <th>{{$nn->manguon}}</th>
+                  <th>{{$nn->ghichu}}</th>
                 </tr>
                 @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
                   <th>STT</th>
-                  <th>TÊN VẬT TƯ Y TẾ</th>
-                  <th>MÃ SẢN PHẨM</th>
-                  <th>NHÓM VẬT TƯ Y TẾ</th>
-                  <th>SỐ LƯỢNG</th>
-                  <th>HÃNG SỞ HỮU</th>
-                  <th>GIÁ NIÊM YẾT (VNĐ)</th>
+                  <th>TÊN NGUỒN NHẬP</th>
+                  <th>MÃ NGUỒN NHẬP</th>
+                  <th>GHI CHÚ</th>
                 </tr>
                 </tfoot>
               </table>
@@ -78,5 +69,5 @@
     <!-- /.container-fluid -->
   </section>
   <!-- /.content -->
-</div>s
+</div>
 @endsection

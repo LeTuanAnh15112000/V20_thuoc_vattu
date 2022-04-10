@@ -9,10 +9,10 @@ class DanhsachduongdungController extends Controller
 {
     //
     public function list($idHealthFacility, $idMedicalStation){
-        $MedicalStation = DB::table('health_facilities')->find($idMedicalStation);
-        $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
         $title = "Danh sách đường dùng";
-        $duongdung = DB::table('danhmucduongdung')->where('id_tramyte', $idHealthFacility)->get();
+        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
+        $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
+        $duongdung = DB::table('danhmucduongdung')->where('id_tramyte', $idMedicalStation)->get();
         return view('thuoc_vattu.detail.list_duongdung', [
             'title'=>$title,
             'duongdung'=>$duongdung,

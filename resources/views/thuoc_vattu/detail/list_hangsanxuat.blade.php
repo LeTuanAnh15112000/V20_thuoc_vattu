@@ -32,13 +32,13 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Số thứ tự</th>
-                  <th>Tên hãng sản xuất</th>
-                  <th>Tên viết tắt</th>
-                  <th>Địa chỉ</th>
-                  <th>Email</th>
-                  <th>Mã số thuế</th>
-                  <th>Website</th>
+                  <th>STT</th>
+                  <th>TÊN HÃNG SẢN XUẤT</th>
+                  <th>TÊN VIẾT TẮT</th>
+                  <th>ĐỊA CHỈ</th>
+                  <th>EMAIL</th>
+                  <th>MÃ SỐ THUẾ</th>
+                  <th>WEBSITE</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -56,13 +56,13 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Số thứ tự</th>
-                  <th>Tên hãng sản xuất</th>
-                  <th>Tên viết tắt</th>
-                  <th>Địa chỉ</th>
-                  <th>Email</th>
-                  <th>Mã số thuế</th>
-                  <th>Website</th>
+                  <th>STT</th>
+                  <th>TÊN HÃNG SẢN XUẤT</th>
+                  <th>TÊN VIẾT TẮT</th>
+                  <th>ĐỊA CHỈ</th>
+                  <th>EMAIL</th>
+                  <th>MÃ SỐ THUẾ</th>
+                  <th>WEBSITE</th>
                 </tr>
                 </tfoot>
               </table>

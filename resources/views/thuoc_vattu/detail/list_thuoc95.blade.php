@@ -45,16 +45,16 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Tên thuốc</th>
-                  <th>Số lượng</th>
-                  <th>Hàm lượng</th>
-                  <th>Dạng trình bày</th>
-                  <th>Dạng tế bào</th>
-                  <th>Đơn vị</th>
-                  <th>Đơn giá</th>
-                  <th>Hãng sản xuất</th>
-                  <th>Nước sản xuất</th>
-                  <th>Hạn dùng</th>
+                  <th>TÊN THUỐC</th>
+                  <th>SỐ LƯỢNG</th>
+                  <th>HÀM LƯỢNG</th>
+                  <th>DẠNG TRÌNH BÀY</th>
+                  <th>DẠNG TẾ BÀO</th>
+                  <th>ĐƠN VỊ</th>
+                  <th>ĐƠN GIÁ</th>
+                  <th>HÃNG SẢN XUẤT</th>
+                  <th>NƯỚC SẢN XUẤT</th>
+                  <th>HẠN DÙNG</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -75,16 +75,16 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Tên thuốc</th>
-                  <th>Số lượng</th>
-                  <th>Hàm lượng</th>
-                  <th>Dạng trình bày</th>
-                  <th>Dạng tế bào</th>
-                  <th>Đơn vị</th>
-                  <th>Đơn giá</th>
-                  <th>Hãng sản xuất</th>
-                  <th>Nước sản xuất</th>
-                  <th>Hạn dùng</th>
+                  <th>TÊN THUỐC</th>
+                  <th>SỐ LƯỢNG</th>
+                  <th>HÀM LƯỢNG</th>
+                  <th>DẠNG TRÌNH BÀY</th>
+                  <th>DẠNG TẾ BÀO</th>
+                  <th>ĐƠN VỊ</th>
+                  <th>ĐƠN GIÁ</th>
+                  <th>HÃNG SẢN XUẤT</th>
+                  <th>NƯỚC SẢN XUẤT</th>
+                  <th>HẠN DÙNG</th>
                 </tr>
                 </tfoot>
               </table>

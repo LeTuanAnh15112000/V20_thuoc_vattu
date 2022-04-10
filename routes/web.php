@@ -29,6 +29,7 @@ use App\Http\Controllers\thuoc_vattu\DanhsachThuoc95Controller;
 use App\Http\Controllers\thuoc_vattu\DanhsachThuoc125Controller;
 use App\Http\Controllers\thuoc_vattu\ThanhlyThuochethanController;
 use App\Http\Controllers\thuoc_vattu\PhieulapController;
+use App\Http\Controllers\thuoc_vattu\NguonnhapController;
 Route::middleware('PreventBackHistory')->group(function(){
     Route::view('/', 'login');
     Route::view('login', 'login')->name('login');
@@ -167,9 +168,9 @@ Route::prefix('manager')->name('manager.')->group(function(){
         // V20 thuốc vật tư 
         Route::prefix('thuoc_vattu')->name('thuoc_vattu.')->group(function(){
               // xem chi tiết với quyền syt và ttyt
-            Route::get('statistical', [Thuoc_vattuController::class, 'detail'])->name('statistical');
+            Route::get('statistical/{idHealthFacility}/{idMedicalStation}', [Thuoc_vattuController::class, 'detail'])->name('statistical');
              // xem chi tiết và xử lý với quyền admin trạm y tế
-            Route::get('dashboard/{idMedicalStation}/{idHealthFacility}', [Thuoc_vattuController::class, 'dashboard'])->name('dashboard');
+            Route::get('dashboard/{idHealthFacility}/{idMedicalStation}', [Thuoc_vattuController::class, 'dashboard'])->name('dashboard');
 
            //danh sách thuốc
            Route::get('list_thuoc/{idHealthFacility}/{idMedicalStation}', [DanhsachthuocController::class, 'list'])->name('list_thuoc');
@@ -181,6 +182,9 @@ Route::prefix('manager')->name('manager.')->group(function(){
            Route::get('list_hangsanxuat/{idHealthFacility}/{idMedicalStation}', [DanhsachhangsanxuatController::class, 'list'])->name('list_hangsanxuat');
            //danh sách nước sản xuất
            Route::get('list_nuocsanxuat/{idHealthFacility}/{idMedicalStation}', [DanhsachnuocsanxuatController::class, 'list'])->name('list_nuocsanxuat');
+            //   Nguồn nhập
+            Route::get('list_nguonnhap/{idHealthFacility}/{idMedicalStation}', [NguonnhapController::class, 'list'])->name('list_nguonnhap');
+         
            //danh sách vật tư
            Route::get('list_vattu/{idHealthFacility}/{idMedicalStation}', [DanhsachVattuController::class, 'list'])->name('list_vattu');
            
@@ -201,9 +205,12 @@ Route::prefix('manager')->name('manager.')->group(function(){
         //    // Xác nhận phiếu nhập xuất chỉ ở cấp trung tâm y tế
         //    // Route::get('confirm', [DanhsachThuoc125Controller::class, 'confirm'])->name('confirm');
 
-
            // thanh lý thuốc hết hạn
            Route::get('thanhlythuochethan/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'list'])->name('list_thanhlythuoc');
+        //    Gửi yêu cầu thanh lý thuốc đến trung tâm y tế
+           Route::get('guiyeucauthanhly/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'guiyeucau'])->name('guiyeucau');
+        //    them thông tin vào cơ sở dữ liệu và gửi đi đến trung tâm y tế
+           Route::post('/thanhlythuoc/guiyeucau/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'themvaodanhsach'])->name('themvaodanhsach');
             
         });
 
