@@ -16,10 +16,11 @@ class Vitritramyte extends Migration
         //
         Schema::create('vitritramyte', function(Blueprint $table){
             $table->id();
-            $table->string('matramyte');
-            $table->string('tentramyte');
+            $table->string('matyt')->nullable();
+            $table->string('tentyt')->nullable();
+            $table->string('diachi')->nullable();
             $table->string('vido');
-            $table->string('kinhdo');
+            $table->string('kinhdo')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();
             $table->engine='InnoDB';

@@ -31,6 +31,7 @@ use App\Http\Controllers\thuoc_vattu\ThanhlyThuochethanController;
 use App\Http\Controllers\thuoc_vattu\PhieulapController;
 use App\Http\Controllers\thuoc_vattu\PhieuxuatController;
 use App\Http\Controllers\thuoc_vattu\NguonnhapController;
+use App\Http\Controllers\thuoc_vattu\LocationController;
 use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\HuythuocController;
 use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\DuyetController;
 
@@ -206,6 +207,11 @@ Route::prefix('manager')->name('manager.')->group(function(){
            // luu dữ liệu vào data vs trang thai là 0 (tụa như là chức năng thêm)
            Route::post('lapphieu/Add/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'themlapphieu'])->name('themlapphieu');
            
+
+        //    xem vị trí trạm y tế
+        Route::get('xemvitri/{idHealthFacility}/{idMedicalStation}', [LocationController::class, 'location'])->name('location');
+
+
             // lập phiếu xuất
            Route::get('lapphieuxuat/{idHealthFacility}/{idMedicalStation}', [PhieuxuatController::class, 'lapphieu'])->name('lapphieuxuat');
 

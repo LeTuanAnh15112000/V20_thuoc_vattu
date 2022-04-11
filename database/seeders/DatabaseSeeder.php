@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VattuSeeder::class);
         $this->call(HangsanxuatSeeder::class);
         $this->call(NguonnhapSeeder::class);
-        $this->call(VitritramyteSeeder::class);
+        $this->call(VitriSeeder::class);
         // $this->call(ICD10Seeder::class);
 
 
