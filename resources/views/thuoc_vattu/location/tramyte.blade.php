@@ -2,7 +2,6 @@
 @section('content')
 <div class="content-wrapper">
 
-<div class="container">
 	<div class="card mt-3">
 				<h5 class="card-header">Bản đồ</h5>
 				<div id="map" >
@@ -45,6 +44,5 @@
 
 			
     </script>
-</div>    
-</div>    
+</div>
 @endsection

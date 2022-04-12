@@ -29,7 +29,6 @@ class PhieulapController extends Controller
     public function themlapphieu(Request $request)
     {
        $this->validate($request,[
-        'tenthuoc' => ['required'],
         'nguonnhap' => ['required'],
         'nguoilapphieu' => ['required'],
         'ngaynhap' => ['required'],
@@ -38,7 +37,6 @@ class PhieulapController extends Controller
         'ghichu' => ['required'],
        ],
        [
-        'tenthuoc.required'=>'Bạn chưa nhập tên tên thuốc',
         'nguonnhap.required'=>'Bạn chưa chọn nguồn nhập',
         'nguoilapphieu.required'=> 'Bạn chưa nhập tên người lập phiếu',
         'ngaynhap.required'=> 'Bạn chưa chọn ngày nhập',

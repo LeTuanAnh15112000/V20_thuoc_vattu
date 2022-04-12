@@ -32,6 +32,7 @@ use App\Http\Controllers\thuoc_vattu\PhieulapController;
 use App\Http\Controllers\thuoc_vattu\PhieuxuatController;
 use App\Http\Controllers\thuoc_vattu\NguonnhapController;
 use App\Http\Controllers\thuoc_vattu\LocationController;
+use App\Http\Controllers\thuoc_vattu\PhieunhapthuocchitietController;
 use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\HuythuocController;
 use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\DuyetController;
 
@@ -217,8 +218,8 @@ Route::prefix('manager')->name('manager.')->group(function(){
 
 
 
-        //    // Xác nhận phiếu nhập xuất chỉ ở cấp trung tâm y tế
-        //    // Route::get('confirm', [DanhsachThuoc125Controller::class, 'confirm'])->name('confirm');
+           // Xác nhận phiếu nhập xuất chỉ ở cấp trung tâm y tế
+          // Route::get('confirm', [DanhsachThuoc125Controller::class, 'confirm'])->name('confirm');
 
            // thanh lý thuốc hết hạn bên trạm y tế
            Route::get('thanhlythuochethan/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'list'])->name('list_thanhlythuoc');
@@ -230,6 +231,9 @@ Route::prefix('manager')->name('manager.')->group(function(){
             Route::get('/xemchitiet/{idHealthFacility}/{idMedicalStation}',[HuythuocController::class, 'xemchitiet'])->name('xemchitiet');
             // duyệt phiếu 
             Route::get('/duyetphieu/{idHealthFacility}/{idMedicalStation}',[DuyetController::class, 'xoa'])->name('xoa');
+
+
+          
 
         });
 

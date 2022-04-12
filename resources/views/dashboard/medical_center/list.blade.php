@@ -10,11 +10,6 @@
                     <div class="col-sm-6">
                         <h1 class="m-0 text-capitalize">khu vực y tế ({{$departmentOfHealthById->ten_so_y_te}})</h1>
                     </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item">khu vực y tế ({{$departmentOfHealthById->ten_so_y_te}})</li>
-                        </ol>
-                    </div>
                 </div>
             </div>
         </div>

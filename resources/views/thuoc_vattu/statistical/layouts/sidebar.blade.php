@@ -160,7 +160,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li onclick="click_hethan()"  class="nav-item">
-                <a  href="/manager/thuoc_vattu/thanhlythuochethan/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link click_hethan">
+                <a  href="/manager/thuoc_vattu/xemvitri/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Xem vị trí</p>
                 </a>

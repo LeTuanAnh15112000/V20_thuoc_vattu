@@ -184,14 +184,14 @@
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-danger">
+                        <div class="small-box bg-success">
                             <div class="inner">
                                 <h4><b class="text-capitalize">Thuốc vật tư thiết yếu</b></h4>
                                 <h5>150</h5>
                                 <p>lượt uống</p>
                             </div>
                             <div class="icon">
-                                <i class="fas fa-capsules"></i>
+                                <i class="fa-solid fa-microscope"></i>
                             </div>
                             @role('department_of_health|medical_center')
                                 <a href="{{ route('manager.thuoc_vattu.statistical', [

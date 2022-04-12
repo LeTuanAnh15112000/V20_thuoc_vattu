@@ -70,11 +70,12 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
+   
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-md-12 mb-3">
+          
             <form action="/manager/thuoc_vattu/lapphieu/Add/{{$idHealthFacility}}/{{$idMedicalStation}}" method="post">
                 @csrf
                     <div class="container-fluid">
@@ -92,18 +93,6 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                           <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label>Tên thuốc</label><br>
-                                <select class="form-control select2" name="tenthuoc" style="width: 100%;">
-                                  @foreach ($tenthuoc as $tt)
-                                  <option>{{$tt->tenthuoc}}</option>
-                                  @endforeach
-                              </select>
-                              </div>
-                            </div>
-
-
                             <!-- /.col -->
                             <div class="col-md-6">
                               <div class="form-group">
@@ -136,15 +125,6 @@
                                 <input type="number" name="sophieu" id="" placeholder="Số phiếu"><br>
                               </div>
                             </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Số lượng yêu cầu</label><br>
-                                <input type="number" name="soluongyeucau" placeholder="Số lượng yêu cầu" id="">
-                                </div>
-                            </div>
-                          
-                            <!-- /.col -->
                           </div>
                           
                         <!-- /.card-body -->
@@ -166,6 +146,8 @@
                           </div>
                         </div>
                     </div>
+
+                  
                   <div class="col">
                     <button type="submit" class="btn btn-primary float-right mb-2">Lập phiếu</button>
                   </div>
