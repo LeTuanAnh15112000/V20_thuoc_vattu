@@ -18,9 +18,6 @@ class Phieuxuatchitiet extends Migration
             $table->id();
             $table->string('sophieu');
             $table->foreignId('mathuoc')->constrained('danhmuchanghoa');
-            $table->string('solo');
-            $table->string('handung');
-            $table->integer('thanhtien');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();
             $table->engine='InnoDB';

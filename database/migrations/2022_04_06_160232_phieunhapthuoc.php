@@ -19,6 +19,8 @@ class Phieunhapthuoc extends Migration
             $table->foreignId('sophieu')->constrained('phieunhapthuocchitiet');
             $table->string('ngaynhap');
             $table->string('nguoilap');
+            $table->integer('soluongyeucau');
+            $table->integer('soluongnhan');
             $table->string('trangthai');
             $table->string('ghichu');
             $table->timestamp('created_at')->useCurrent();

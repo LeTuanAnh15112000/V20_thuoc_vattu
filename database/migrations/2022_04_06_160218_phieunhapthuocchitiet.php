@@ -16,7 +16,7 @@ class Phieunhapthuocchitiet extends Migration
         //
         Schema::create('phieunhapthuocchitiet', function( Blueprint $table){
             $table->id();
-            $table->string('tenthuoc')->nullable();
+            $table->foreignId('tenthuoc')->constrained('danhmuchanghoa');
             $table->integer('soluong')->nullable();
             $table->string('hamluong')->nullable();
             $table->string('dangtrinhbay')->nullable();

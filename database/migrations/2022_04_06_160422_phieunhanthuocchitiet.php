@@ -16,13 +16,8 @@ class Phieunhanthuocchitiet extends Migration
         //
         Schema::create('phieunhanthuocchitiet', function( Blueprint $table){
             $table->id();
-            $table->foreignId('mathuoc')->constrained('danhmuchanghoa');
+            $table->foreignId('tenthuoc')->constrained('danhmuchanghoa');
             $table->string('sophieunhan');
-            $table->string('solo');
-            $table->integer('soluongyeucau');
-            $table->integer('soluongnhan');
-            $table->integer('thanhtien');
-            $table->string('handung');
             $table->string('ghichu');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();

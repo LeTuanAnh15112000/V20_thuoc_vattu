@@ -17,6 +17,8 @@ class Phieuxuat extends Migration
             $table->id();
             $table->foreignId('sophieu')->constrained('phieuxuatchitiet');
             $table->string('ngayxuat');
+            $table->string('nguoilap');
+            $table->string('trangthai');
             $table->string('ghichu');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();

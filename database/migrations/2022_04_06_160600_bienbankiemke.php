@@ -19,8 +19,8 @@ class Bienbankiemke extends Migration
             $table->foreignId('sobienban')->constrained('thuocvattutrongbienbankiemke');
             $table->string('thoigiantu');
             $table->string('thoigianden');
-            $table->string('khokiemke');
-            $table->string('ma_csyt_lapphieu');
+            $table->integer('soluongsosach');
+            $table->integer('soluongthucte');
             $table->string('ghichu');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();

@@ -17,18 +17,13 @@ class Danhmuchanghoa extends Migration
         Schema::create('danhmuchanghoa', function (Blueprint $table) {
             $table->id();
             $table->foreignId('matramyte')->constrained('health_facilities');
-            $table->foreignId('tenthuoc')->constrained('danhmucthuoc');
-            $table->foreignId('tenvattu')->constrained('danhmucvattu');
+            $table->foreignId('danhmucthuoc')->constrained('danhmucthuoc');
+            $table->foreignId('danhmucvattu')->constrained('danhmucvattu');
             $table->foreignId('tenloaithuoc')->constrained('phanloaithuoc');
-            $table->foreignId('makho')->constrained('danhmuckho');
-            $table->foreignId('nhacungcap')->constrained('danhmucnhacungcap');
-            $table->foreignId('hangsanxuat')->constrained('danhmuchangsanxuat');
-            $table->foreignId('nuocsanxuat')->constrained('danhmucnuocsanxuat');
-            $table->foreignId('duongdung')->constrained('danhmucduongdung');
-            $table->integer('dongia');
-            $table->string('nguonthanhtoan');
-            $table->string('donvi');
-            $table->string('hamluong');
+            $table->foreignId('danhsachnhacungcap')->constrained('danhmucnhacungcap');
+            $table->foreignId('danhsachhangsanxuat')->constrained('danhmuchangsanxuat');
+            $table->foreignId('danhsachnuocsanxuat')->constrained('danhmucnuocsanxuat');
+            $table->foreignId('danhsachduongdung')->constrained('danhmucduongdung');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();
             $table->engine='InnoDB';
