@@ -18,7 +18,7 @@ class Phanloaithuoc extends Migration
             $table->id();
             $table->string('tenloaithuoc');
             $table->string('maphanloai');
-            $table->string('ghichu');
+            $table->string('ghichu')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();
             $table->engine='InnoDB';

@@ -32,6 +32,7 @@ use App\Http\Controllers\thuoc_vattu\PhieulapController;
 use App\Http\Controllers\thuoc_vattu\PhieuxuatController;
 use App\Http\Controllers\thuoc_vattu\NguonnhapController;
 use App\Http\Controllers\thuoc_vattu\LocationController;
+use App\Http\Controllers\thuoc_vattu\PhanloaithuocController;
 use App\Http\Controllers\thuoc_vattu\PhieunhapthuocchitietController;
 use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\HuythuocController;
 use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\DuyetController;
@@ -42,6 +43,9 @@ Route::middleware('PreventBackHistory')->group(function(){
     Route::post('/check-login', [LoginController::class, 'checkLogin'])->name('check-login');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
+
+
+
 
 Route::view('api-list-provices', 'api-provices');
 
@@ -208,6 +212,12 @@ Route::prefix('manager')->name('manager.')->group(function(){
            // luu dữ liệu vào data vs trang thai là 0 (tụa như là chức năng thêm)
            Route::post('lapphieu/Add/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'themlapphieu'])->name('themlapphieu');
            
+        //    Excel
+           Route::post('import_csv/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'import_csv'])->name('import_csv');
+           Route::post('export_csv/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'export_csv'])->name('export_csv');
+
+
+
 
         //    xem vị trí trạm y tế
         Route::get('xemvitri/{idHealthFacility}/{idMedicalStation}', [LocationController::class, 'location'])->name('location');
@@ -233,7 +243,10 @@ Route::prefix('manager')->name('manager.')->group(function(){
             Route::get('/duyetphieu/{idHealthFacility}/{idMedicalStation}',[DuyetController::class, 'xoa'])->name('xoa');
 
 
-          
+        //   phân loại thuốc
+
+        Route::get('/phanloaithuoc/{idHealthFacility}/{idMedicalStation}',[PhanloaithuocController::class, 'phanloai'])->name('phanloai');
+        Route::get('loaithuoc/{idHealthFacility}/{idMedicalStation}/{idthuoc}',[PhanloaithuocController::class, 'loaithuoc'])->name('loaithuoc');
 
         });
 

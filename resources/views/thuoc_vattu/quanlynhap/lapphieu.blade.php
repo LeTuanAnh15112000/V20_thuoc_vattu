@@ -146,14 +146,27 @@
                           </div>
                         </div>
                     </div>
+                    <h3 class="row ml-3">Chọn file danh sách thuốc cần nhập</h3><br>
 
-                  
+                   
+            
                   <div class="col">
                     <button type="submit" class="btn btn-primary float-right mb-2">Lập phiếu</button>
                   </div>
             </form>
         </div>
-    
+        
+        <div class="row ml-3">
+          <form action="/manager/thuoc_vattu/import_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST">
+          @csrf
+          <input type="file" class="form-control" id="file" accept=".xlsx" name="file" required /><br>
+          <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
+          </form>
+          <form action="/manager/thuoc_vattu/export_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST">
+              @csrf
+          <input type="submit" value="Export file Excel" name="export_csv" class="btn btn-success">
+         </form>
+       </div>
         <!-- /.col-->
       </div>
    

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\thuoc_vattu;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class PhieuxuatController extends Controller
 {
     //
@@ -24,4 +25,6 @@ class PhieuxuatController extends Controller
              'tenthuoc'=>$tenthuoc
         ]);
     }
+
+    
 }

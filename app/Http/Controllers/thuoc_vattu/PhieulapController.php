@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Thuoc_vattu\phieunhapthuoc;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\Thuoc_vattu\PhieunhapthuocchitietExport;
+use App\Imports\Thuoc_vattu\PhieunhapthuocchitietImport;
+use App\Models\Thuoc_vattu\Phieunhapthuocchitiet;
 class PhieulapController extends Controller
 {
     //
@@ -62,5 +66,21 @@ class PhieulapController extends Controller
 
     }
 
+    public function import_csv(Request $request){
+        if($request->file('file')){
+            echo "123";
+        }else{
+            echo "khong nhan duoc";
+        }
+        // $path = $request->file('file')->getRealPath();
+        // Excel::import(new PhieunhapthuocchitietImport, $path);
+        // return back();
+
+    }
+
+    
+    public function export_csv(){
+        return Excel::download(new PhieunhapthuocchitietExport , 'danhsachnhapkho.xlsx');
+    }
 
 }

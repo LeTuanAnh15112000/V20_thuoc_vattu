@@ -70,7 +70,8 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
+   
+   </div>
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -174,12 +175,15 @@
                           </div>
                         </div>
                     </div>
+
+                   
+            
                   <div class="col">
                     <button type="submit" class="btn btn-primary float-right mb-2">Lập phiếu</button>
                   </div>
             </form>
         </div>
-    
+       
         <!-- /.col-->
       </div>
    

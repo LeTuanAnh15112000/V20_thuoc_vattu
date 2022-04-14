@@ -41,8 +41,9 @@ class DatabaseSeeder extends Seeder
         $this->call(HangsanxuatSeeder::class);
         $this->call(NguonnhapSeeder::class);
         $this->call(VitriSeeder::class);
+        $this->call(PhanloaithuocSeeder::class);
         // $this->call(ICD10Seeder::class);
-
+        
 
         /* Vitamin A */
         $this->call(EthnicSeeder::class);

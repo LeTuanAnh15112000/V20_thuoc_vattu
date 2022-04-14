@@ -104,21 +104,15 @@
               <a href="#" onclick="click_quanlykho()" class="nav-link click_quanlykho">
                 <i class="nav-icon 	fa fa-plus-square"></i>
                 <p>
-                  Quản lý kho
+                  Phân loại thuốc
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/layout/top-nav.html" class="nav-link">
+                  <a href="/manager/thuoc_vattu/phanloaithuoc/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Kho chính</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Kho lẻ</p>
+                    <p>Phân loại thuốc</p>
                   </a>
                 </li>
               </ul>
@@ -138,7 +132,7 @@
                     <p>Lập phiếu nhập</p>
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="display: none">
                   <a href="pages/charts/chartjs.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Nhập</p>
@@ -162,7 +156,7 @@
                     <p>Lập phiếu xuất</p>
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="display: none">
                   <a href="pages/charts/chartjs.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>xuất</p>

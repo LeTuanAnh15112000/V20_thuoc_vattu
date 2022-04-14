@@ -27,6 +27,7 @@ class ThuocImport implements ToModel, WithHeadingRow
             'hangsanxuat' => $row['hang_san_xuat'],
             'nuocsanxuat' => $row['nuoc_san_xuat'],
             'handung' => $row['han_dung'],
+            'tenphanloai' => $row['ten_phan_loai'],
             'id_tramyte' => $row['id'],
         ]);
     }

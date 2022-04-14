@@ -16,8 +16,8 @@ class Phieunhapthuocchitiet extends Migration
         //
         Schema::create('phieunhapthuocchitiet', function( Blueprint $table){
             $table->id();
-            $table->string('tenthuoc');
-            $table->integer('soluong');
+            $table->string('tenthuoc')->nullable();
+            $table->integer('soluong')->nullable();
             $table->string('hamluong')->nullable();
             $table->string('dangtrinhbay')->nullable();
             $table->string('dangtebao')->nullable();
@@ -25,7 +25,7 @@ class Phieunhapthuocchitiet extends Migration
             $table->string('dongia')->nullable();
             $table->string('hangsanxuat')->nullable();
             $table->string('nuocsanxuat')->nullable();
-            $table->string('handung');
+            $table->integer('handung');
             $table->foreignId('manguon')->constrained('danhmucnguon')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();

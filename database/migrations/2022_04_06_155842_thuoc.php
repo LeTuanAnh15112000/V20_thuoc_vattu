@@ -26,7 +26,7 @@ class Thuoc extends Migration
             $table->string('hangsanxuat')->nullable();
             $table->string('nuocsanxuat')->nullable();
             $table->integer('handung')->nullable();
-            $table->string('mathuoc')->nullable();
+            $table->string('tenphanloai')->nullable();
             $table->string('id_tramyte')->nullable();
             $table->string('ghichu')->nullable();
             $table->timestamp('created_at')->useCurrent();
