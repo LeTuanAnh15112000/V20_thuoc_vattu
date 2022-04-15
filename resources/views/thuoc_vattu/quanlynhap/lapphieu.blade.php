@@ -157,7 +157,7 @@
         </div>
         
         <div class="row ml-3">
-          <form action="/manager/thuoc_vattu/import_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST">
+          <form action="/manager/thuoc_vattu/import_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST" enctype="multipart/form-data">
           @csrf
           <input type="file" class="form-control" id="file" accept=".xlsx" name="file" required /><br>
           <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">

@@ -67,14 +67,9 @@ class PhieulapController extends Controller
     }
 
     public function import_csv(Request $request){
-        if($request->file('file')){
-            echo "123";
-        }else{
-            echo "khong nhan duoc";
-        }
-        // $path = $request->file('file')->getRealPath();
-        // Excel::import(new PhieunhapthuocchitietImport, $path);
-        // return back();
+        $path = $request->file('file')->getRealPath();
+        Excel::import(new PhieunhapthuocchitietImport, $path);
+        return back();
 
     }
 

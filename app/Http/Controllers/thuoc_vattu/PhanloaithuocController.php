@@ -11,7 +11,7 @@ class PhanloaithuocController extends Controller
     function phanloai($idHealthFacility, $idMedicalStation){
         $title = "Danh sách loại thuốc";
         // lay tên tram y tế
-        $MedicalStation = DB::table('health_facilities')->find($idMedicalStation);
+        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
         // 
         $phanloai = DB::table('phanloaithuoc')->get();
