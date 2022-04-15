@@ -16,17 +16,16 @@ class Phieunhapthuocchitiet extends Migration
         //
         Schema::create('phieunhapthuocchitiet', function( Blueprint $table){
             $table->id();
-            $table->foreignId('tenthuoc')->constrained('danhmuchanghoa');
-            $table->integer('soluong')->nullable();
+            $table->string('tenthuoc');
+            $table->string('soluong')->nullable();
             $table->string('hamluong')->nullable();
             $table->string('dangtrinhbay')->nullable();
             $table->string('dangtebao')->nullable();
             $table->string('donvi')->nullable();
-            $table->string('dongia')->nullable();
+            $table->integer('dongia')->nullable();
             $table->string('hangsanxuat')->nullable();
             $table->string('nuocsanxuat')->nullable();
             $table->integer('handung');
-            $table->foreignId('manguon')->constrained('danhmucnguon')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();
             $table->engine='InnoDB';

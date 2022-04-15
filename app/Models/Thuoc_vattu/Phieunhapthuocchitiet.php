@@ -9,7 +9,6 @@ class Phieunhapthuocchitiet extends Model
 {
     use HasFactory;
     protected $table = 'phieunhapthuocchitiet';
-    public $timestamps = false;
     protected $primarykey = 'id';
     protected $fillable = [
         'tenthuoc' ,
@@ -22,5 +21,6 @@ class Phieunhapthuocchitiet extends Model
         'hangsanxuat' ,
         'nuocsanxuat' ,
         'handung' ,
+        'manguon'
         ];
 }

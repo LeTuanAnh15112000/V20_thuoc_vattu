@@ -16,11 +16,10 @@ class Phieunhapthuoc extends Migration
         //
         Schema::create('phieunhapthuoc', function(Blueprint $table){
             $table->id();
-            $table->foreignId('sophieu')->constrained('phieunhapthuocchitiet');
+            $table->integer('sophieu');
             $table->string('ngaynhap');
             $table->string('nguoilap');
-            $table->integer('soluongyeucau');
-            $table->integer('soluongnhan');
+            $table->string('nguonnhap');
             $table->string('trangthai');
             $table->string('ghichu');
             $table->timestamp('created_at')->useCurrent();

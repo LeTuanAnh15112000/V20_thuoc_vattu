@@ -4,9 +4,8 @@ namespace App\Imports\Thuoc_vattu;
 
 use App\Models\Thuoc_vattu\Phieunhapthuocchitiet;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class PhieunhapthuocchitietImport implements ToModel, WithHeadingRow
+class PhieunhapthuocchitietImport implements ToModel
 {
     /**
     * @param array $row
@@ -16,7 +15,6 @@ class PhieunhapthuocchitietImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Phieunhapthuocchitiet([
-            //
             'tenthuoc'=>$row[0],
             'soluong'=>$row[1],
             'hamluong'=>$row[2],
@@ -27,7 +25,6 @@ class PhieunhapthuocchitietImport implements ToModel, WithHeadingRow
             'hangsanxuat'=>$row[7],
             'nuocsanxuat'=>$row[8],
             'handung'=>$row[9],
-
         ]);
     }
 }

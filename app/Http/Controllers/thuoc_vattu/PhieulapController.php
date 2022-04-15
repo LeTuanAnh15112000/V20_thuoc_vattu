@@ -34,32 +34,27 @@ class PhieulapController extends Controller
     {
        $this->validate($request,[
         'nguonnhap' => ['required'],
-        'nguoilapphieu' => ['required'],
+        'nguoilap' => ['required'],
         'ngaynhap' => ['required'],
         'sophieu' => ['required'],
-        'soluongyeucau' => ['required'],
         'ghichu' => ['required'],
        ],
        [
         'nguonnhap.required'=>'Bạn chưa chọn nguồn nhập',
-        'nguoilapphieu.required'=> 'Bạn chưa nhập tên người lập phiếu',
+        'nguoilap.required'=> 'Bạn chưa nhập tên người lập phiếu',
         'ngaynhap.required'=> 'Bạn chưa chọn ngày nhập',
         'sophieu.required'=>'Bạn chưa nhập số phiếu',
-        'soluongyeucau.required'=>'Bạn chưa nhập số lượng yêu cầu',
         'ghichu.required'=>'Bạn chưa nhập ghi chú'
        ]
     );
 
        $phieulap = new phieunhapthuoc();
        $phieulap->sophieu = $request->sophieu;
-       $phieulap->nguoilapphieu = $request->nguoilapphieu;
-       $phieulap->tenthuoc = $request->tenthuoc;
-       $phieulap->handung = $request->handung;
-       $phieulap->trangthai = 0;
-       $phieulap->tennguon = $request->tennguon;
-       $phieulap->soluong = $request->soluong;
-       $phieulap->ghichu = $request->ghichu;
        $phieulap->ngaynhap = $request->ngaynhap;
+       $phieulap->nguoilap = $request->nguoilap;
+       $phieulap->nguonnhap = $request->nguonnhap;
+       $phieulap->trangthai = 0;
+       $phieulap->ghichu = $request->ghichu;
        $phieulap->save();
        Session::flash('success','Lập phiếu thành công');
        return back();
@@ -70,7 +65,6 @@ class PhieulapController extends Controller
         $path = $request->file('file')->getRealPath();
         Excel::import(new PhieunhapthuocchitietImport, $path);
         return back();
-
     }
 
     

@@ -243,6 +243,9 @@ Route::prefix('manager')->name('manager.')->group(function(){
             Route::get('/duyetphieu/{idHealthFacility}/{idMedicalStation}',[DuyetController::class, 'xoa'])->name('xoa');
 
 
+            // Xác nhận nhập thuốc bên trung tâm y tế
+            Route::get('/xacnhan_nhapthuoc/{idHealthFacility}/{idMedicalStation}',[XacnhanphieulapController::class, 'xemchitiet'])->name('xemchitiet');
+
         //   phân loại thuốc
 
         Route::get('/phanloaithuoc/{idHealthFacility}/{idMedicalStation}',[PhanloaithuocController::class, 'phanloai'])->name('phanloai');

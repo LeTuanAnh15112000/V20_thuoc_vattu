@@ -132,13 +132,6 @@
                     <p>Lập phiếu nhập</p>
                   </a>
                 </li>
-                <li class="nav-item" style="display: none">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Nhập</p>
-                  </a>
-                </li>
-               
               </ul>
             </li>
             <li class="nav-item">
