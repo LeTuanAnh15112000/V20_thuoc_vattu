@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Imports\Thuoc_vattu;
+
+use App\Models\Thuoc_vattu\Phieuxuatchitiet;
+use Maatwebsite\Excel\Concerns\ToModel;
+
+class PhieuxuatchitietImport implements ToModel
+{
+    /**
+    * @param array $row
+    *
+    * @return \Illuminate\Database\Eloquent\Model|null
+    */
+    public function model(array $row)
+    {
+        return new Phieuxuatchitiet([
+            //
+            'tenthuoc'=>$row[0],
+            'soluong'=>$row[1],
+            'hamluong'=>$row[2],
+            'dangtrinhbay'=>$row[3],
+            'dangtebao'=>$row[4],
+            'donvi'=>$row[5],
+            'dongia'=>$row[6],
+            'hangsanxuat'=>$row[7],
+            'nuocsanxuat'=>$row[8],
+            'handung'=>$row[9],
+        ]);
+    }
+}

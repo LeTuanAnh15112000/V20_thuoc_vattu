@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col-12">
           <!-- Main content -->
-          @foreach ($thanhlythuoc as $tlt)
+          @foreach ($phieunhapthuoc as $pnt)
           <div class="invoice p-3 mb-3">
             <!-- title row -->
             <div class="row">
@@ -25,7 +25,7 @@
                 <h4>
                   <i class="fas fa-globe"></i> Thông tin người lập phiếu
                     
-                <small class="float-right"><strong>Ngày lập phiếu :</strong>{{$tlt->ngaylap}}</small>
+                <small class="float-right"><strong>Ngày lập phiếu :</strong>{{$pnt->ngaynhap}}</small>
               </h4>
             </div>
             <!-- /.col -->
@@ -33,10 +33,11 @@
           <!-- info row -->
           <div class="row invoice-info">
             <div class="col-sm-4 invoice-col">
-              <p class="text-dark"><strong>Số phiếu: </strong>{{$tlt->sophieu}} </p>
-              <p class="text-dark"><strong>Họ tên người lập phiếu:</strong> {{$tlt->nguoilapphieu}}</p>
-              <p class="text-dark"><strong>Ghi chú:</strong> {{$tlt->ghichu}}</p>
-              <p class="text-dark"><strong>Trạng thái: {{$tlt->trangthai}}</strong> (0: chưa duyệt, 1: đã duyệt)</p>
+              <p class="text-dark"><strong>Số phiếu: </strong>{{$pnt->sophieu}} </p>
+              <p class="text-dark"><strong>Họ tên người lập phiếu:</strong> {{$pnt->nguoilap}}</p>
+              <p class="text-dark"><strong>Nguồn nhập:</strong> {{$pnt->nguonnhap}}</p>
+              <p class="text-dark"><strong>Ghi chú:</strong> {{$pnt->ghichu}}</p>
+              <p class="text-dark"><strong>Trạng thái: {{$pnt->trangthai}}</strong> (0: chưa duyệt, 1: đã duyệt)</p>
             </div>
             <!-- /.col -->
           </div>            
@@ -73,18 +74,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach($medicine as $m)
+                    @foreach($phieunhapthuocchitiet as $pntct)
                 <tr>
-                        <th>{{$m->tenthuoc}}</th>
-                        <th>{{$m->soluong}}</th>
-                        <th>{{$m->hamluong}}</th>
-                        <th>{{$m->dangtrinhbay}}</th>
-                        <th>{{$m->dangtebao}}</th>
-                        <th>{{$m->donvi}}</th>
-                        <th>{{$m->dongia}}</th> 
-                        <th>{{$m->hangsanxuat}}</th>
-                        <th>{{$m->nuocsanxuat}}</th>
-                        <th>{{$m->handung}}</th>
+                        <th>{{$pntct->tenthuoc}}</th>
+                        <th>{{$pntct->soluong}}</th>
+                        <th>{{$pntct->hamluong}}</th>
+                        <th>{{$pntct->dangtrinhbay}}</th>
+                        <th>{{$pntct->dangtebao}}</th>
+                        <th>{{$pntct->donvi}}</th>
+                        <th>{{$pntct->dongia}}</th> 
+                        <th>{{$pntct->hangsanxuat}}</th>
+                        <th>{{$pntct->nuocsanxuat}}</th>
+                        <th>{{$pntct->handung}}</th>
                 </tr>
                    @endforeach
                 </tbody>
@@ -106,7 +107,7 @@
             </div>
             <!-- /.card-body -->
         </div>
-        <a href="/manager/thuoc_vattu/duyetphieu/{{$idHealthFacility}}/{{$idMedicalStation}}">
+        <a href="/manager/thuoc_vattu/duyetphieunhap/{{$idHealthFacility}}/{{$idMedicalStation}}">
           <button type="button" style="width: 200px;"  class="btn btn-danger float-right js-thanhly">Duyệt phiếu</button>
         </a>
           <!-- /.card -->

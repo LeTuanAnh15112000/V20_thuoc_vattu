@@ -16,7 +16,7 @@ class PhieulapController extends Controller
     //
     public function lapphieu($idHealthFacility, $idMedicalStation){
         $title = 'Lập phiếu nhập kho';
-        $tenthuoc = DB::table('danhmucthuoc')->where('id_tramyte', $idMedicalStation)->get();
+        // $tenthuoc = DB::table('danhmucthuoc')->where('id_tramyte', $idMedicalStation)->get();
         $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
         $nguonnhap = DB::table('danhmucnguon')->get();
@@ -27,7 +27,7 @@ class PhieulapController extends Controller
              'idMedicalStation'=> $idMedicalStation,
              'idHealthFacility'=> $idHealthFacility,
              'nameMedicalStation'=> $nameMedicalStation,
-             'tenthuoc'=>$tenthuoc
+            //  'tenthuoc'=>$tenthuoc
         ]);
     }
     public function themlapphieu(Request $request)
@@ -50,7 +50,7 @@ class PhieulapController extends Controller
 
        $phieulap = new phieunhapthuoc();
        $phieulap->sophieu = $request->sophieu;
-       $phieulap->ngaynhap = $request->ngaynhap;
+       $phieulap->ngayxuat = $request->ngaynhap;
        $phieulap->nguoilap = $request->nguoilap;
        $phieulap->nguonnhap = $request->nguonnhap;
        $phieulap->trangthai = 0;

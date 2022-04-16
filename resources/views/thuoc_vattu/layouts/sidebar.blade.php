@@ -121,7 +121,7 @@
               <a href="#" onclick="click_quanlynhapkho()" class="nav-link click_quanlynhapkho">
                 <i class="nav-icon 	fa fa-clipboard"></i>
                 <p>
-                  Quản lý nhập kho
+                  Quản lý nhập
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -138,7 +138,7 @@
               <a href="#" onclick="click_quanlyxuatkho()" class="nav-link click_quanlyxuatkho">
                 <i class="nav-icon 	fa fa-file"></i>
                 <p>
-                  Quản lý xuất kho
+                  Quản lý xuất
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -149,13 +149,6 @@
                     <p>Lập phiếu xuất</p>
                   </a>
                 </li>
-                <li class="nav-item" style="display: none">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>xuất</p>
-                  </a>
-                </li>
-               
               </ul>
             </li>
             <li  onclick="menu_open()" class="nav-item click_menu">
@@ -197,17 +190,18 @@
                   </a>
                 </li>
                 <li class="nav-item">
+                  <a href="pages/charts/flot.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Biên bản kiểm xuất</p>
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a href="pages/charts/uplot.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Biên bản kiểm kê</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="pages/charts/inline.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Thẻ kho</p>
-                  </a>
-                </li>
+              
               </ul>
             </li>
             {{-- ban do --}}

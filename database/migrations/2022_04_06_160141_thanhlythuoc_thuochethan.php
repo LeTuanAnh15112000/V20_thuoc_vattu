@@ -16,10 +16,8 @@ class ThanhlythuocThuochethan extends Migration
         //
         Schema::create('thanhlythuocthuochethan', function( Blueprint $table){
             $table->id();
-            $table->foreignId('sophieu')->constrained('thuoctrongthanhlythuocthuochethan');
+            $table->integer('sophieu');
             $table->string('nguoilapphieu');
-            $table->integer('soluogton');
-            $table->integer('soluongyeucau');
             $table->string('ngaylap');
             $table->string('ghichu');
             $table->string('trangthai');

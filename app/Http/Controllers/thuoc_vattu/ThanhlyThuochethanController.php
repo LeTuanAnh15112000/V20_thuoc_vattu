@@ -62,7 +62,7 @@ class ThanhlyThuochethanController extends Controller
     $thanhly = new Thanhlythuochethan();
     $thanhly->nguoilapphieu = $request->nguoilapphieu;
     $thanhly->sophieu = $request->sophieu;
-    $thanhly->ngaylapphieu = $request->ngaylap;
+    $thanhly->ngaylap = $request->ngaylap;
     $thanhly->ghichu = $request->ghichu;
     $thanhly->trangthai = 0;
     $thanhly->save();

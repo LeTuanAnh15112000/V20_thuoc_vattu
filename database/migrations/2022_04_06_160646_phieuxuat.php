@@ -15,7 +15,7 @@ class Phieuxuat extends Migration
     {
          Schema::create('phieuxuat', function( Blueprint $table){
             $table->id();
-            $table->foreignId('sophieu')->constrained('phieuxuatchitiet');
+            $table->integer('sophieu');
             $table->string('ngayxuat');
             $table->string('nguoilap');
             $table->string('trangthai');

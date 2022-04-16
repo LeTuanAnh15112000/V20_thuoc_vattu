@@ -60,120 +60,132 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    <div class="row">
+      <div class="col">
+        @include('thuoc_vattu.layouts.alert')
+      </div>
+    </div>
     <section class="content-header">
       <div class="container-fluid">
+     
         <div class="row mb-2">
           <div class="col-sm-6">
-            @include('thuoc_vattu.layouts.alert')
             <h1>Phiếu xuất thuốc</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
+   
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-12 mb-3">
-            <form action="/manager/thuoc_vattu/lapphieu/Add/{{$idHealthFacility}}/{{$idMedicalStation}}" method="post">
-                @csrf
-                    <div class="container-fluid">
-                      <!-- SELECT2 EXAMPLE -->
-                      <div class="card card-default">
-                        <div class="card-header">
-              
-                          <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                              <i class="fas fa-minus"></i>
-                            </button>
-                          </div>
-                        </div>
-
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label>Tên thuốc</label><br>
-                                <select class="form-control select2" name="tenthuoc" style="width: 100%;">
-                                  @foreach ($tenthuoc as $tt)
-                                  <option>{{$tt->tenthuoc}}</option>
-                                  @endforeach
-                              </select>
-                              </div>
-                            </div>
-
-
-                            <!-- /.col -->
-                            <div class="col-md-6">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Nơi xuất</label><br>
-                                  <input type="text" name="nguoilapphieu" id="" placeholder="Người lập phiếu"><br>
-                                </div>
-                            </div>
-                            </div>
-                          
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Người lập phiếu</label><br>
-                                  <input type="text" name="nguoilapphieu" id="" placeholder="Người lập phiếu"><br>
-                                </div>
-                            </div>
-                              <!-- /.col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Ngày xuất</label><br>
-                                 <input type="date" name="ngaynhap" id="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label>Số phiếu</label><br>
-                                <input type="number" name="sophieu" id="" placeholder="Số phiếu"><br>
-                              </div>
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Số lượng xuất</label><br>
-                                <input type="number" name="soluongyeucau" placeholder="Số lượng yêu cầu" id="">
-                                </div>
-                            </div>
-                          
-                            <!-- /.col -->
-                          </div>
-                          
-                        <!-- /.card-body -->
-                      </div>
-                      <!-- /.card -->
-
-                    <div class="col-md-12">
-                        <div class="card card-outline card-info">
-                          <div class="card-header">
-                            <h3 class="card-title">
-                              Ghi chú
-                            </h3>
-                          </div>
-                          <!-- /.card-header -->
-                          <div class="card-body">
-                            <textarea name="ghichu" id="summernote">
-                              Place <em>some</em> <u>text</u> <strong>here</strong>
-                            </textarea>
-                          </div>
-                        </div>
-                    </div>
-                  <div class="col">
-                    <button type="submit" class="btn btn-primary float-right mb-2">Lập phiếu</button>
-                  </div>
-            </form>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Phiếu xuất thuốc</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <h3 class="row ml-3">Chọn file danh sách thuốc cần xuất</h3><br>
+                <div class="row ml-3">
+        
+                  <form action="/manager/thuoc_vattu/import_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <input type="file" class="form-control mr-3 mb-2" id="file" accept=".xlsx" name="file" required />
+                  <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
+                  </form>
+                  <form action="/manager/thuoc_vattu/export_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST">
+                      @csrf
+                  <input type="submit" value="Export file Excel" name="export_csv" class="btn btn-success ml-2">
+                 </form>
+               </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+  
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Phiếu nhập thuốc chi tiết</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                </div>
+                   <form action="/manager/thuoc_vattu/lapphieuxuat/Add/{{$idHealthFacility}}/{{$idMedicalStation}}" method="post">
+                       @csrf
+                           <div class="container-fluid">
+                             <!-- SELECT2 EXAMPLE -->
+                             <div class="card card-default">
+                               <div class="card-header">
+                     
+                                 <div class="card-tools">
+                                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                     <i class="fas fa-minus"></i>
+                                   </button>
+                                 </div>
+                               </div>
+       
+                               <!-- /.card-header -->
+                               <div class="card-body">
+                                 <div class="row">
+                                   <!-- /.col -->
+                                   <div class="col-md-4">
+                                     <div class="form-group">
+                                       <label>Ngày xuất</label><br>
+                                       <input type="date" name="ngayxuat" id="">
+                                     </div>
+                                   </div>
+                                   <div class="col-md-4">
+                                     <div class="form-group">
+                                       <label>Số phiếu</label><br>
+                                      <input type="number" name="sophieu" id="">
+                                     </div>
+                                   </div>
+                                   <div class="col-md-4">
+                                     <div class="form-group">
+                                       <label>Người lập phiếu</label><br>
+                                      <input type="text" name="nguoilap" id="">
+                                     </div>
+                                   </div>
+                                 
+                                 </div>
+                                 
+                               <!-- /.card-body -->
+                             </div>
+                             <!-- /.card -->
+       
+                           <div class="col-md-12">
+                               <div class="card card-outline card-info">
+                                 <div class="card-header">
+                                   <h3 class="card-title">
+                                     Ghi chú
+                                   </h3>
+                                 </div>
+                                 <!-- /.card-header -->
+                                 <div class="card-body">
+                                   <textarea name="ghichu" id="summernote">
+                                     Place <em>some</em> <u>text</u> <strong>here</strong>
+                                   </textarea>
+                                 </div>
+                               </div>
+                           </div>
+                         <div class="col">
+                           <button type="submit" class="btn btn-primary float-right mb-2">Lập phiếu</button>
+                         </div>
+                   </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
         </div>
-    
-        <!-- /.col-->
+        <!-- /.row -->
       </div>
-   
+      <!-- /.container-fluid -->
     </section>
+  
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
