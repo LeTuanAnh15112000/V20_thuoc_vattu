@@ -31,6 +31,7 @@ use App\Http\Controllers\thuoc_vattu\ThanhlyThuochethanController;
 use App\Http\Controllers\thuoc_vattu\PhieulapController;
 use App\Http\Controllers\thuoc_vattu\PhieuxuatController;
 use App\Http\Controllers\thuoc_vattu\NguonnhapController;
+use App\Http\Controllers\thuoc_vattu\BaocaoController;
 use App\Http\Controllers\thuoc_vattu\LocationController;
 use App\Http\Controllers\thuoc_vattu\PhanloaithuocController;
 // use App\Http\Controllers\thuoc_vattu\PhieunhapthuocchitietController;
@@ -260,8 +261,19 @@ Route::prefix('manager')->name('manager.')->group(function(){
         Route::get('/phanloaithuoc/{idHealthFacility}/{idMedicalStation}',[PhanloaithuocController::class, 'phanloai'])->name('phanloai');
         Route::get('loaithuoc/{idHealthFacility}/{idMedicalStation}/{idthuoc}',[PhanloaithuocController::class, 'loaithuoc'])->name('loaithuoc');
 
-        });
 
+        // Quản lý và kết xuất thông tin báo cáo
+        Route::get('/bienbankiemnhap/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaonhap'])->name('baocaonhap');
+        Route::get('/inbaocao/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'inbaocaonhap'])->name('inbaocaonhap');
+        
+        Route::get('/bienbankiemxuat/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaoxuat'])->name('baocaoxuat');
+        Route::get('/inbaocaoxuat/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'inbaocaoxuat'])->name('inbaocaoxuat');
+
+
+        Route::get('/bienbankiemke/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaokiemke'])->name('baocaokiemke');
+        Route::get('/inbaocaokiemke/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'inbaocaokiemke'])->name('inbaocaokiemke');
+        });
+        
         // 
         #region /* KHU VỰC THỬ NGHIỆM */
 

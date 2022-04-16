@@ -24,7 +24,7 @@
   <link rel="shortcut icon" href="/images/user/favicon.jpg" type="image/x-icon">
 
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">

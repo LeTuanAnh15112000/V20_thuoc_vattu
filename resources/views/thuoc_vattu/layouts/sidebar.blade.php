@@ -184,19 +184,19 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/charts/flot.html" class="nav-link">
+                  <a href="/manager/thuoc_vattu/bienbankiemnhap/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Biên bản kiểm nhập</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/charts/flot.html" class="nav-link">
+                  <a href="/manager/thuoc_vattu/bienbankiemxuat/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Biên bản kiểm xuất</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/charts/uplot.html" class="nav-link">
+                  <a href="/manager/thuoc_vattu/bienbankiemke/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Biên bản kiểm kê</p>
                   </a>
@@ -218,6 +218,23 @@
                   <a  href="/manager/thuoc_vattu/xemvitri/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Xem vị trí</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li  class="nav-item ">
+              <a href="#"  class="nav-link ">
+                <i class="nav-icon 	fa fa-file"></i>
+                <p>
+              Quay lại danh sách trạm y tế
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li  class="nav-item">
+                  <a  href="/manager/dashboard/medical-station/list/78" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Quay lại</p>
                   </a>
                 </li>
               </ul>
