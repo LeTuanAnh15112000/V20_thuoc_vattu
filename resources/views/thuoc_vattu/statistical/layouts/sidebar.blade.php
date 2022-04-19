@@ -99,7 +99,7 @@
                             
           <li class="nav-item">
             <a href="#" onclick="click_xacnhan()" class="nav-link click_xacnhan">
-              <i class="nav-icon 	fa fa-plus-square"></i>
+              <i class="nav-icon	fas fa-edit"></i>
               <p>
                 Xác nhận nhập thuốc
                 <i class="fas fa-angle-left right"></i>
@@ -116,7 +116,7 @@
           </li>
           <li class="nav-item">
             <a href="#" onclick="click_xuat()" class="nav-link click_xuat">
-              <i class="nav-icon 	fa fa-plus-square"></i>
+              <i class="nav-icon 	fas fa-edit"></i>
               <p>
                 Xác nhận xuất thuốc
                 <i class="fas fa-angle-left right"></i>
@@ -124,7 +124,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="/manager/thuoc_vattu/xacnhan_xuatthuoc/{{$idHealthFacility}}/{{$idMedicalStation}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Xem chi tiết</p>
                 </a>
@@ -133,7 +133,7 @@
           </li>
           <li class="nav-item">
             <a href="#" onclick="click_xacnhanhuythuoc()" class="nav-link click_xacnhanhuythuoc">
-              <i class="nav-icon 	fa fa-plus-square"></i>
+              <i class="nav-icon 	fas fa-edit"></i>
               <p>
                 Xác nhận thanh lý thuốc
                 <i class="fas fa-angle-left right"></i>
@@ -152,7 +152,7 @@
           {{-- ban đồ vị trí trạm y tế --}}
           <li  onclick="menu_open()" class="nav-item click_menu">
             <a href="#" onclick="click_thanhlythuochethan()" class="nav-link click_thanhlythuochethan">
-              <i class="nav-icon 	fa fa-file"></i>
+              <i class="nav-icon 		fas fa-map-marker-alt"></i>
               <p>
             Vị trí {{$nameMedicalStation}}
                 <i class="right fas fa-angle-left"></i>

@@ -100,6 +100,7 @@
                 </li>
               </ul>
             </li>
+              @hasrole('medical_station')
             <li class="nav-item">
               <a href="#" onclick="click_quanlykho()" class="nav-link click_quanlykho">
                 <i class="nav-icon 	fa fa-plus-square"></i>
@@ -204,10 +205,12 @@
               
               </ul>
             </li>
+            @endhasrole
+
             {{-- ban do --}}
             <li  class="nav-item ">
               <a href="#"  class="nav-link ">
-                <i class="nav-icon 	fa fa-file"></i>
+                <i class="nav-icon  	fas fa-map-marker-alt"></i>
                 <p>
               Vị trí {{$nameMedicalStation}}
                   <i class="right fas fa-angle-left"></i>
@@ -222,9 +225,10 @@
                 </li>
               </ul>
             </li>
+            @hasrole('admin|department_of_health|medical_center')
             <li  class="nav-item ">
               <a href="#"  class="nav-link ">
-                <i class="nav-icon 	fa fa-file"></i>
+                <i class="nav-icon 	fa fa-arrow-circle-left"></i>
                 <p>
               Quay lại danh sách trạm y tế
                   <i class="right fas fa-angle-left"></i>
@@ -239,6 +243,8 @@
                 </li>
               </ul>
             </li>
+            @endhasrole
+
             {{-- Logout --}}
             <li class="nav-item">
               <a href="http://127.0.0.1:8000" class="nav-link bg-danger"  style="cursor: pointer">

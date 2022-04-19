@@ -38,6 +38,7 @@ use App\Http\Controllers\thuoc_vattu\PhanloaithuocController;
 use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\HuythuocController;
 use App\Http\Controllers\thuoc_vattu\xacnhan_huythuoc\DuyetController;
 use App\Http\Controllers\thuoc_vattu\xacnhan_nhapkho\XacnhanphieulapController;
+use App\Http\Controllers\thuoc_vattu\xacnhan_xuatthuoc\XuatthuocController;
 
 Route::middleware('PreventBackHistory')->group(function(){
     Route::view('/', 'login');
@@ -45,7 +46,6 @@ Route::middleware('PreventBackHistory')->group(function(){
     Route::post('/check-login', [LoginController::class, 'checkLogin'])->name('check-login');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
-
 
 
 
@@ -209,20 +209,21 @@ Route::prefix('manager')->name('manager.')->group(function(){
            // danh sách thuốc dưới 125 ngày
            Route::get('list_medicine125/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc125Controller::class, 'list'])->name('list_medicine125');
 
+            
            // Lập phiếu nhâp phiếu lập controller ở đây là phiếu nhập
            Route::get('lapphieunhap/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'lapphieu'])->name('lapphieunhap');
            // luu dữ liệu vào data vs trang thai là 0 (tụa như là chức năng thêm)
            Route::post('lapphieu/Add/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'themlapphieu'])->name('themlapphieu');
            
-        //    Excel
-           Route::post('import_csv/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'import_csv'])->name('import_csv');
-           Route::post('export_csv/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'export_csv'])->name('export_csv');
+           //Excel
+           Route::post('/nhapthuoc/import_csv/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'import_csv'])->name('import_csv');
+           Route::post('/nhapthuoc/export_csv/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'export_csv'])->name('export_csv');
 
 
 
 
-        //    xem vị trí trạm y tế
-        Route::get('xemvitri/{idHealthFacility}/{idMedicalStation}', [LocationController::class, 'location'])->name('location');
+            //    xem vị trí trạm y tế
+            Route::get('xemvitri/{idHealthFacility}/{idMedicalStation}', [LocationController::class, 'location'])->name('location');
 
 
             // lập phiếu xuất
@@ -230,19 +231,19 @@ Route::prefix('manager')->name('manager.')->group(function(){
            Route::post('lapphieuxuat/Add/{idHealthFacility}/{idMedicalStation}', [PhieuxuatController::class, 'themlapphieu'])->name('themlapphieu');
 
 
-        //    excel
-        Route::post('import_csv/{idHealthFacility}/{idMedicalStation}', [PhieuxuatController::class, 'import_csv'])->name('import_csv');
-        Route::post('export_csv/{idHealthFacility}/{idMedicalStation}', [PhieuxuatController::class, 'export_csv'])->name('export_csv');
+            //    excel
+            Route::post('/xuatthuoc/import_csv/{idHealthFacility}/{idMedicalStation}', [PhieuxuatController::class, 'import_csv'])->name('import_csv');
+            Route::post('/xuatthuoc/export_csv/{idHealthFacility}/{idMedicalStation}', [PhieuxuatController::class, 'export_csv'])->name('export_csv');
 
 
-           // Xác nhận phiếu nhập xuất chỉ ở cấp trung tâm y tế
-          // Route::get('confirm', [DanhsachThuoc125Controller::class, 'confirm'])->name('confirm');
+            // Xác nhận phiếu nhập xuất chỉ ở cấp trung tâm y tế
+            // Route::get('confirm', [DanhsachThuoc125Controller::class, 'confirm'])->name('confirm');
 
            // thanh lý thuốc hết hạn bên trạm y tế
            Route::get('thanhlythuochethan/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'list'])->name('list_thanhlythuoc');
-        //    Gửi yêu cầu thanh lý thuốc đến trung tâm y tế
+           //    Gửi yêu cầu thanh lý thuốc đến trung tâm y tế
            Route::get('guiyeucauthanhly/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'guiyeucau'])->name('guiyeucau');
-        //    them thông tin vào cơ sở dữ liệu và gửi đi đến trung tâm y tế
+            //    them thông tin vào cơ sở dữ liệu và gửi đi đến trung tâm y tế
            Route::post('/thanhlythuoc/guiyeucau/{idHealthFacility}/{idMedicalStation}',[ThanhlyThuochethanController::class, 'themvaodanhsach'])->name('themvaodanhsach');
             // xác nhận hủy thuốc bên trung tâm y tế
             Route::get('/xemchitiet/{idHealthFacility}/{idMedicalStation}',[HuythuocController::class, 'xemchitiet'])->name('xemchitiet');
@@ -251,27 +252,29 @@ Route::prefix('manager')->name('manager.')->group(function(){
 
 
             // Xác nhận nhập thuốc bên trung tâm y tế
-            Route::get('/xacnhan_nhapthuoc/{idHealthFacility}/{idMedicalStation}',[XacnhanphieulapController::class, 'xemchitiet'])->name('xemchitiet');
+            Route::get('/xacnhan_nhapthuoc/{idHealthFacility}/{idMedicalStation}',[XacnhanphieulapController::class, 'xemchitiet'])->name('xemchitietnhap');
             // duyệt phiếu nhập thêm dữ liệu vào bảng thuoc
             Route::get('/duyetphieunhap/{idHealthFacility}/{idMedicalStation}',[XacnhanphieulapController::class, 'them'])->name('xemchitiet');
 
             
-        //   phân loại thuốc
+            // Xác nhận xuất thuốc bên trung tâm y tế
+            Route::get('/xacnhan_xuatthuoc/{idHealthFacility}/{idMedicalStation}',[XuatthuocController::class, 'xemchitiet'])->name('xemchitietxuat');
+            //   phân loại thuốc
 
-        Route::get('/phanloaithuoc/{idHealthFacility}/{idMedicalStation}',[PhanloaithuocController::class, 'phanloai'])->name('phanloai');
-        Route::get('loaithuoc/{idHealthFacility}/{idMedicalStation}/{idthuoc}',[PhanloaithuocController::class, 'loaithuoc'])->name('loaithuoc');
-
-
-        // Quản lý và kết xuất thông tin báo cáo
-        Route::get('/bienbankiemnhap/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaonhap'])->name('baocaonhap');
-        Route::get('/inbaocao/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'inbaocaonhap'])->name('inbaocaonhap');
-        
-        Route::get('/bienbankiemxuat/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaoxuat'])->name('baocaoxuat');
-        Route::get('/inbaocaoxuat/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'inbaocaoxuat'])->name('inbaocaoxuat');
+            Route::get('/phanloaithuoc/{idHealthFacility}/{idMedicalStation}',[PhanloaithuocController::class, 'phanloai'])->name('phanloai');
+            Route::get('loaithuoc/{idHealthFacility}/{idMedicalStation}/{idthuoc}',[PhanloaithuocController::class, 'loaithuoc'])->name('loaithuoc');
 
 
-        Route::get('/bienbankiemke/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaokiemke'])->name('baocaokiemke');
-        Route::get('/inbaocaokiemke/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'inbaocaokiemke'])->name('inbaocaokiemke');
+            // Quản lý và kết xuất thông tin báo cáo
+            Route::get('/bienbankiemnhap/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaonhap'])->name('baocaonhap');
+            Route::get('/inbaocao/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'inbaocaonhap'])->name('inbaocaonhap');
+            
+            Route::get('/bienbankiemxuat/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaoxuat'])->name('baocaoxuat');
+            Route::get('/inbaocaoxuat/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'inbaocaoxuat'])->name('inbaocaoxuat');
+
+
+            Route::get('/bienbankiemke/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaokiemke'])->name('baocaokiemke');
+            Route::get('/inbaocaokiemke/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'inbaocaokiemke'])->name('inbaocaokiemke');
         });
         
         // 

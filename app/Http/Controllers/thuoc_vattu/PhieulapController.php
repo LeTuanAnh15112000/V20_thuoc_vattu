@@ -50,7 +50,7 @@ class PhieulapController extends Controller
 
        $phieulap = new phieunhapthuoc();
        $phieulap->sophieu = $request->sophieu;
-       $phieulap->ngayxuat = $request->ngaynhap;
+       $phieulap->ngaynhap = $request->ngaynhap;
        $phieulap->nguoilap = $request->nguoilap;
        $phieulap->nguonnhap = $request->nguonnhap;
        $phieulap->trangthai = 0;

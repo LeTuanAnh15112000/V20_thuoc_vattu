@@ -166,6 +166,7 @@
                                 </a>
                             </li>
                         @endhasrole --}}
+                         @hasrole('admin|department_of_health|medical_center')
                         
                         <li class="nav-item">
                             <a href="{{ route('manager.cardres.index') }}" class="nav-link">
@@ -175,6 +176,7 @@
                                 </p>
                             </a>
                         </li>
+                        @endhasrole 
 
                         <li class="nav-item">
                             <a href="{{ route('manager.position.index') }}" class="nav-link">

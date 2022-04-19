@@ -90,12 +90,12 @@
                 <h3 class="row ml-3">Chọn file danh sách thuốc cần xuất</h3><br>
                 <div class="row ml-3">
         
-                  <form action="/manager/thuoc_vattu/import_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST" enctype="multipart/form-data">
+                  <form action="/manager/thuoc_vattu/xuatthuoc/import_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <input type="file" class="form-control mr-3 mb-2" id="file" accept=".xlsx" name="file" required />
                   <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
                   </form>
-                  <form action="/manager/thuoc_vattu/export_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST">
+                  <form action="/manager/thuoc_vattu/xuatthuoc/export_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST">
                       @csrf
                   <input type="submit" value="Export file Excel" name="export_csv" class="btn btn-success ml-2">
                  </form>
