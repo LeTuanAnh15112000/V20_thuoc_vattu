@@ -24,10 +24,10 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper"> 
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light" style=" background: linear-gradient(135deg, rgba(0,158,195,1) 11%,rgba(0,158,195,1) 11%,rgba(0,158,195,1) 34%,rgba(0,158,195,1) 34%,rgba(0,158,195,1) 47%,rgba(0,158,195,1) 47%,rgba(0,158,195,1) 69%,rgba(0,183,234,1) 99%,rgba(39,136,180,1) 100%,rgba(0,183,234,1) 100%,rgba(0,183,234,1) 100%);">
 
         <!-- Left navbar links -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" >
           <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
@@ -37,7 +37,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <h2 class="text-info"> 
+            <h2 class="text-white"> 
               {{$nameMedicalStation}}
             </h2>
           </li>
@@ -50,7 +50,7 @@
             </a>
           </li>
         </ul>
-      </nav>
+    </nav>
       @role('department_of_health|medical_center')
       @include('thuoc_vattu.statistical.layouts.sidebar')
       @endrole

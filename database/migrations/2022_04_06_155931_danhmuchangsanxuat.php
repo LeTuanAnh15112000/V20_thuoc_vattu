@@ -16,13 +16,13 @@ class Danhmuchangsanxuat extends Migration
         //
         Schema::create('danhmuchangsanxuat', function(Blueprint $table){
             $table->id();
-            $table->string('tenhangsanxuat');
-            $table->string('tenviettat');
-            $table->string('diachi');
-            $table->string('email');
-            $table->string('masothue');
-            $table->string('website');
-            $table->string('id_tramyte');
+            $table->string('tenhangsanxuat')->nullable();
+            $table->string('tenviettat')->nullable();
+            $table->string('diachi')->nullable();
+            $table->string('email')->nullable();
+            $table->string('masothue')->nullable();
+            $table->string('website')->nullable();
+            $table->string('id_tramyte')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();
             $table->engine='InnoDB';
