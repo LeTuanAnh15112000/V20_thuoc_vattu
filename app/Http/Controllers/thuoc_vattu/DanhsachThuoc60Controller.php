@@ -6,15 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class DanhsachThuoc125Controller extends Controller
+class DanhsachThuoc60Controller extends Controller
 {
     //
     public function list($idHealthFacility, $idMedicalStation){
         $title = "Danh sách thuốc";
         $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
-        $medicine = DB::table('danhmucthuoc')->where('handung', '<', '126')->where('handung', '>', '95')->where('id_tramyte', $idMedicalStation)->get();
-        return view('thuoc_vattu.detail.list_thuoc125', [
+        $medicine = DB::table('danhmucthuoc')->where('handung', '<', 60)->where('handung', '>', 30)->where('id_tramyte', $idMedicalStation)->get();
+        return view('thuoc_vattu.detail.list_thuoc60', [
             'title'=>$title,
             'medicine'=>$medicine,
             'idMedicalStation'=> $idMedicalStation,

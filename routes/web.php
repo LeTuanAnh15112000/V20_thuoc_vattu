@@ -23,10 +23,12 @@ use App\Http\Controllers\thuoc_vattu\DanhsachnhacungcapController;
 use App\Http\Controllers\thuoc_vattu\DanhsachhangsanxuatController;
 use App\Http\Controllers\thuoc_vattu\DanhsachnuocsanxuatController;
 use App\Http\Controllers\thuoc_vattu\DanhsachVattuController;
-use App\Http\Controllers\thuoc_vattu\DanhsachThuoc35Controller;
-use App\Http\Controllers\thuoc_vattu\DanhsachThuoc65Controller;
-use App\Http\Controllers\thuoc_vattu\DanhsachThuoc95Controller;
-use App\Http\Controllers\thuoc_vattu\DanhsachThuoc125Controller;
+use App\Http\Controllers\thuoc_vattu\DanhsachThuoc7Controller;
+use App\Http\Controllers\thuoc_vattu\DanhsachThuoc15Controller;
+use App\Http\Controllers\thuoc_vattu\DanhsachThuoc30Controller;
+use App\Http\Controllers\thuoc_vattu\DanhsachThuoc60Controller;
+use App\Http\Controllers\thuoc_vattu\DanhsachThuoc90Controller;
+use App\Http\Controllers\thuoc_vattu\DanhsachThuoc180Controller;
 use App\Http\Controllers\thuoc_vattu\ThanhlyThuochethanController;
 use App\Http\Controllers\thuoc_vattu\PhieulapController;
 use App\Http\Controllers\thuoc_vattu\PhieuxuatController;
@@ -200,16 +202,20 @@ Route::prefix('manager')->name('manager.')->group(function(){
            //danh sách vật tư
            Route::get('list_vattu/{idHealthFacility}/{idMedicalStation}', [DanhsachVattuController::class, 'list'])->name('list_vattu');
            
-           // danh sách thuốc dưới 35 ngày
-           Route::get('list_medicine35/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc35Controller::class, 'list'])->name('list_medicine35');
-           // danh sách thuốc dưới 65 ngày
-           Route::get('list_medicine65/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc65Controller::class, 'list'])->name('list_medicine65');
-           // danh sách thuốc dưới 95 ngày
-           Route::get('list_medicine95/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc95Controller::class, 'list'])->name('list_medicine95');
-           // danh sách thuốc dưới 125 ngày
-           Route::get('list_medicine125/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc125Controller::class, 'list'])->name('list_medicine125');
+           // danh sách thuốc dưới 7 ngày
+           Route::get('list_medicine7/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc7Controller::class, 'list'])->name('list_medicine7');
+           // danh sách thuốc dưới 15 ngày
+           Route::get('list_medicine15/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc15Controller::class, 'list'])->name('list_medicine15');
+           // danh sách thuốc dưới 1 tháng
+           Route::get('list_medicine30/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc30Controller::class, 'list'])->name('list_medicine30');
+           // danh sách thuốc dưới 2 tháng
+           Route::get('list_medicine60/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc60Controller::class, 'list'])->name('list_medicine60');
+           // danh sách thuốc dưới 3 tháng
+           Route::get('list_medicine90/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc90Controller::class, 'list'])->name('list_medicine90');
+         // danh sách thuốc dưới 6 tháng
+           Route::get('list_medicine180/{idHealthFacility}/{idMedicalStation}', [DanhsachThuoc180Controller::class, 'list'])->name('list_medicine180');
 
-            
+
            // Lập phiếu nhâp phiếu lập controller ở đây là phiếu nhập
            Route::get('lapphieunhap/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'lapphieu'])->name('lapphieunhap');
            // luu dữ liệu vào data vs trang thai là 0 (tụa như là chức năng thêm)
