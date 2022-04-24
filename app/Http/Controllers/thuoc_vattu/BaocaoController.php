@@ -13,9 +13,7 @@ class BaocaoController extends Controller
         $title = "Báo cáo nhập";
         $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
-
-        $duongdung = DB::table('danhmucduongdung')->where('id_tramyte', $idMedicalStation)->get();
-        return view('thuoc_vattu.baocaonhap.baocaonhap', [
+        return view('thuoc_vattu.baocaonhap.quanlynhap', [
             'title'=>$title,
             'idMedicalStation'=> $idMedicalStation,
             'idHealthFacility'=> $idHealthFacility,
@@ -42,9 +40,7 @@ class BaocaoController extends Controller
         $title = "Báo cáo xuất";
         $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
-
-        $duongdung = DB::table('danhmucduongdung')->where('id_tramyte', $idMedicalStation)->get();
-        return view('thuoc_vattu.baocaoxuat.baocaoxuat', [
+        return view('thuoc_vattu.baocaoxuat.quanlyxuat', [
             'title'=>$title,
             'idMedicalStation'=> $idMedicalStation,
             'idHealthFacility'=> $idHealthFacility,

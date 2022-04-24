@@ -8,6 +8,7 @@
 
   {{-- css modal hienj thông báo gửi yêu cầu thành công --}}
   <link rel="stylesheet" href="/style/css/model.css">
+  <link rel="stylesheet" href="/style/css/baocaonhap.css">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">

@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="text-primary">Danh sách thuốc</h1>
+          <h1 class="text-dark">Danh sách thuốc</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -23,19 +23,19 @@
 
           <div class="card">
             <div class="card-header">
-              <h5 class="card-title mr-3 mt-2 text-danger">HẠN DÙNG</h5>
+              <h5 class="card-title mr-3 mt-1 text-danger" >HẠN DÙNG</h5>
               <a href="/manager/thuoc_vattu/list_medicine35/{{$idHealthFacility}}/{{$idMedicalStation}}">
-                <button type="button" class="btn btn-danger">Dưới 35 ngày</button>
+                <button type="button" class="btn" style="background: rgb(255,122,122); padding: 0px 12px; ">< 35 ngày</button>
               </a>
               
               <a href="/manager/thuoc_vattu/list_medicine65/{{$idHealthFacility}}/{{$idMedicalStation}}">
-                <button type="button" class="btn btn-warning">Dưới 65 ngày </button>
+                <button type="button" class="btn " style="background: rgb(204,0,204); padding: 0px 12px;">< 65 ngày </button>
               </a>
               <a href="/manager/thuoc_vattu/list_medicine95/{{$idHealthFacility}}/{{$idMedicalStation}}">
-                <button type="button" class="btn btn-primary">Dưới 95 ngày </button>
+                <button type="button" class="btn " style="background: rgb(255,255,66); padding: 0px 12px;">< 95 ngày </button>
               </a>
               <a href="/manager/thuoc_vattu/list_medicine125/{{$idHealthFacility}}/{{$idMedicalStation}}">
-                <button type="button" class="btn btn-success">Dưới 125 ngày </button>
+                <button type="button" class="btn " style="background: rgb(204,204,0); padding: 0px 12px;">< 125 ngày </button>
               </a>
             </div>
             <!-- /.card-header -->
@@ -59,49 +59,49 @@
                 <tr>
                     @foreach($medicine as $m)
                     @if($m->handung < 36)
-                        <th style="background-color : #dc3545;">{{$m->tenthuoc}}</th>
-                        <th style="background-color : #dc3545;">{{$m->soluong}}</th>
-                        <th style="background-color : #dc3545;">{{$m->hamluong}}</th>
-                        <th style="background-color : #dc3545;">{{$m->dangtrinhbay}}</th>
-                        <th style="background-color : #dc3545;">{{$m->dangtebao}}</th>
-                        <th style="background-color : #dc3545;">{{$m->donvi}}</th>
-                        <th style="background-color : #dc3545;">{{$m->dongia}}</th> 
-                        <th style="background-color : #dc3545;">{{$m->hangsanxuat}}</th>
-                        <th style="background-color : #dc3545;">{{$m->nuocsanxuat}}</th>
-                        <th style="background-color : #dc3545;">{{$m->handung}}</th>
+                        <th style="background-color : rgb(255,122,122);">{{$m->tenthuoc}}</th>
+                        <th style="background-color : rgb(255,122,122);">{{$m->soluong}}</th>
+                        <th style="background-color : rgb(255,122,122);">{{$m->hamluong}}</th>
+                        <th style="background-color : rgb(255,122,122);">{{$m->dangtrinhbay}}</th>
+                        <th style="background-color : rgb(255,122,122);">{{$m->dangtebao}}</th>
+                        <th style="background-color : rgb(255,122,122);">{{$m->donvi}}</th>
+                        <th style="background-color : rgb(255,122,122);">{{$m->dongia}}</th> 
+                        <th style="background-color : rgb(255,122,122);">{{$m->hangsanxuat}}</th>
+                        <th style="background-color : rgb(255,122,122);">{{$m->nuocsanxuat}}</th>
+                        <th style="background-color : rgb(255,122,122);">{{$m->handung}}</th>
                         @elseif($m->handung < 65 && $m->handung > 36)
-                        <th style="background-color : #e0a800;">{{$m->tenthuoc}}</th>
-                        <th style="background-color : #e0a800;">{{$m->soluong}}</th>
-                        <th style="background-color : #e0a800;">{{$m->hamluong}}</th>
-                        <th style="background-color : #e0a800;">{{$m->dangtrinhbay}}</th>
-                        <th style="background-color : #e0a800;">{{$m->dangtebao}}</th>
-                        <th style="background-color : #e0a800;">{{$m->donvi}}</th>
-                        <th style="background-color : #e0a800;">{{$m->dongia}}</th> 
-                        <th style="background-color : #e0a800;">{{$m->hangsanxuat}}</th>
-                        <th style="background-color : #e0a800;">{{$m->nuocsanxuat}}</th>
-                        <th style="background-color : #e0a800;">{{$m->handung}}</th>
+                        <th style="background-color : rgb(204,0,204);">{{$m->tenthuoc}}</th>
+                        <th style="background-color : rgb(204,0,204);">{{$m->soluong}}</th>
+                        <th style="background-color : rgb(204,0,204);">{{$m->hamluong}}</th>
+                        <th style="background-color : rgb(204,0,204);">{{$m->dangtrinhbay}}</th>
+                        <th style="background-color : rgb(204,0,204);">{{$m->dangtebao}}</th>
+                        <th style="background-color : rgb(204,0,204);">{{$m->donvi}}</th>
+                        <th style="background-color : rgb(204,0,204);">{{$m->dongia}}</th> 
+                        <th style="background-color : rgb(204,0,204);">{{$m->hangsanxuat}}</th>
+                        <th style="background-color : rgb(204,0,204);">{{$m->nuocsanxuat}}</th>
+                        <th style="background-color : rgb(204,0,204);">{{$m->handung}}</th>
                         @elseif($m->handung < 95 && $m->handung > 66)
-                        <th style="background-color : #0069d9;">{{$m->tenthuoc}}</th>
-                        <th style="background-color : #0069d9;">{{$m->soluong}}</th>
-                        <th style="background-color : #0069d9;">{{$m->hamluong}}</th>
-                        <th style="background-color : #0069d9;">{{$m->dangtrinhbay}}</th>
-                        <th style="background-color : #0069d9;">{{$m->dangtebao}}</th>
-                        <th style="background-color : #0069d9;">{{$m->donvi}}</th>
-                        <th style="background-color : #0069d9;">{{$m->dongia}}</th> 
-                        <th style="background-color : #0069d9;">{{$m->hangsanxuat}}</th>
-                        <th style="background-color : #0069d9;">{{$m->nuocsanxuat}}</th>
-                        <th style="background-color : #0069d9;">{{$m->handung}}</th>
+                        <th style="background-color : rgb(255,255,66);">{{$m->tenthuoc}}</th>
+                        <th style="background-color : rgb(255,255,66);">{{$m->soluong}}</th>
+                        <th style="background-color : rgb(255,255,66);">{{$m->hamluong}}</th>
+                        <th style="background-color : rgb(255,255,66);">{{$m->dangtrinhbay}}</th>
+                        <th style="background-color : rgb(255,255,66);">{{$m->dangtebao}}</th>
+                        <th style="background-color : rgb(255,255,66);">{{$m->donvi}}</th>
+                        <th style="background-color : rgb(255,255,66);">{{$m->dongia}}</th> 
+                        <th style="background-color : rgb(255,255,66);">{{$m->hangsanxuat}}</th>
+                        <th style="background-color : rgb(255,255,66);">{{$m->nuocsanxuat}}</th>
+                        <th style="background-color : rgb(255,255,66);">{{$m->handung}}</th>
                         @elseif($m->handung < 125 && $m->handung > 96)
-                        <th style="background-color : #218838;">{{$m->tenthuoc}}</th>
-                        <th style="background-color : #218838;">{{$m->soluong}}</th>
-                        <th style="background-color : #218838;">{{$m->hamluong}}</th>
-                        <th style="background-color : #218838;">{{$m->dangtrinhbay}}</th>
-                        <th style="background-color : #218838;">{{$m->dangtebao}}</th>
-                        <th style="background-color : #218838;">{{$m->donvi}}</th>
-                        <th style="background-color : #218838;">{{$m->dongia}}</th> 
-                        <th style="background-color : #218838;">{{$m->hangsanxuat}}</th>
-                        <th style="background-color : #218838;">{{$m->nuocsanxuat}}</th>
-                        <th style="background-color : #218838;">{{$m->handung}}</th>
+                        <th style="background-color : rgb(204,204,0);">{{$m->tenthuoc}}</th>
+                        <th style="background-color : rgb(204,204,0);">{{$m->soluong}}</th>
+                        <th style="background-color : rgb(204,204,0);">{{$m->hamluong}}</th>
+                        <th style="background-color : rgb(204,204,0);">{{$m->dangtrinhbay}}</th>
+                        <th style="background-color : rgb(204,204,0);">{{$m->dangtebao}}</th>
+                        <th style="background-color : rgb(204,204,0);">{{$m->donvi}}</th>
+                        <th style="background-color : rgb(204,204,0);">{{$m->dongia}}</th> 
+                        <th style="background-color : rgb(204,204,0);">{{$m->hangsanxuat}}</th>
+                        <th style="background-color : rgb(204,204,0);">{{$m->nuocsanxuat}}</th>
+                        <th style="background-color : rgb(204,204,0);">{{$m->handung}}</th>
                         
                     @else
                         <th>{{$m->tenthuoc}}</th>

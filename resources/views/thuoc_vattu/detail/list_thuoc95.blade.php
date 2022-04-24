@@ -4,11 +4,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1 class="text-primary">Danh sách thuốc dưới 96 ngày trên 65 ngày</h1>
-        </div>
-      </div>
+     
     </div><!-- /.container-fluid -->
   </section>
 
@@ -22,16 +18,16 @@
 
           <div class="card">
             <div class="card-header">
-              <h5 class="card-title mr-3 mt-2 text-primary">Danh sách thuốc dưới 96 ngày</h5>
+              <h5 class="card-title mr-3 mt-1 text-dark">Danh sách thuốc dưới 96 ngày</h5>
               <a href="/manager/thuoc_vattu/list_medicine35/{{$idHealthFacility}}/{{$idMedicalStation}}">
-                <button type="button" class="btn btn-danger">Dưới 35 ngày</button>
+                <button type="button" class="btn" style="background: rgb(255,122,122);padding: 0px 12px;">Dưới 35 ngày</button>
               </a>
               
               <a href="/manager/thuoc_vattu/list_medicine65/{{$idHealthFacility}}/{{$idMedicalStation}}">
-                <button type="button" class="btn btn-warning">Dưới 65 ngày </button>
+                <button type="button" class="btn " style="background: rgb(204,0,204);padding: 0px 12px;">Dưới 65 ngày </button>
               </a>
               <a href="/manager/thuoc_vattu/list_medicine125/{{$idHealthFacility}}/{{$idMedicalStation}}">
-                <button type="button" class="btn btn-success">Dưới 125 ngày </button>
+                <button type="button" class="btn " style="background: rgb(204,204,0);padding: 0px 12px;">Dưới 125 ngày </button>
               </a>
             </div>
             <!-- /.card-header -->
