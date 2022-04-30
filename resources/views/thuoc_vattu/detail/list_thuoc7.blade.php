@@ -67,7 +67,7 @@
                         <th>{{$m->nuocsanxuat}}</th>
                         <th>
                           <?php
-                          $date = date('Y-m-j');
+                          $date = date('2022-04-30');
                           $newdate = strtotime ( '+' .$m->handung. 'day' , strtotime ( $date ) ) ;
                           $newdate = date ( 'Y-m-j' , $newdate );
                           echo $newdate;

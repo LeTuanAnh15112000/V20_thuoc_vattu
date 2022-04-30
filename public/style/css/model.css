@@ -49,3 +49,9 @@
     }
 }
 /*  */
+
+/* danh sách phân loại thốc hover màu xanh */
+.hover-blue:hover{
+    background: linear-gradient(135deg, rgba(0,158,195,1) 11%,rgba(0,158,195,1) 11%,rgba(0,158,195,1) 34%,rgba(0,158,195,1) 34%,rgba(0,158,195,1) 47%,rgba(0,158,195,1) 47%,rgba(0,158,195,1) 69%,rgba(0,183,234,1) 99%,rgba(39,136,180,1) 100%,rgba(0,183,234,1) 100%,rgba(0,183,234,1) 100%);
+    cursor: pointer;
+}

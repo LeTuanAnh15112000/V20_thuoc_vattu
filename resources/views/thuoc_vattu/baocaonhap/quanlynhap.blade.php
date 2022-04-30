@@ -15,6 +15,8 @@
 
     <section class="content">
       <div class="container-fluid">
+        <form action="/manager/thuoc_vattu/laybienbankiemnhap/{{$idHealthFacility}}/{{$idMedicalStation}}" method="post" enctype="multipart/form-data">
+          @csrf
         <div class="row d-flex justify-content-center">
             <table class="thoigian_baocaonhap">
                 <tr>
@@ -26,23 +28,33 @@
                     <span class="step">2</span>
                     <label class="thang_bd" for="thang_bd">Từ:<label></label></label>
                   </td>
-                  <td class=""><input type="date" name="" id=""></td>
+                  <td class=""><input type="date" name="ngaybatdau" required id=""></td>
                   <td>
                     <span class="step ml-3">3</span>
                     <label class="thang_bd" for="thang_bd">Từ:<label></label></label>
                   </td>
-                  <td><input type="date" name="" id=""></td>
+                  <td><input type="date" name="ngayketthuc" required id=""></td>
                 </tr>
             </table>
-            
         </div><!-- /.row -->
         <div class="row d-flex justify-content-center mt-3">
-            <input type="button" class="bg-primary laydanhsach" value="Lấy danh sách">
+            <input type="submit" class="bg-primary laydanhsach" value="Lấy danh sách">
         </div>
+      </form> 
+
         <hr class="duongvien">
       </div><!-- /.container-fluid -->
     </section>
     <section class="content">
+        <div class="container-fluid">
+          <p class="bold mr-2">- Hạn dùng:</p>
+          <label class="handung color_1">07 ngày</label>
+          <label class="handung color_2">15 ngày</label>
+          <label class="handung color_3">1 tháng</label>
+          <label class="handung color_4">2 tháng</label>
+          <label class="handung color_5">3 tháng</label>
+          <label class="handung color_6">6 tháng</label>
+        </div>
         <div class="container-fluid">
             <h5 class="font-weight-bold">* Hướng dẫn sử dụng</h5>
             <ol>

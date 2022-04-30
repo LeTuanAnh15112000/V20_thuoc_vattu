@@ -26,7 +26,7 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light" style=" background: linear-gradient(135deg, rgba(0,158,195,1) 11%,rgba(0,158,195,1) 11%,rgba(0,158,195,1) 34%,rgba(0,158,195,1) 34%,rgba(0,158,195,1) 47%,rgba(0,158,195,1) 47%,rgba(0,158,195,1) 69%,rgba(0,183,234,1) 99%,rgba(39,136,180,1) 100%,rgba(0,183,234,1) 100%,rgba(0,183,234,1) 100%);">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -39,7 +39,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <h2 class="text-info"> 
+        <h2 class="text-white"> 
           {{$nameMedicalStation}}
         </h2>
       </li>
@@ -92,12 +92,18 @@
         
                   <form action="/manager/thuoc_vattu/xuatthuoc/import_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST" enctype="multipart/form-data">
                   @csrf
-                  <input type="file" class="form-control mr-3 mb-2" id="file" accept=".xlsx" name="file" required />
-                  <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
+                  <div class="row">
+                    <div class="col-6">
+                      <input type="file" class="form-control mr-3 mb-2" id="file" accept=".xlsx" name="file" required />
+                    </div>
+                    <div class="col-6">
+                      <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
+                    </div>
+                  </div>
                   </form>
                   <form action="/manager/thuoc_vattu/xuatthuoc/export_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST">
                       @csrf
-                  <input type="submit" value="Export file Excel" name="export_csv" class="btn btn-success ml-2">
+                  <input type="submit" value="Export file Excel" style="display: none" name="export_csv" class="btn btn-success ml-2">
                  </form>
                </div>
               </div>

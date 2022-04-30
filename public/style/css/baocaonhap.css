@@ -38,4 +38,38 @@ span.step {
     border-style: inset;
     border-width: 1px;
     font-size: 12px;
+    margin-bottom: 4px;
+}
+.bold{
+    display:inline;
+    font-family:Segoe UI;
+    font-size:14px;
+    font-weight:700;
+}
+.handung{
+    border-color:#000000;
+    border-style:solid;
+    border-width:1px;
+    font-family:Segoe UI;
+    font-size:12px;
+    font-weight:700;
+    padding: 0 16px;
+}
+.color_1{
+    background-color: #FF7A7A;
+}
+.color_2{
+    background-color: #cc00cc;
+}
+.color_3{
+    background-color: #ffff42;
+}
+.color_4{
+    background-color:  #cccc00;
+}
+.color_5{
+    background-color: #00ff80;
+}
+.color_6{
+    background-color: #00cc00;
 }

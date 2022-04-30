@@ -5,8 +5,8 @@
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1 class="text-primary">Danh sách {{$tenphanloai}}</h1>
+        <div class="col">
+          <h1 class="text-dark">Danh sách {{$tenphanloai}}</h1>
         </div>
         
       </div>
@@ -51,7 +51,14 @@
                         <th>{{$lt->dongia}}</th> 
                         <th>{{$lt->hangsanxuat}}</th>
                         <th>{{$lt->nuocsanxuat}}</th>
-                        <th>{{$lt->handung}}</th>
+                        <th>
+                          <?php
+                          $date = date('2022-04-30');
+                          $newdate = strtotime ( '+' .$lt->handung. 'day' , strtotime ( $date ) ) ;
+                          $newdate = date('Y-m-j' , $newdate );
+                          echo $newdate;
+                          ?>
+                        </th>
                 </tr>
                    @endforeach
                 </tbody>
@@ -76,6 +83,11 @@
           <!-- /.card -->
         </div>
         <!-- /.col -->
+          <div class="col float-right">
+            <a class="float-right" href="/manager/thuoc_vattu/phanloaithuoc/{{$idHealthFacility}}/{{$idMedicalStation}}">
+              <i class="fas fa-reply-all" style="font-size: 20px">Quay lại danh sách phân loại</i>
+            </a>
+          </div>
       </div>
       <!-- /.row -->
     </div>

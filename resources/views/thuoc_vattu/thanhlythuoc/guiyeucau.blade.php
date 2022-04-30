@@ -145,7 +145,7 @@
                         </div>
                     </div>
                   <div class="col">
-                     <button type="submit" style="width: 200px;"  class="btn btn-danger float-right ">Gửi yêu cầu thanh lý</button>
+                     <button type="submit" style="width: 200px;"  class="btn btn-danger float-right mb-3">Gửi yêu cầu thanh lý</button>
                   </div>
             </form>
         </div>

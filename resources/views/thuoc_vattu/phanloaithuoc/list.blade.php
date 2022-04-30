@@ -33,9 +33,9 @@
                 </thead>
                 <tbody>
                     @foreach($phanloai as $pl)
-                <tr>
+                <tr class="hover-blue">
                         <th>{{$pl->id}}</th>
-                        <th><a href="/manager/thuoc_vattu/loaithuoc/{{$idHealthFacility}}/{{$idMedicalStation}}/{{$pl->id}}">{{$pl->tenloaithuoc}}</a></th>
+                        <th><a style="color: black;" href="/manager/thuoc_vattu/loaithuoc/{{$idHealthFacility}}/{{$idMedicalStation}}/{{$pl->id}}">{{$pl->tenloaithuoc}}</a></th>
                 </tr>
                    @endforeach
                 </tbody>

@@ -46,7 +46,7 @@ class PhieulapController extends Controller
         'sophieu.required'=>'Bạn chưa nhập số phiếu',
         'ghichu.required'=>'Bạn chưa nhập ghi chú'
        ]
-    );
+      );
 
        $phieulap = new phieunhapthuoc();
        $phieulap->sophieu = $request->sophieu;

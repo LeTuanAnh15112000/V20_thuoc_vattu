@@ -51,7 +51,14 @@
                         <th>{{$tt->dongia}}</th> 
                         <th>{{$tt->hangsanxuat}}</th>
                         <th>{{$tt->nuocsanxuat}}</th>
-                        <th>{{$tt->handung}}</th>
+                        <th>
+                          <?php
+                          $date = date('2022-04-30');
+                          $newdate = strtotime ( '+' .$tt->handung. 'day' , strtotime ( $date ) ) ;
+                          $newdate = date('Y-m-j' , $newdate );
+                          echo $newdate;
+                          ?>
+                        </th>
                 </tr>
                    @endforeach
                 </tbody>

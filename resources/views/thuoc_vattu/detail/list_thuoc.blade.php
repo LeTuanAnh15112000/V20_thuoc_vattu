@@ -76,7 +76,7 @@
                         <th style="background-color : rgb(255,122,122);">{{$m->nuocsanxuat}}</th>
                         <th style="background-color : rgb(255,122,122);">
                           <?php
-                          $date = date('Y-m-j');
+                           $date = date('2022-04-30');
                           $newdate = strtotime ( '+' .$m->handung. 'day' , strtotime ( $date ) ) ;
                           $newdate = date ( 'Y-m-j' , $newdate );
                           echo $newdate;
@@ -94,7 +94,7 @@
                         <th style="background-color : rgb(204,0,204);">{{$m->nuocsanxuat}}</th>
                         <th style="background-color : rgb(204,0,204);">
                           <?php
-                          $date = date('Y-m-j');
+                           $date = date('2022-04-30');
                           $newdate = strtotime ( '+' .$m->handung. 'day' , strtotime ( $date ) ) ;
                           $newdate = date ( 'Y-m-j' , $newdate );
                           echo $newdate;
@@ -112,7 +112,7 @@
                         <th style="background-color : rgb(255,255,66);">{{$m->nuocsanxuat}}</th>
                         <th style="background-color : rgb(255,255,66);">
                           <?php
-                          $date = date('Y-m-j');
+                           $date = date('2022-04-30');
                           $newdate = strtotime ( '+' .$m->handung. 'day' , strtotime ( $date ) ) ;
                           $newdate = date ( 'Y-m-j' , $newdate );
                           echo $newdate;
@@ -130,7 +130,7 @@
                         <th style="background-color : rgb(204,204,0);">{{$m->nuocsanxuat}}</th>
                         <th style="background-color : rgb(204,204,0);">
                           <?php
-                          $date = date('Y-m-j');
+                           $date = date('2022-04-30');
                           $newdate = strtotime ( '+' .$m->handung. 'day' , strtotime ( $date ) ) ;
                           $newdate = date ( 'Y-m-j' , $newdate );
                           echo $newdate;
@@ -148,7 +148,7 @@
                         <th style="background-color : #00ff80;">{{$m->nuocsanxuat}}</th>
                         <th style="background-color : #00ff80;">
                           <?php
-                          $date = date('Y-m-j');
+                           $date = date('2022-04-30');
                           $newdate = strtotime ( '+' .$m->handung. 'day' , strtotime ( $date ) ) ;
                           $newdate = date ( 'Y-m-j' , $newdate );
                           echo $newdate;
@@ -166,7 +166,7 @@
                         <th style="background-color : #00cc00;">{{$m->nuocsanxuat}}</th>
                         <th style="background-color : #00cc00;">
                           <?php
-                          $date = date('Y-m-j');
+                           $date = date('2022-04-30');
                           $newdate = strtotime ( '+' .$m->handung. 'day' , strtotime ( $date ) ) ;
                           $newdate = date ( 'Y-m-j' , $newdate );
                           echo $newdate;
@@ -185,7 +185,7 @@
                         <th>{{$m->nuocsanxuat}}</th>
                         <th>
                           <?php
-                          $date = date('Y-m-j');
+                           $date = date('2022-04-30');
                           $newdate = strtotime ( '+' .$m->handung. 'day' , strtotime ( $date ) ) ;
                           $newdate = date ( 'Y-m-j' , $newdate );
                           echo $newdate;

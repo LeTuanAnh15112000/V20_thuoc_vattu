@@ -19,90 +19,68 @@
   <section class="invoice">
     <!-- title row -->
     <div class="row">
+      @foreach ($thongtinnguoinhapthuoc as $thongtin)
+
       <div class="col-12">
-        <h2 class="page-header">
-          <i class="fas fa-globe"></i> AdminLTE, Inc.
+        <h4>
+          <i class="fas fa-globe"></i> Thông tin nhập thuốc
           <small class="float-right">Date: 2/10/2014</small>
-        </h2>
+        </h4>
       </div>
       <!-- /.col -->
     </div>
     <!-- info row -->
     <div class="row invoice-info">
       <div class="col-sm-4 invoice-col">
-        From
-        <address>
-          <strong>Admin, Inc.</strong><br>
-          795 Folsom Ave, Suite 600<br>
-          San Francisco, CA 94107<br>
-          Phone: (804) 123-5432<br>
-          Email: info@almasaeedstudio.com
-        </address>
+        <div class="col-sm-4 invoice-col">
+          <p class="text-dark mb-0" ><strong>Số phiếu: </strong>{{$thongtin->sophieu}} </p>
+          <p class="text-dark mb-0"><strong>Họ tên người lập phiếu:</strong> {{$thongtin->nguoilap}}</p>
+          <p class="text-dark mb-0"><strong>Nguồn nhập:</strong> {{$thongtin->nguonnhap}}</p>
+          <p class="text-dark mb-0"><strong>Ngày nhập:</strong> {{$thongtin->ngaynhap}}</p>
+          <p class="text-dark mb-0"><strong>Ghi chú:</strong> {{$thongtin->ghichu}}</p>
+          <p class="text-dark mb-3"><strong>Trạng thái: {{$thongtin->trangthai}}</strong> (0: chưa duyệt, 1: đã duyệt)</p>
+        </div>
       </div>
+      @endforeach
       <!-- /.col -->
-      <div class="col-sm-4 invoice-col">
-        To
-        <address>
-          <strong>John Doe</strong><br>
-          795 Folsom Ave, Suite 600<br>
-          San Francisco, CA 94107<br>
-          Phone: (555) 539-1037<br>
-          Email: john.doe@example.com
-        </address>
-      </div>
-      <!-- /.col -->
-      <div class="col-sm-4 invoice-col">
-        <b>Invoice #007612</b><br>
-        <br>
-        <b>Order ID:</b> 4F3S8J<br>
-        <b>Payment Due:</b> 2/22/2014<br>
-        <b>Account:</b> 968-34567
-      </div>
+     
       <!-- /.col -->
     </div>
     <!-- /.row -->
 
     <!-- Table row -->
     <div class="row">
+      @foreach ($phieunhapthuocchitiet as $pntct)
+          
+      @endforeach
       <div class="col-12 table-responsive">
         <table class="table table-striped">
           <thead>
           <tr>
-            <th>Qty</th>
-            <th>Product</th>
-            <th>Serial #</th>
-            <th>Description</th>
-            <th>Subtotal</th>
+            <th>Tên thuốc</th>
+            <th>Số lượng</th>
+            <th>Hàm lượng</th>
+            <th>Dạng trình bày</th>
+            <th>Dạng tế bào</th>
+            <th>Đơn vị</th>
+            <th>Đơn giá</th>
+            <th>Hãng sản xuất</th>
+            <th>Nước sản xuất</th>
+            <th>Hạn dùng</th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td>1</td>
-            <td>Call of Duty</td>
-            <td>455-981-221</td>
-            <td>El snort testosterone trophy driving gloves handsome</td>
-            <td>$64.50</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Need for Speed IV</td>
-            <td>247-925-726</td>
-            <td>Wes Anderson umami biodiesel</td>
-            <td>$50.00</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Monsters DVD</td>
-            <td>735-845-642</td>
-            <td>Terry Richardson helvetica tousled street art master</td>
-            <td>$10.70</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Grown Ups Blue Ray</td>
-            <td>422-568-642</td>
-            <td>Tousled lomo letterpress</td>
-            <td>$25.99</td>
+            <th>{{$pntct->tenthuoc}}</th>
+            <th>{{$pntct->soluong}}</th>
+            <th>{{$pntct->hamluong}}</th>
+            <th>{{$pntct->dangtrinhbay}}</th>
+            <th>{{$pntct->dangtebao}}</th>
+            <th>{{$pntct->donvi}}</th>
+            <th>{{$pntct->dongia}}</th> 
+            <th>{{$pntct->hangsanxuat}}</th>
+            <th>{{$pntct->nuocsanxuat}}</th>
+            <th>{{$pntct->handung}}</th>
           </tr>
           </tbody>
         </table>
