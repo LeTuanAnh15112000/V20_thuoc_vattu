@@ -220,6 +220,9 @@ Route::prefix('manager')->name('manager.')->group(function(){
            Route::get('lapphieunhap/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'lapphieu'])->name('lapphieunhap');
            // luu dữ liệu vào data vs trang thai là 0 (tụa như là chức năng thêm)
            Route::post('lapphieu/Add/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'themlapphieu'])->name('themlapphieu');
+            // tiếp theo phiếu nhập chi tiếp lập danh sách thuốc cần nhập
+           Route::get('lapdanhsachthuoc/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'danhsachthuoccannhap'])->name('danhsachthuoccannhap');
+
            
            //Excel
            Route::post('/nhapthuoc/import_csv/{idHealthFacility}/{idMedicalStation}', [PhieulapController::class, 'import_csv'])->name('import_csv');

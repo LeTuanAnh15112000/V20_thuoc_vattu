@@ -15,9 +15,10 @@ class PhieulapController extends Controller
 {
     //
     public function lapphieu($idHealthFacility, $idMedicalStation){
-        $title = 'Lập phiếu nhập kho';
+        $title = 'Thông tin phiếu lập chi tiết';
         // $tenthuoc = DB::table('danhmucthuoc')->where('id_tramyte', $idMedicalStation)->get();
         $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
+        $sophieu = DB::table('Phieunhapthuocchitiet')->get();
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
         $nguonnhap = DB::table('danhmucnguon')->get();
         return view('thuoc_vattu.quanlynhap.lapphieu', 
@@ -27,16 +28,16 @@ class PhieulapController extends Controller
              'idMedicalStation'=> $idMedicalStation,
              'idHealthFacility'=> $idHealthFacility,
              'nameMedicalStation'=> $nameMedicalStation,
-            //  'tenthuoc'=>$tenthuoc
+             'sophieu'=>$sophieu
         ]);
     }
-    public function themlapphieu(Request $request)
+    public function themlapphieu(Request $request,$idHealthFacility, $idMedicalStation)
     {
        $this->validate($request,[
-        'nguonnhap' => ['required'],
-        'nguoilap' => ['required'],
         'ngaynhap' => ['required'],
         'sophieu' => ['required'],
+        'nguoilap' => ['required'],
+        'nguonnhap' => ['required'],
         'ghichu' => ['required'],
        ],
        [
@@ -56,14 +57,35 @@ class PhieulapController extends Controller
        $phieulap->trangthai = 0;
        $phieulap->ghichu = $request->ghichu;
        $phieulap->save();
-       Session::flash('success','Lập phiếu thành công');
-       return back();
-
+       return  redirect()->route('manager.thuoc_vattu.danhsachthuoccannhap',
+       ['idHealthFacility'=>$idHealthFacility,
+        'idMedicalStation'=>$idMedicalStation
+       ]
+        );
     }
 
+    public function danhsachthuoccannhap($idHealthFacility, $idMedicalStation)
+    {
+        $title = 'Import danh sách thuốc cần nhập';
+        // $tenthuoc = DB::table('danhmucthuoc')->where('id_tramyte', $idMedicalStation)->get();
+        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
+        $sophieu = DB::table('Phieunhapthuocchitiet')->get();
+        $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
+        $nguonnhap = DB::table('danhmucnguon')->get();
+        return view('thuoc_vattu.quanlynhap.listthuocnhap', 
+        [
+            'title'=>$title,
+             'nguonnhap'=>$nguonnhap,
+             'idMedicalStation'=> $idMedicalStation,
+             'idHealthFacility'=> $idHealthFacility,
+             'nameMedicalStation'=> $nameMedicalStation,
+             'sophieu'=>$sophieu
+        ]);
+    }
     public function import_csv(Request $request){
         $path = $request->file('file')->getRealPath();
         Excel::import(new PhieunhapthuocchitietImport, $path);
+        session()->flash('success', 'Gưi yêu cầu nhập thuốc thành công');
         return back();
     }
 

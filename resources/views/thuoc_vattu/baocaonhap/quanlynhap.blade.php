@@ -31,7 +31,7 @@
                   <td class=""><input type="date" name="ngaybatdau" required id=""></td>
                   <td>
                     <span class="step ml-3">3</span>
-                    <label class="thang_bd" for="thang_bd">Từ:<label></label></label>
+                    <label class="thang_bd" for="thang_bd">Đến:<label></label></label>
                   </td>
                   <td><input type="date" name="ngayketthuc" required id=""></td>
                 </tr>

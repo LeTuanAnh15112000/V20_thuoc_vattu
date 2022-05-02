@@ -64,6 +64,7 @@
     <!-- Content Header (Page header) -->
     <div class="row">
       <div class="col">
+        @include('thuoc_vattu.layouts.alert')
       </div>
     </div>
     <section class="content-header">
@@ -75,7 +76,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            {{-- <div class="card">
+            <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Phiếu nhập thuốc</h3>
               </div>
@@ -91,7 +92,7 @@
                       <input type="file" class="form-control mr-3 mb-2" id="file" accept=".xlsx" name="file" required />
                     </div>
                     <div class="col-6">
-                      <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
+                      <input type="submit"  value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
                     </div>
                   </div>
                   </form>
@@ -102,125 +103,33 @@
                </div>
               </div>
               <!-- /.card-body -->
-            </div> --}}
+            </div>
             <!-- /.card -->
   
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Phiếu nhập thuốc chi tiết</h3>
-              </div>
+           
               <!-- /.card-header -->
               <div class="card-body">
-                </div>
-                   <form action="/manager/thuoc_vattu/lapphieu/Add/{{$idHealthFacility}}/{{$idMedicalStation}}" method="post">
-                       @csrf
-                           <div class="container-fluid">
-                             <!-- SELECT2 EXAMPLE -->
-                             <div class="card card-default">
-                               <div class="card-header">
-                     
-                                 <div class="card-tools">
-                                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                     <i class="fas fa-minus"></i>
-                                   </button>
-                                 </div>
-                               </div>
-       
-                               <!-- /.card-header -->
-                               <div class="card-body">
-                                 <div class="row ">
-                                   <!-- /.col -->
-                                   <div class="col-md-4">
-                                     <div class="form-group" style="margin-bottom: 4px">
-                                       <span class="step">1</span>
-                                       <label>Ngày nhập: </label>
-                                       <label for=""><input type="date" name="ngaynhap" id=""></label>
-                                     </div>
-                                   </div>
-                                   <div class="col-md-4">
-                                     <div class="form-group" style="margin-bottom: 4px">
-                                       <span class="step">2</span>
-                                       <label>Số phiếu: </label>
-                                       <label for="">
-                                         <input type="number" value="" name="sophieu" id="">
-                                       </label>
-                                     </div>
-                                   </div>
-                                   <div class="col-md-4">
-                                     <div class="form-group" style="margin-bottom: 4px">
-                                       <span class="step">3</span>
-                                       <label>Người lập phiếu: </label>
-                                       <label for="">
-                                         <input type="text" name="nguoilap" id="">
-                                       </label>
-                                     </div>
-                                   </div>
-                                 
-                                     <div class="col-md-4" style="margin-bottom: 4px">
-                                       <div class="form-group">
-                                         <span class="step">4</span>
-                                         <label class="step">Tên nguồn nhập: </label>
-                                         <label for="">
-                                           <select class="form-control select2" style="padding: 0px 1px; height: 29px;" name="nguonnhap" style="width: 100%;">
-                                                @foreach ($nguonnhap as $nn)
-                                                <option>{{$nn->tennguon}}</option>
-                                                @endforeach
-                                            </select>
-                                         </label>
-                                       </div>
-                                     </div>
-                                 </div>
-                                 
-                               <!-- /.card-body -->
-                             </div>
-                             <!-- /.card -->
-       
-                           <div class="col-md-12">
-                               <div class="card card-outline card-info">
-                                 <div class="card-header">
-                                   <h3 class="card-title">
-                                     Ghi chú
-                                   </h3>
-                                 </div>
-                                 <!-- /.card-header -->
-                                 <div class="card-body">
-                                   <textarea name="ghichu" id="summernote">
-                                     Place <em>some</em> <u>text</u> <strong>here</strong>
-                                   </textarea>
-                                 </div>
-                               </div>
-                           </div>
-                           <div class="col">
-                             <a  href="/manager/thuoc_vattu/lapdanhsachthuoc/{{$idHealthFacility}}/{{$idMedicalStation}}">
-                               <button type="submit" class="btn btn-primary float-right mb-2">Kê tiếp</button>
-                             </a>
-                          </div>
-                           <hr class="duongvien">
-
-                           <section class="content">
-                            <div class="container-fluid">
-                              <p class="bold mr-2">- Hạn dùng:</p>
-                              <label class="handung color_1">07 ngày</label>
-                              <label class="handung color_2">15 ngày</label>
-                              <label class="handung color_3">1 tháng</label>
-                              <label class="handung color_4">2 tháng</label>
-                              <label class="handung color_5">3 tháng</label>
-                              <label class="handung color_6">6 tháng</label>
-                            </div>
-                            <div class="container-fluid">
-                                <h5 class="font-weight-bold">* Hướng dẫn sử dụng</h5>
-                                <ol>
-                                    <li class="danhsachhuongdan">Lập phiếu nhập thuốc theo ngày nhập (Không được để chống).</li>
-                                    <li class="danhsachhuongdan">Số phiếu nhập thuốc (Không được để trống).</li>
-                                    <li class="danhsachhuongdan">Ngưởi lập phiếu (không được để trống).</li>
-                                    <li class="danhsachhuongdan">Tên nguồn nhập (không được để trống).</li>
-                                    <li class="danhsachhuongdan">Ghi chú ghi thông tin cần thiết.</li>
-                                    <li class="danhsachhuongdan">Nút tiếp theo: Chuyển sang trang lập phiếu nhập (nhập danh sách thuốc cần nhập).</li>
-                                </ol>
-                            </div>
-                          </section>
-                      
-                   </form>
+                <hr class="duongvien">
+                <section class="content">
+                  <div class="container-fluid">
+                    <p class="bold mr-2">- Hạn dùng:</p>
+                    <label class="handung color_1">07 ngày</label>
+                    <label class="handung color_2">15 ngày</label>
+                    <label class="handung color_3">1 tháng</label>
+                    <label class="handung color_4">2 tháng</label>
+                    <label class="handung color_5">3 tháng</label>
+                    <label class="handung color_6">6 tháng</label>
+                  </div>
+                  <div class="container-fluid">
+                      <h5 class="font-weight-bold">* Hướng dẫn sử dụng</h5>
+                      <ol>
+                          <li class="danhsachhuongdan">Danh sách phải tạo bằng Excel.</li>
+                          <li class="danhsachhuongdan">Danh sách gồm 11 cột theo thứ tự (tên thuốc, số lượng, hàm lượng, dạng trình bày, dạng tế bào, đơn vị, đơn giá, hãng sản xuất, nước sản xuất hạn dùng, số phiếu).</li>
+                          <li class="danhsachhuongdan"><strong>Lưu ý:</strong> ở cột số phiếu <strong>phải nhập đúng số phiếu ở phiếu nhập chi tiết</strong> ở trang trước đó.</li>
+                      </ol>
+                  </div>
+                </section>
               </div>
               <!-- /.card-body -->
             </div>
