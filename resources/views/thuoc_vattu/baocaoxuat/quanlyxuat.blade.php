@@ -15,6 +15,8 @@
 
     <section class="content">
       <div class="container-fluid">
+        <form action="/manager/thuoc_vattu/laybienbankiemxuat/{{$idHealthFacility}}/{{$idMedicalStation}}" method="post" enctype="multipart/form-data">
+          @csrf
         <div class="row d-flex justify-content-center">
             <table class="thoigian_baocaonhap">
                 <tr>
@@ -26,19 +28,20 @@
                     <span class="step">2</span>
                     <label class="thang_bd" for="thang_bd">Từ:<label></label></label>
                   </td>
-                  <td class=""><input type="date" name="" id=""></td>
+                  <td class=""><input type="date" name="ngaybatdau" id=""></td>
                   <td>
                     <span class="step ml-3">3</span>
                     <label class="thang_bd" for="thang_bd">Từ:<label></label></label>
                   </td>
-                  <td><input type="date" name="" id=""></td>
+                  <td><input type="date" name="ngayketthuc" id=""></td>
                 </tr>
             </table>
             
         </div><!-- /.row -->
         <div class="row d-flex justify-content-center mt-3">
-            <input type="button" class="bg-primary laydanhsach" value="Lấy danh sách">
+            <input type="submit" class="bg-primary laydanhsach" value="Lấy danh sách">
         </div>
+      </form> 
         <hr class="duongvien">
       </div><!-- /.container-fluid -->
     </section>
@@ -49,7 +52,7 @@
                 <li class="danhsachhuongdan">Báo cáo theo ngày xuất.</li>
                 <li class="danhsachhuongdan">Thời gian từ ngày (Không được để trống).</li>
                 <li class="danhsachhuongdan">Thời gian đến ngày (không được để trống).</li>
-                <li class="danhsachhuongdan">Nút lấy dữ liệu: Lấy danh sách cần xem theo yêu cầu đã từ bộ lọc</li>
+                <li class="danhsachhuongdan">Nút lấy dữ liệu: Lấy danh sách cần xem theo ngày đã chọn từ bộ lọc</li>
             </ol>
             <h5 ><span class="font-weight-bold">* Chỉ tiêu lấy dữ liệu:</span> Dữ liệu được lấy từ thời gian từ ngày đến thời gian đến.</h5>
         </div>

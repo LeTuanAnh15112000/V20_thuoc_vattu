@@ -66,7 +66,7 @@
             <h5 ><span class="font-weight-bold">* Chỉ tiêu lấy dữ liệu:</span> Dữ liệu được lấy từ thời gian từ ngày đến thời gian đến.</h5>
         </div>
       </section>
-      <span class="loader"></span>
+      <span  class="loader"></span>
   </div>
 
   @endsection

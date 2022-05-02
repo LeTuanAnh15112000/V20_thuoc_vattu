@@ -22,7 +22,7 @@
       <div class="col-12">
         <h4>
           <i class="fas fa-globe"></i>Thông tin kiểm nhập
-          <small class="float-right">Danh sách thuốc được nhập từ: <strong>{{$ngaybatdau}}</strong>  đến <strong> {{$ngayketthuc}}</small>
+          <small class="float-right">Danh sách thuốc đã nhập từ: <strong>{{$ngaybatdau}}</strong>  đến <strong> {{$ngayketthuc}}</small>
         </h4>
       </div>
       <!-- /.col -->

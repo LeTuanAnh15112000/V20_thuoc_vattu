@@ -26,6 +26,7 @@ class PhieuxuatchitietImport implements ToModel
             'hangsanxuat'=>$row[7],
             'nuocsanxuat'=>$row[8],
             'handung'=>$row[9],
+            'sophieu'=>$row[10],
         ]);
     }
 }

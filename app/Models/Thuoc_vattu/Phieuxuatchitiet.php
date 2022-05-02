@@ -21,6 +21,6 @@ class Phieuxuatchitiet extends Model
         'hangsanxuat' ,
         'nuocsanxuat' ,
         'handung' ,
-        'manguon'
+        'sophieu'
         ];
 }

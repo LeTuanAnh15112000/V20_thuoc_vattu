@@ -76,16 +76,41 @@ class BaocaoController extends Controller
             'nameMedicalStation'=> $nameMedicalStation
             ]);
     }
+    public function laybaocaoxuat($idHealthFacility, $idMedicalStation, Request $request){
+        $title = "Lấy danh sách thuốc cần xuất";
+        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
+        $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
+        $ngaybatdau = $request->ngaybatdau;
+        $ngayketthuc = $request->ngayketthuc;
+        $thongtinnguoilapphieuxuat = DB::table('phieuxuat')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
+        $phieuxuatthuocchitiet = DB::table('phieuxuatchitiet')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
+        return view('thuoc_vattu.baocaoxuat.baocaoxuat', [
+            'title'=>$title,
+            'idMedicalStation'=> $idMedicalStation,
+            'idHealthFacility'=> $idHealthFacility,
+            'nameMedicalStation'=> $nameMedicalStation,
+            'ngaybatdau'=> $ngaybatdau,
+            'ngayketthuc'=> $ngayketthuc,
+            'thongtinnguoilapphieuxuat'=> $thongtinnguoilapphieuxuat,
+            'phieuxuatthuocchitiet'=> $phieuxuatthuocchitiet,
+            ]);
+    }
 
-    public function inbaocaoxuat($idHealthFacility, $idMedicalStation){
+    public function inbaocaoxuat($idHealthFacility, $idMedicalStation, $ngaybatdau, $ngayketthuc){
         $title = "In báo cáo xuất";
         $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
+        $thongtinnguoilapphieuxuat = DB::table('phieuxuat')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
+        $phieuxuatthuocchitiet = DB::table('phieuxuatchitiet')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
         return view('thuoc_vattu.baocaoxuat.inbaocaoxuat', [
             'title'=>$title,
             'idMedicalStation'=> $idMedicalStation,
             'idHealthFacility'=> $idHealthFacility,
-            'nameMedicalStation'=> $nameMedicalStation
+            'nameMedicalStation'=> $nameMedicalStation,
+            'ngaybatdau'=> $ngaybatdau,
+            'ngayketthuc'=> $ngayketthuc,
+            'thongtinnguoilapphieuxuat'=> $thongtinnguoilapphieuxuat,
+            'phieuxuatthuocchitiet'=> $phieuxuatthuocchitiet,
             ]);
     }
 

@@ -75,36 +75,6 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            {{-- <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Phiếu nhập thuốc</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <h3 class="row ml-3">Chọn file danh thuốc cần nhập</h3><br>
-                <div class="row ml-3">
-        
-                  <form action="/manager/thuoc_vattu/nhapthuoc/import_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  <div class="row">
-                    <div class="col-6">
-                      <input type="file" class="form-control mr-3 mb-2" id="file" accept=".xlsx" name="file" required />
-                    </div>
-                    <div class="col-6">
-                      <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
-                    </div>
-                  </div>
-                  </form>
-                  <form action="/manager/thuoc_vattu/nhapthuoc/export_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST">
-                      @csrf
-                  <input type="submit" value="Export file Excel" style="display: none;" name="export_csv" class="btn btn-success ml-2">
-                 </form>
-               </div>
-              </div>
-              <!-- /.card-body -->
-            </div> --}}
-            <!-- /.card -->
-  
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Phiếu nhập thuốc chi tiết</h3>
@@ -134,7 +104,7 @@
                                      <div class="form-group" style="margin-bottom: 4px">
                                        <span class="step">1</span>
                                        <label>Ngày nhập: </label>
-                                       <label for=""><input type="date" name="ngaynhap" id=""></label>
+                                       <label for=""><input type="date" value="<?php echo date('Y-m-d') ?>" name="ngaynhap" id=""></label>
                                      </div>
                                    </div>
                                    <div class="col-md-4">
@@ -210,9 +180,9 @@
                             <div class="container-fluid">
                                 <h5 class="font-weight-bold">* Hướng dẫn sử dụng</h5>
                                 <ol>
-                                    <li class="danhsachhuongdan">Lập phiếu nhập thuốc theo ngày nhập (Không được để chống).</li>
+                                    <li class="danhsachhuongdan">Lập phiếu nhập thuốc theo ngày nhập (Không được để chống) mặc định là ngày hiện tại.</li>
                                     <li class="danhsachhuongdan">Số phiếu nhập thuốc (Không được để trống).</li>
-                                    <li class="danhsachhuongdan">Ngưởi lập phiếu (không được để trống).</li>
+                                    <li class="danhsachhuongdan">Người lập phiếu (không được để trống).</li>
                                     <li class="danhsachhuongdan">Tên nguồn nhập (không được để trống).</li>
                                     <li class="danhsachhuongdan">Ghi chú ghi thông tin cần thiết.</li>
                                     <li class="danhsachhuongdan">Nút tiếp theo: Chuyển sang trang lập phiếu nhập (nhập danh sách thuốc cần nhập).</li>

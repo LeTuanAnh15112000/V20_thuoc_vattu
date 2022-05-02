@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Báo cáo nhập</h1>
+            <h1>Danh sách nhập thuốc</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -24,8 +24,8 @@
               <div class="row">
                 <div class="col-12">
                   <h4>
-                    <i class="fas fa-globe"></i> Thông tin kiểm thuốc
-                    <small class="float-right">Danh sách thuốc được nhập từ: <strong>{{$ngaybatdau}}</strong>  đến <strong> {{$ngayketthuc}} </strong></small>
+                    <i class="fas fa-globe"></i> Thông tin kiểm nhập
+                    <small class="float-right">Danh sách thuốc đã nhập từ: <strong>{{$ngaybatdau}}</strong>  đến <strong> {{$ngayketthuc}} </strong></small>
                   </h4>
                 </div>
                 <!-- /.col -->

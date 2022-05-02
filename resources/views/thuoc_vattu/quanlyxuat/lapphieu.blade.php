@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{$title}}</title>
+  <link rel="stylesheet" href="/style/css/baocaonhap.css">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -65,14 +66,8 @@
         @include('thuoc_vattu.layouts.alert')
       </div>
     </div>
-    <section class="content-header">
+    <section class="content-header" >
       <div class="container-fluid">
-     
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Phiếu xuất thuốc</h1>
-          </div>
-        </div>
       </div><!-- /.container-fluid -->
     </section>
    
@@ -81,34 +76,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Phiếu xuất thuốc</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <h3 class="row ml-3">Chọn file danh sách thuốc cần xuất</h3><br>
-                <div class="row ml-3">
-        
-                  <form action="/manager/thuoc_vattu/xuatthuoc/import_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  <div class="row">
-                    <div class="col-6">
-                      <input type="file" class="form-control mr-3 mb-2" id="file" accept=".xlsx" name="file" required />
-                    </div>
-                    <div class="col-6">
-                      <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
-                    </div>
-                  </div>
-                  </form>
-                  <form action="/manager/thuoc_vattu/xuatthuoc/export_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST">
-                      @csrf
-                  <input type="submit" value="Export file Excel" style="display: none" name="export_csv" class="btn btn-success ml-2">
-                 </form>
-               </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
+          
             <!-- /.card -->
   
             <div class="card">
@@ -138,20 +106,29 @@
                                    <!-- /.col -->
                                    <div class="col-md-4">
                                      <div class="form-group">
-                                       <label>Ngày xuất</label><br>
-                                       <input type="date" name="ngayxuat" id="">
+                                       <span class="step">1</span>
+                                       <label>Ngày xuất: </label>
+                                       <label for="">
+                                         <input type="date" name="ngayxuat" value="<?php echo date('Y-m-d');  ?>" id="">
+                                       </label>
                                      </div>
                                    </div>
                                    <div class="col-md-4">
                                      <div class="form-group">
-                                       <label>Số phiếu</label><br>
-                                      <input type="number" name="sophieu" id="">
+                                      <span class="step">2</span>
+                                       <label>Số phiếu</label>
+                                       <label for="">
+                                         <input type="number" name="sophieu" id="">
+                                       </label>
                                      </div>
                                    </div>
                                    <div class="col-md-4">
                                      <div class="form-group">
-                                       <label>Người lập phiếu</label><br>
-                                      <input type="text" name="nguoilap" id="">
+                                      <span class="step">3</span>
+                                       <label>Người lập phiếu</label>
+                                       <label for="">
+                                         <input type="text" name="nguoilap" id="">
+                                       </label>
                                      </div>
                                    </div>
                                  
@@ -177,8 +154,33 @@
                                </div>
                            </div>
                          <div class="col">
-                           <button type="submit" class="btn btn-primary float-right mb-2">Lập phiếu</button>
+                           <a href="/manager/thuoc_vattu/lapdanhsachxuatthuoc/{{$idHealthFacility}}/{{$idMedicalStation}}">
+                             <button type="submit" class="btn btn-primary float-right mb-2">Kế tiếp</button>
+                           </a>
                          </div>
+                         <hr class="duongvien">
+
+                         <section class="content">
+                          <div class="container-fluid">
+                            <p class="bold mr-2">- Hạn dùng:</p>
+                            <label class="handung color_1">07 ngày</label>
+                            <label class="handung color_2">15 ngày</label>
+                            <label class="handung color_3">1 tháng</label>
+                            <label class="handung color_4">2 tháng</label>
+                            <label class="handung color_5">3 tháng</label>
+                            <label class="handung color_6">6 tháng</label>
+                          </div>
+                          <div class="container-fluid">
+                              <h5 class="font-weight-bold">* Hướng dẫn sử dụng</h5>
+                              <ol>
+                                  <li class="danhsachhuongdan">Lập phiếu xuất thuốc theo ngày xuất (Không được để chống) mặc định là ngày hiện tại.</li>
+                                  <li class="danhsachhuongdan">Số phiếu nhập thuốc (Không được để trống).</li>
+                                  <li class="danhsachhuongdan">Người lập phiếu (không được để trống).</li>
+                                  <li class="danhsachhuongdan">Ghi chú ghi thông tin cần thiết.</li>
+                                  <li class="danhsachhuongdan">Nút tiếp theo: Chuyển sang trang lập phiếu xuất (nhập danh sách thuốc cần xuất).</li>
+                              </ol>
+                          </div>
+                        </section>
                    </form>
               </div>
               <!-- /.card-body -->

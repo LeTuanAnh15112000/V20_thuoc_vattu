@@ -25,7 +25,7 @@ class PhieuxuatController extends Controller
              'nameMedicalStation'=> $nameMedicalStation,
         ]);
     }
-    public function themlapphieu(Request $request)
+    public function themlapphieu(Request $request,$idHealthFacility, $idMedicalStation)
     {
        $this->validate($request,[
         'nguoilap' => ['required'],
@@ -48,14 +48,31 @@ class PhieuxuatController extends Controller
        $phieulap->trangthai = 0;
        $phieulap->ghichu = $request->ghichu;
        $phieulap->save();
-       Session::flash('success','Lập phiếu thành công');
-       return back();
+       return  redirect()->route('manager.thuoc_vattu.danhsachthuoccanxuat',
+       ['idHealthFacility'=>$idHealthFacility,
+        'idMedicalStation'=>$idMedicalStation
+       ]
+        );
 
     }
+    public function danhsachthuoccanxuat($idHealthFacility, $idMedicalStation){
+        $title = 'Import danh sách thuốc cần xuất';
+        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
+        $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
+        return view('thuoc_vattu.quanlyxuat.listthuocxuat', 
+        [
+            'title'=>$title,
+             'idMedicalStation'=> $idMedicalStation,
+             'idHealthFacility'=> $idHealthFacility,
+             'nameMedicalStation'=> $nameMedicalStation,
+        ]);
+    }
+
 
     public function import_csv(Request $request){
         $path = $request->file('file')->getRealPath();
         Excel::import(new PhieuxuatchitietImport, $path);
+        Session::flash('success', 'Gửi yêu cầu xuất thuốc thành công');
         return back();
     }
 

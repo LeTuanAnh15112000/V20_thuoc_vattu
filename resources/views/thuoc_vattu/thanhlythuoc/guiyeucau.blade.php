@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{$title}}</title>
   {{-- css model gui yeu cau thanh lý --}}
+  <link rel="stylesheet" href="/style/css/baocaonhap.css">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -99,28 +100,40 @@
                           <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Người lập phiếu</label><br>
-                                  <input type="text" name="nguoilapphieu" id=""  placeholder="Người lập phiếu"><br>
+                                  <span class="step">1</span>
+                                  <label>Người lập phiếu: </label>
+                                  <label for="">
+                                    <input type="text" name="nguoilapphieu" id=""  placeholder="Người lập phiếu"><br>
+                                  </label>
                                 </div>
                             </div>
                               <!-- /.col -->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Ngày lập phiếu</label><br>
-                                 <input type="date" name="ngaylap" id="">
+                                  <span class="step">2</span>
+                                  <label>Ngày lập phiếu:</label>
+                                  <label for="">
+                                    <input type="date" value="<?php echo date('Y-m-d')?>" name="ngaylap" id="">
+                                  </label>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label>Số phiếu</label><br>
-                                <input type="number" name="sophieu" id=""  placeholder="Số phiếu"><br>
+                                <span class="step">3</span>
+                                <label>Số phiếu:</label>
+                                <label for="">
+                                  <input type="number" name="sophieu" id=""  placeholder="Số phiếu"><br>
+                                </label>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label>Hủy tất cả thuốc với hạn dùng</label><br>
-                                <input type="text" name="handung" id=""  placeholder="Hủy thuốc với hạn dùng" readonly value="Dưới 3 ngày"><br>
+                                <span class="step">4</span>
+                                <label>Hủy tất cả thuốc với hạn dùng:</label>
+                                <label for="">
+                                  <input type="text" name="handung" id=""  placeholder="Hủy thuốc với hạn dùng" readonly value="Dưới 3 ngày"><br>
+                                </label>
                               </div>
                             </div>
                           </div>
@@ -147,6 +160,30 @@
                   <div class="col">
                      <button type="submit" style="width: 200px;"  class="btn btn-danger float-right mb-3">Gửi yêu cầu thanh lý</button>
                   </div>
+                  <hr class="duongvien">
+
+                  <section class="content">
+                   <div class="container-fluid">
+                     <p class="bold mr-2">- Hạn dùng:</p>
+                     <label class="handung color_1">07 ngày</label>
+                     <label class="handung color_2">15 ngày</label>
+                     <label class="handung color_3">1 tháng</label>
+                     <label class="handung color_4">2 tháng</label>
+                     <label class="handung color_5">3 tháng</label>
+                     <label class="handung color_6">6 tháng</label>
+                   </div>
+                   <div class="container-fluid">
+                       <h5 class="font-weight-bold">* Hướng dẫn sử dụng</h5>
+                       <ol>
+                           <li class="danhsachhuongdan">Người lập phiếu không được để trống.</li>
+                           <li class="danhsachhuongdan">Số phiếu nhập thuốc (Không được để trống).</li>
+                           <li class="danhsachhuongdan">Ngày lập phiểu không được để trống.</li>
+                           <li class="danhsachhuongdan">Ghi chú ghi thông tin cần thiết.</li>
+                       </ol>
+                       <h5 ><span class="font-weight-bold">* Chỉ tiêu lấy dữ liệu:</span> Tất các thuốc hết hạn sẽ được gửi đi chờ yêu cầu xác nhận hủy thuốc ở trung tâm y tế. Sau khi xác nhận thuốc sẽ được hủy khỏi dữ liệu.</h5>
+
+                   </div>
+                 </section>
             </form>
         </div>
     

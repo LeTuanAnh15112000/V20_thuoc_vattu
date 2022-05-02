@@ -238,7 +238,9 @@ Route::prefix('manager')->name('manager.')->group(function(){
             // lập phiếu xuất
            Route::get('lapphieuxuat/{idHealthFacility}/{idMedicalStation}', [PhieuxuatController::class, 'lapphieu'])->name('lapphieuxuat');
            Route::post('lapphieuxuat/Add/{idHealthFacility}/{idMedicalStation}', [PhieuxuatController::class, 'themlapphieu'])->name('themlapphieu');
-
+           // tiếp theo phiếu xuất chi tiếp lập danh sách thuốc cần xuất
+           Route::get('lapdanhsachxuatthuoc/{idHealthFacility}/{idMedicalStation}', [PhieuxuatController::class, 'danhsachthuoccanxuat'])->name('danhsachthuoccanxuat');
+                    
 
             //    excel
             Route::post('/xuatthuoc/import_csv/{idHealthFacility}/{idMedicalStation}', [PhieuxuatController::class, 'import_csv'])->name('import_csv');
@@ -273,14 +275,15 @@ Route::prefix('manager')->name('manager.')->group(function(){
             Route::get('/phanloaithuoc/{idHealthFacility}/{idMedicalStation}',[PhanloaithuocController::class, 'phanloai'])->name('phanloai');
             Route::get('loaithuoc/{idHealthFacility}/{idMedicalStation}/{idthuoc}',[PhanloaithuocController::class, 'loaithuoc'])->name('loaithuoc');
 
-
+            
             // Quản lý và kết xuất thông tin báo cáo
             Route::get('/bienbankiemnhap/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaonhap'])->name('baocaonhap');
             Route::post('/laybienbankiemnhap/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'laybaocaonhap'])->name('laybaocaonhap');
             Route::get('/inbaocaonhap/{idHealthFacility}/{idMedicalStation}/{ngaybatdau}/{ngayketthuc}',[BaocaoController::class, 'inbaocaonhap'])->name('inbaocaonhap');
             
             Route::get('/bienbankiemxuat/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaoxuat'])->name('baocaoxuat');
-            Route::get('/inbaocaoxuat/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'inbaocaoxuat'])->name('inbaocaoxuat');
+            Route::post('/laybienbankiemxuat/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'laybaocaoxuat'])->name('laybaocaoxuat');
+            Route::get('/inbaocaoxuat/{idHealthFacility}/{idMedicalStation}/{ngaybatdau}/{ngayketthuc}',[BaocaoController::class, 'inbaocaoxuat'])->name('inbaocaoxuat');
 
 
             Route::get('/bienbankiemke/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaokiemke'])->name('baocaokiemke');

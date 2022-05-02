@@ -76,29 +76,29 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="card">
+              <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Phiếu nhập thuốc</h3>
+                <h3 class="card-title">Phiếu xuất thuốc</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <h3 class="row ml-3">Chọn file danh sách thuốc cần nhập</h3><br>
+                <h3 class="row ml-3">Chọn file danh sách thuốc cần xuất</h3><br>
                 <div class="row ml-3">
         
-                  <form action="/manager/thuoc_vattu/nhapthuoc/import_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST" enctype="multipart/form-data">
+                  <form action="/manager/thuoc_vattu/xuatthuoc/import_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <div class="row">
                     <div class="col-6">
                       <input type="file" class="form-control mr-3 mb-2" id="file" accept=".xlsx" name="file" required />
                     </div>
                     <div class="col-6">
-                      <input type="submit"  value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
+                      <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
                     </div>
                   </div>
                   </form>
-                  <form action="/manager/thuoc_vattu/nhapthuoc/export_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST">
+                  <form action="/manager/thuoc_vattu/xuatthuoc/export_csv/{{$idHealthFacility}}/{{$idMedicalStation}}" method="POST">
                       @csrf
-                  <input type="submit" value="Export file Excel" style="display: none;" name="export_csv" class="btn btn-success ml-2">
+                  <input type="submit" value="Export file Excel" style="display: none" name="export_csv" class="btn btn-success ml-2">
                  </form>
                </div>
               </div>
@@ -126,7 +126,7 @@
                       <ol>
                           <li class="danhsachhuongdan">Danh sách phải tạo bằng Excel.</li>
                           <li class="danhsachhuongdan">Danh sách gồm 11 cột theo thứ tự (tên thuốc, số lượng, hàm lượng, dạng trình bày, dạng tế bào, đơn vị, đơn giá, hãng sản xuất, nước sản xuất hạn dùng, số phiếu).</li>
-                          <li class="danhsachhuongdan"><strong>Lưu ý:</strong> ở cột số phiếu <strong>phải nhập đúng số phiếu ở phiếu nhập chi tiết</strong> ở trang trước đó.</li>
+                          <li class="danhsachhuongdan"><strong>Lưu ý:</strong> ở cột số phiếu <strong>phải nhập đúng số phiếu ở phiếu xuất chi tiết</strong> ở trang trước đó.</li>
                       </ol>
                   </div>
                 </section>
