@@ -29,8 +29,8 @@ class BaocaoController extends Controller
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
         $ngaybatdau = $request->ngaybatdau;
         $ngayketthuc = $request->ngayketthuc;
-        $thongtinnguoinhapthuoc = DB::table('phieunhapthuoc')->where('ngaynhap', '>', $ngaybatdau)->get();
-        $phieunhapthuocchitiet = DB::table('phieunhapthuocchitiet')->get();
+        $thongtinnguoinhapthuoc = DB::table('phieunhapthuoc')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
+        $phieunhapthuocchitiet = DB::table('phieunhapthuocchitiet')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
         return view('thuoc_vattu.baocaonhap.baocaonhap', [
             'title'=>$title,
             'idMedicalStation'=> $idMedicalStation,
@@ -44,19 +44,19 @@ class BaocaoController extends Controller
     }
 
 
-    public function inbaocaonhap($idHealthFacility, $idMedicalStation, $ngayketthuc, $ngaybatdau){
-        $title = "In báo cáo nhập";
+    public function inbaocaonhap($idHealthFacility, $idMedicalStation, $ngaybatdau,  $ngayketthuc){
+        $title = "In báo cáo kiểm nhập";
         $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
-        $thongtinnguoinhapthuoc = DB::table('phieunhapthuoc')->where('ngaynhap', '>', $ngaybatdau)->get();
-        $phieunhapthuocchitiet = DB::table('phieunhapthuocchitiet')->get();
-        return view('thuoc_vattu.baocaonhap.inbaocao', [
+        $thongtinnguoinhapthuoc = DB::table('phieunhapthuoc')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
+        $phieunhapthuocchitiet = DB::table('phieunhapthuocchitiet')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
+        return view('thuoc_vattu.baocaonhap.inbaocaokiemnhap', [
             'title'=>$title,
-            'ngaybatdau'=> $ngaybatdau,
-            'ngayketthuc'=> $ngayketthuc,
             'idMedicalStation'=> $idMedicalStation,
             'idHealthFacility'=> $idHealthFacility,
+            'ngaybatdau'=> $ngaybatdau,
             'nameMedicalStation'=> $nameMedicalStation,
+            'ngayketthuc'=> $ngayketthuc,
             'thongtinnguoinhapthuoc'=> $thongtinnguoinhapthuoc,
             'phieunhapthuocchitiet'=> $phieunhapthuocchitiet,
             ]);

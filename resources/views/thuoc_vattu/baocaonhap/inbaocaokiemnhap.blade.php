@@ -19,41 +19,36 @@
   <section class="invoice">
     <!-- title row -->
     <div class="row">
-      @foreach ($thongtinnguoinhapthuoc as $thongtin)
-
       <div class="col-12">
         <h4>
-          <i class="fas fa-globe"></i> Thông tin nhập thuốc
-          <small class="float-right">Date: 2/10/2014</small>
+          <i class="fas fa-globe"></i>Thông tin kiểm nhập
+          <small class="float-right">Danh sách thuốc được nhập từ: <strong>{{$ngaybatdau}}</strong>  đến <strong> {{$ngayketthuc}}</small>
         </h4>
       </div>
       <!-- /.col -->
     </div>
     <!-- info row -->
     <div class="row invoice-info">
+      @foreach ($thongtinnguoinhapthuoc as $thongtin)
       <div class="col-sm-4 invoice-col">
-        <div class="col-sm-4 invoice-col">
-          <p class="text-dark mb-0" ><strong>Số phiếu: </strong>{{$thongtin->sophieu}} </p>
-          <p class="text-dark mb-0"><strong>Họ tên người lập phiếu:</strong> {{$thongtin->nguoilap}}</p>
-          <p class="text-dark mb-0"><strong>Nguồn nhập:</strong> {{$thongtin->nguonnhap}}</p>
-          <p class="text-dark mb-0"><strong>Ngày nhập:</strong> {{$thongtin->ngaynhap}}</p>
-          <p class="text-dark mb-0"><strong>Ghi chú:</strong> {{$thongtin->ghichu}}</p>
-          <p class="text-dark mb-3"><strong>Trạng thái: {{$thongtin->trangthai}}</strong> (0: chưa duyệt, 1: đã duyệt)</p>
-        </div>
+        <p class="text-dark mb-0"><strong>Số phiếu: </strong>{{$thongtin->sophieu}} </p>
+        <p class="text-dark mb-0"><strong>Họ tên người lập phiếu:</strong> {{$thongtin->nguoilap}}</p>
+        <p class="text-dark mb-0"><strong>Nguồn nhập:</strong> {{$thongtin->nguonnhap}}</p>
+        <p class="text-dark mb-0"><strong>Ngày lập phiếu nhập:</strong> {{$thongtin->created_at}}</p>
+        <p class="text-dark mb-0"><strong>Ghi chú:</strong> {{$thongtin->ghichu}}</p>
+        <p class="text-dark mb-3"><strong>Trạng thái: {{$thongtin->trangthai}}</strong> (0: chưa duyệt, 1: đã duyệt)</p>
       </div>
       @endforeach
-      <!-- /.col -->
-     
+
       <!-- /.col -->
     </div>
     <!-- /.row -->
 
     <!-- Table row -->
     <div class="row">
-      @foreach ($phieunhapthuocchitiet as $pntct)
-          
-      @endforeach
       <div class="col-12 table-responsive">
+        <h3 class="text-center">Danh sách thuốc đã nhập</h3>
+
         <table class="table table-striped">
           <thead>
           <tr>
@@ -67,24 +62,29 @@
             <th>Hãng sản xuất</th>
             <th>Nước sản xuất</th>
             <th>Hạn dùng</th>
+            <th>Số phiếu</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <th>{{$pntct->tenthuoc}}</th>
-            <th>{{$pntct->soluong}}</th>
-            <th>{{$pntct->hamluong}}</th>
-            <th>{{$pntct->dangtrinhbay}}</th>
-            <th>{{$pntct->dangtebao}}</th>
-            <th>{{$pntct->donvi}}</th>
-            <th>{{$pntct->dongia}}</th> 
-            <th>{{$pntct->hangsanxuat}}</th>
-            <th>{{$pntct->nuocsanxuat}}</th>
-            <th>{{$pntct->handung}}</th>
-          </tr>
+            @foreach($phieunhapthuocchitiet as $pntct)
+                    <tr>
+                      <th>{{$pntct->tenthuoc}}</th>
+                      <th>{{$pntct->soluong}}</th>
+                      <th>{{$pntct->hamluong}}</th>
+                      <th>{{$pntct->dangtrinhbay}}</th>
+                      <th>{{$pntct->dangtebao}}</th>
+                      <th>{{$pntct->donvi}}</th>
+                      <th>{{$pntct->dongia}}</th> 
+                      <th>{{$pntct->hangsanxuat}}</th>
+                      <th>{{$pntct->nuocsanxuat}}</th>
+                      <th>{{$pntct->handung}}</th>
+                      <th>{{$pntct->sophieu}}</th>
+                    </tr>
+                    @endforeach
           </tbody>
-        </table>
-      </div>
+          </table>
+        </div>
+   
       <!-- /.col -->
     </div>
     <!-- /.row -->

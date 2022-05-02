@@ -24,7 +24,7 @@
               <div class="row">
                 <div class="col-12">
                   <h4>
-                    <i class="fas fa-globe"></i> Thông tin nhập thuốc
+                    <i class="fas fa-globe"></i> Thông tin kiểm thuốc
                     <small class="float-right">Danh sách thuốc được nhập từ: <strong>{{$ngaybatdau}}</strong>  đến <strong> {{$ngayketthuc}} </strong></small>
                   </h4>
                 </div>
@@ -33,10 +33,10 @@
               <!-- info row -->
               <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                  <p class="text-dark mb-0" ><strong>Số phiếu: </strong>{{$thongtin->sophieu}} </p>
+                  <p class="text-dark mb-0"><strong>Số phiếu: </strong>{{$thongtin->sophieu}} </p>
                   <p class="text-dark mb-0"><strong>Họ tên người lập phiếu:</strong> {{$thongtin->nguoilap}}</p>
                   <p class="text-dark mb-0"><strong>Nguồn nhập:</strong> {{$thongtin->nguonnhap}}</p>
-                  <p class="text-dark mb-0"><strong>Ngày nhập:</strong> {{$thongtin->ngaynhap}}</p>
+                  <p class="text-dark mb-0"><strong>Ngày lập phiếu nhập:</strong> {{$thongtin->created_at}}</p>
                   <p class="text-dark mb-0"><strong>Ghi chú:</strong> {{$thongtin->ghichu}}</p>
                   <p class="text-dark mb-3"><strong>Trạng thái: {{$thongtin->trangthai}}</strong> (0: chưa duyệt, 1: đã duyệt)</p>
                 </div>
@@ -47,8 +47,6 @@
 
               <!-- Table row -->
               <div class="row">
-                @foreach ($phieunhapthuocchitiet as $pntct)
-                    
                 <div class="col-12 table-responsive">
                   <table class="table table-striped">
                     <thead>
@@ -63,9 +61,11 @@
                       <th>Hãng sản xuất</th>
                       <th>Nước sản xuất</th>
                       <th>Hạn dùng</th>
+                      <th>Số phiếu</th>
                     </tr>
                     </thead>
                     <tbody>
+                @foreach($phieunhapthuocchitiet as $pntct)
                     <tr>
                       <th>{{$pntct->tenthuoc}}</th>
                       <th>{{$pntct->soluong}}</th>
@@ -77,10 +77,11 @@
                       <th>{{$pntct->hangsanxuat}}</th>
                       <th>{{$pntct->nuocsanxuat}}</th>
                       <th>{{$pntct->handung}}</th>
+                      <th>{{$pntct->sophieu}}</th>
                     </tr>
+                    @endforeach
                     </tbody>
                   </table>
-                @endforeach
 
                 </div>
                 <!-- /.col -->
@@ -89,7 +90,7 @@
               <!-- this row will not appear when printing -->
               <div class="row no-print">
                 <div class="col-12 float-right">
-                  <a href="/manager/thuoc_vattu/inbaocao/{{$idHealthFacility}}/{{$idMedicalStation}}/{{$ngaybatdau}}/{{$ngayketthuc}}" rel="noopener" target="_blank" class="btn btn-primary float-right"><i class="fas fa-print"></i> Print</a>
+                  <a href="/manager/thuoc_vattu/inbaocaonhap/{{$idHealthFacility}}/{{$idMedicalStation}}/{{$ngaybatdau}}/{{$ngayketthuc}}" rel="noopener" target="_blank" class="btn btn-primary float-right"><i class="fas fa-print"></i> Print</a>
                 </div>
               </div>
             </div>

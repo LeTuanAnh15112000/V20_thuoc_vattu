@@ -277,7 +277,7 @@ Route::prefix('manager')->name('manager.')->group(function(){
             // Quản lý và kết xuất thông tin báo cáo
             Route::get('/bienbankiemnhap/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaonhap'])->name('baocaonhap');
             Route::post('/laybienbankiemnhap/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'laybaocaonhap'])->name('laybaocaonhap');
-            Route::get('/inbaocao/{idHealthFacility}/{idMedicalStation}/{ngaybatdau}/{ngayketthuc}',[BaocaoController::class, 'inbaocaonhap'])->name('inbaocaonhap');
+            Route::get('/inbaocaonhap/{idHealthFacility}/{idMedicalStation}/{ngaybatdau}/{ngayketthuc}',[BaocaoController::class, 'inbaocaonhap'])->name('inbaocaonhap');
             
             Route::get('/bienbankiemxuat/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'baocaoxuat'])->name('baocaoxuat');
             Route::get('/inbaocaoxuat/{idHealthFacility}/{idMedicalStation}',[BaocaoController::class, 'inbaocaoxuat'])->name('inbaocaoxuat');
