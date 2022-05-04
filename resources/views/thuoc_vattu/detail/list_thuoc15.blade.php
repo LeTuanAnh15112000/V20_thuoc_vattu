@@ -17,7 +17,7 @@
             <div class="card-header">
               <h5 class="card-title mr-3 mt-1 text-dark">Danh sách thuốc dưới 15 ngày</h5>
               <a href="/manager/thuoc_vattu/list_medicine7/{{$idHealthFacility}}/{{$idMedicalStation}}">
-                <button type="button" class="btn" style="background: rgb(255,122,122);padding: 0px 12px;">Dưới 15 ngày</button>
+                <button type="button" class="btn" style="background: rgb(255,122,122);padding: 0px 12px;">Dưới 7 ngày</button>
 
               </a>
               <a href="/manager/thuoc_vattu/list_medicine30/{{$idHealthFacility}}/{{$idMedicalStation}}">

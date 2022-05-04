@@ -167,6 +167,25 @@
               </li>
             </ul>
           </li>
+          @hasrole('department_of_health|medical_center')
+          <li  class="nav-item ">
+            <a href="#"  class="nav-link ">
+              <i class="nav-icon 	fa fa-arrow-circle-left"></i>
+              <p>
+            Quay lại danh sách trạm y tế
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li  class="nav-item">
+                <a  href="/manager/dashboard/medical-station/list/78" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Quay lại</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @endhasrole
           {{-- Logout --}}
           <li class="nav-item">
             <a href="http://127.0.0.1:8000" class="nav-link bg-danger"  style="cursor: pointer">

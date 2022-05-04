@@ -32,7 +32,6 @@ class ThanhlyThuochethanController extends Controller
         $tenthuoc = DB::table('danhmucthuoc')->where('id_tramyte',$idMedicalStation )->where('handung', '<' , 10)->get();
         $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
-
         return view('thuoc_vattu.thanhlythuoc.guiyeucau', 
         [
             'title'=>$title,
