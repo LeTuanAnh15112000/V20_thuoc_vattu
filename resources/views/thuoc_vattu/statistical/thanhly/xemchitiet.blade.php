@@ -6,6 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
+         
           <h1>Thông tin chi tiết</h1>
         </div>
       </div>
@@ -17,7 +18,7 @@
       <div class="row">
         <div class="col-12">
           <!-- Main content -->
-          @foreach ($thanhlythuoc as $tlt)
+          @foreach ($laythongtin as $tlt)
           <div class="invoice p-3 mb-3">
             <!-- title row -->
             <div class="row">
@@ -44,79 +45,80 @@
           </div>
           <!-- /.invoice -->
         </div><!-- /.col -->
-        <div class="row">
-          <div class="col-12">
-          
-            <!-- /.card -->
-  
-            <div class="card">
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Tên thuốc</th>
-                    <th>Số lượng</th>
-                    <th>Hàm lượng</th>
-                    <th>Dạng trình bày</th>
-                    <th>Dạng tế bào</th>
-                    <th>Đơn vị</th>
-                    <th>Đơn giá</th>
-                    <th>Hãng sản xuất</th>
-                    <th>Nước sản xuất</th>
-                    <th>Hạn dùng</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                      @foreach($medicine as $m)
-                  <tr>
-                          <th>{{$m->tenthuoc}}</th>
-                          <th>{{$m->soluong}}</th>
-                          <th>{{$m->hamluong}}</th>
-                          <th>{{$m->dangtrinhbay}}</th>
-                          <th>{{$m->dangtebao}}</th>
-                          <th>{{$m->donvi}}</th>
-                          <th>{{$m->dongia}}</th> 
-                          <th>{{$m->hangsanxuat}}</th>
-                          <th>{{$m->nuocsanxuat}}</th>
-                          <th>
-                            <?php
-                            $date = date('2022-04-30');
-                            $newdate = strtotime ( '+' .$m->handung. 'day' , strtotime ( $date ) ) ;
-                            $newdate = date ( 'Y-m-j' , $newdate );
-                            echo $newdate;
-                            ?>
-                          </th>
-                  </tr>
-                     @endforeach
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Tên thuốc</th>
-                    <th>Số lượng</th>
-                    <th>Hàm lượng</th>
-                    <th>Dạng trình bày</th>
-                    <th>Dạng tế bào</th>
-                    <th>Đơn vị</th>
-                    <th>Đơn giá</th>
-                    <th>Hãng sản xuất</th>
-                    <th>Nước sản xuất</th>
-                    <th>Hạn dùng</th>
-                  </tr>
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-body -->
-          </div>
-          <a href="/manager/thuoc_vattu/duyetphieu/{{$idHealthFacility}}/{{$idMedicalStation}}">
-            <button type="button" style="width: 200px;"  class="btn btn-danger float-right js-thanhly">Duyệt phiếu</button>
-          </a>
-            <!-- /.card -->
-         
-          </div>
-          <!-- /.col -->
-        </div>
+     
       </div><!-- /.row -->
+      <div class="row">
+        <div class="col-12">
+        
+          <!-- /.card -->
+
+          <div class="card">
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Tên thuốc</th>
+                  <th>Số lượng</th>
+                  <th>Hàm lượng</th>
+                  <th>Dạng trình bày</th>
+                  <th>Dạng tế bào</th>
+                  <th>Đơn vị</th>
+                  <th>Đơn giá</th>
+                  <th>Hãng sản xuất</th>
+                  <th>Nước sản xuất</th>
+                  <th>Hạn dùng</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach($medicine as $m)
+                <tr>
+                        <th>{{$m->tenthuoc}}</th>
+                        <th>{{$m->soluong}}</th>
+                        <th>{{$m->hamluong}}</th>
+                        <th>{{$m->dangtrinhbay}}</th>
+                        <th>{{$m->dangtebao}}</th>
+                        <th>{{$m->donvi}}</th>
+                        <th>{{$m->dongia}}</th> 
+                        <th>{{$m->hangsanxuat}}</th>
+                        <th>{{$m->nuocsanxuat}}</th>
+                        <th>
+                          <?php
+                          $date = date('2022-04-30');
+                          $newdate = strtotime ( '+' .$m->handung. 'day' , strtotime ( $date ) ) ;
+                          $newdate = date ( 'Y-m-j' , $newdate );
+                          echo $newdate;
+                          ?>
+                        </th>
+                </tr>
+                   @endforeach
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Tên thuốc</th>
+                  <th>Số lượng</th>
+                  <th>Hàm lượng</th>
+                  <th>Dạng trình bày</th>
+                  <th>Dạng tế bào</th>
+                  <th>Đơn vị</th>
+                  <th>Đơn giá</th>
+                  <th>Hãng sản xuất</th>
+                  <th>Nước sản xuất</th>
+                  <th>Hạn dùng</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <a href="/manager/thuoc_vattu/duyetphieu/{{$idHealthFacility}}/{{$idMedicalStation}}">
+          <button type="button" style="width: 200px;"  class="btn btn-danger float-right js-thanhly">Duyệt phiếu</button>
+        </a>
+          <!-- /.card -->
+       
+        </div>
+        <!-- /.col -->
+      </div>
     </div><!-- /.container-fluid -->
   </section>
 </div>    

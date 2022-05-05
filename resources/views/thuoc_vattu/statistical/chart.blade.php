@@ -2,6 +2,9 @@
 @section('content')
 <div class="content-wrapper bg-white">
     <div class="container">
+       <div class="row">
+              @include('thuoc_vattu.layouts.alert');
+       </div>
         <div class="mt-4">
             <h3 class="text-primary text-center">THỐNG KÊ VẬT TƯ Y TẾ</h3>
         </div>
