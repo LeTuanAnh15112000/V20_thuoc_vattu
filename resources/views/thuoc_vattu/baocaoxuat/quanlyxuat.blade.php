@@ -28,12 +28,12 @@
                     <span class="step">2</span>
                     <label class="thang_bd" for="thang_bd">Từ:<label></label></label>
                   </td>
-                  <td class=""><input type="date" name="ngaybatdau" id=""></td>
+                  <td class=""><input type="date" required name="ngaybatdau" id=""></td>
                   <td>
                     <span class="step ml-3">3</span>
                     <label class="thang_bd" for="thang_bd">Từ:<label></label></label>
                   </td>
-                  <td><input type="date" name="ngayketthuc" id=""></td>
+                  <td><input type="date" required name="ngayketthuc" id=""></td>
                 </tr>
             </table>
             

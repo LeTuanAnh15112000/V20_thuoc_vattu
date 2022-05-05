@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Thuoc_vattu;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Session;
 class BaocaoController extends Controller
 {
 
@@ -24,23 +24,40 @@ class BaocaoController extends Controller
 
     // lấy danh sách thuốc nhập
     public function laybaocaonhap($idHealthFacility, $idMedicalStation, Request $request){
-        $title = "Lấy danh sách nhập thuốc";
         $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
         $ngaybatdau = $request->ngaybatdau;
         $ngayketthuc = $request->ngayketthuc;
         $thongtinnguoinhapthuoc = DB::table('phieunhapthuoc')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
         $phieunhapthuocchitiet = DB::table('phieunhapthuocchitiet')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
-        return view('thuoc_vattu.baocaonhap.baocaonhap', [
-            'title'=>$title,
-            'idMedicalStation'=> $idMedicalStation,
-            'idHealthFacility'=> $idHealthFacility,
-            'nameMedicalStation'=> $nameMedicalStation,
-            'ngaybatdau'=> $ngaybatdau,
-            'ngayketthuc'=> $ngayketthuc,
-            'thongtinnguoinhapthuoc'=> $thongtinnguoinhapthuoc,
-            'phieunhapthuocchitiet'=> $phieunhapthuocchitiet,
-            ]);
+
+        $dieukien1 = DB::table('phieunhapthuoc')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->count();
+        $dieukien2 = DB::table('phieunhapthuocchitiet')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->count();
+
+        if( $dieukien1 > 0 && $dieukien2 >0)
+        {
+            $title = "Lấy danh sách nhập thuốc";
+            return view('thuoc_vattu.baocaonhap.baocaonhap', [
+                'title'=>$title,
+                'idMedicalStation'=> $idMedicalStation,
+                'idHealthFacility'=> $idHealthFacility,
+                'nameMedicalStation'=> $nameMedicalStation,
+                'ngaybatdau'=> $ngaybatdau,
+                'ngayketthuc'=> $ngayketthuc,
+                'thongtinnguoinhapthuoc'=> $thongtinnguoinhapthuoc,
+                'phieunhapthuocchitiet'=> $phieunhapthuocchitiet,
+                ]);
+        }else{
+
+            $title = "không có danh sách nhập thuốc";
+            session()->flash('success', 'Không có dữ liệu trong khoảng thời gian được chọn vui lòng chọn lại thời gian');
+            return view('thuoc_vattu.baocaonhap.khongcobaocaonhap', [
+                'title'=>$title,
+                'idMedicalStation'=> $idMedicalStation,
+                'idHealthFacility'=> $idHealthFacility,
+                'nameMedicalStation'=> $nameMedicalStation,
+                ]);
+        }
     }
 
 
@@ -84,16 +101,34 @@ class BaocaoController extends Controller
         $ngayketthuc = $request->ngayketthuc;
         $thongtinnguoilapphieuxuat = DB::table('phieuxuat')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
         $phieuxuatthuocchitiet = DB::table('phieuxuatchitiet')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->get();
-        return view('thuoc_vattu.baocaoxuat.baocaoxuat', [
-            'title'=>$title,
-            'idMedicalStation'=> $idMedicalStation,
-            'idHealthFacility'=> $idHealthFacility,
-            'nameMedicalStation'=> $nameMedicalStation,
-            'ngaybatdau'=> $ngaybatdau,
-            'ngayketthuc'=> $ngayketthuc,
-            'thongtinnguoilapphieuxuat'=> $thongtinnguoilapphieuxuat,
-            'phieuxuatthuocchitiet'=> $phieuxuatthuocchitiet,
-            ]);
+
+        $dieukien1 = DB::table('phieuxuat')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->count();
+        $dieukien2 = DB::table('phieuxuatchitiet')->where('created_at', '>', $ngaybatdau)->where('created_at', '<', $ngayketthuc)->count();
+        if( $dieukien1 > 0 && $dieukien2 > 0)
+        {
+            $title = "Lấy danh sách thuốc cần xuất";
+            return view('thuoc_vattu.baocaoxuat.baocaoxuat', [
+                'title'=>$title,
+                'idMedicalStation'=> $idMedicalStation,
+                'idHealthFacility'=> $idHealthFacility,
+                'nameMedicalStation'=> $nameMedicalStation,
+                'ngaybatdau'=> $ngaybatdau,
+                'ngayketthuc'=> $ngayketthuc,
+                'thongtinnguoilapphieuxuat'=> $thongtinnguoilapphieuxuat,
+                'phieuxuatthuocchitiet'=> $phieuxuatthuocchitiet,
+                ]);
+        }else{
+
+            $title = "không có danh sách thuốc cần xuất";
+            session()->flash('success', 'Không có dữ liệu trong khoảng thời gian được chọn vui lòng chọn lại thời gian');
+            return view('thuoc_vattu.baocaoxuat.khongcobaocaoxuat', [
+                'title'=>$title,
+                'idMedicalStation'=> $idMedicalStation,
+                'idHealthFacility'=> $idHealthFacility,
+                'nameMedicalStation'=> $nameMedicalStation,
+                ]);
+        }
+       
     }
 
     public function inbaocaoxuat($idHealthFacility, $idMedicalStation, $ngaybatdau, $ngayketthuc){
