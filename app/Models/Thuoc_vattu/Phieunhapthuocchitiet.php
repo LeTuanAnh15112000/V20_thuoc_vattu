@@ -21,6 +21,7 @@ class Phieunhapthuocchitiet extends Model
         'hangsanxuat' ,
         'nuocsanxuat' ,
         'handung' ,
-        'sophieu'
+        'sophieu',
+        'phanloai',//ghi số
         ];
 }

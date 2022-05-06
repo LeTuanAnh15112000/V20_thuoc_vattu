@@ -13,7 +13,7 @@ class DuyetController extends Controller
     public function xoa($idHealthFacility, $idMedicalStation){
         $medicine = DB::table('danhmucthuoc')->where('id_tramyte', $idMedicalStation)->where('handung', '<', 4)->delete();
         $thanhlythuoc = DB::table('thanhlythuocthuochethan')->where('trangthai', '=', 0)->update(['trangthai' => 1]);
-        session()->flash('success', 'Gưi yêu cầu nhập thuốc thành công');
+        session()->flash('success', 'Gửi yêu cầu nhập thuốc thành công');
         return redirect()->route('manager.thuoc_vattu.dashboard',
         ['idHealthFacility'=>$idHealthFacility,
          'idMedicalStation'=>$idMedicalStation

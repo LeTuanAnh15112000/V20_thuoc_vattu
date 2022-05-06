@@ -49,11 +49,11 @@ class XacnhanphieulapController extends Controller
     }
     //nút duyệt phiếu Thêm
     public function them($idHealthFacility, $idMedicalStation){
+        session()->flash('success', 'Xác nhận nhập thuốc thành công');
         $phieunhapthuocchitiet = DB::table('phieunhapthuocchitiet')
         ->join('phieunhapthuoc','phieunhapthuoc.id','phieunhapthuocchitiet.sophieu')
         ->where('phieunhapthuoc.trangthai',0)
         ->get();
-
         foreach($phieunhapthuocchitiet as $value){
             $thuoc = new Thuoc();
             $thuoc->tenthuoc = $value->tenthuoc;
@@ -67,10 +67,13 @@ class XacnhanphieulapController extends Controller
             $thuoc->nuocsanxuat = $value->nuocsanxuat;
             $thuoc->handung = $value->handung;
             $thuoc->id_tramyte = Auth::user()->id;
-            $thuoc->tenphanloai = 1;
+            $thuoc->tenphanloai = $value->phanloai;
             $thuoc->save();
         }
         $phieunhapthuoc = DB::table('phieunhapthuoc')->where('trangthai', '=', 0)->update(['trangthai' => 1]);
-        return back();
+        return redirect()->route('manager.thuoc_vattu.dashboard',
+        ['idHealthFacility'=>$idHealthFacility,
+         'idMedicalStation'=>$idMedicalStation
+    ]);
     }
 }

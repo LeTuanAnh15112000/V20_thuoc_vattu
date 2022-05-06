@@ -1,6 +1,11 @@
 @extends('thuoc_vattu.layouts.main')
 @section('content')
 <div class="content-wrapper bg-white">
+       <div class="row">
+              <div class="col">
+                @include('thuoc_vattu.layouts.alert')
+              </div>
+            </div>
     <div class="container">
         <div class="mt-4">
             <h3 class="text-primary text-center">THỐNG KÊ VẬT TƯ Y TẾ</h3>

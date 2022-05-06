@@ -27,6 +27,7 @@ class Phieunhapthuocchitiet extends Migration
             $table->string('nuocsanxuat')->nullable();
             $table->integer('handung');
             $table->foreignId('sophieu')->constrained('phieunhapthuocchitiet');
+            $table->integer('phanloai');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();
             $table->engine='InnoDB';

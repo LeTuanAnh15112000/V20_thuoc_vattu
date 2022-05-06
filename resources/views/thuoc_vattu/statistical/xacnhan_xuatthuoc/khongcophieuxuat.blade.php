@@ -6,7 +6,7 @@
     <div class="container-fluid">
         @if ($alert)
         <div class="row d-flex justify-content-center alert alert-success">
-          không có phiếu thanh lý thuốc được gửi từ {{$nameMedicalStation}}
+          {{$alert}} {{$nameMedicalStation}}
         </div>
         @endif
       <div class="row mb-2">
@@ -15,11 +15,10 @@
       </div>
     </div><!-- /.container-fluid -->
   </section>
-
   <hr class="duongvien">
-
+  
   <section class="content">
-   <div class="container-fluid">
+      <div class="container-fluid">
      <p class="bold mr-2">- Hạn dùng:</p>
      <label class="handung color_1">07 ngày</label>
      <label class="handung color_2">15 ngày</label>
@@ -31,7 +30,7 @@
    <div class="container-fluid">
        <h5 class="font-weight-bold">* Hướng dẫn sử dụng</h5>
        <ol>
-           <li class="danhsachhuongdan">Dữ liệu được gửi từ trạm y tế khi không có dữ liệu sẽ hiện trang thông báo không có phiếu xác nhận được gửi từ {{$nameMedicalStation}}.</li>
+           <li class="danhsachhuongdan">Dữ liệu được gửi từ trạm y tế khi không có dữ liệu sẽ hiện trang thông báo không có phiếu xác xuất được gửi từ {{$nameMedicalStation}}.</li>
        </ol>
        <h5 ><span class="font-weight-bold">* Chỉ tiêu lấy dữ liệu:</span> Dữ liệu được lấy từ trạm y tế gửi lên gồm thông tin người lập phiếu và danh sách thuốc hết hạn.</h5>
 

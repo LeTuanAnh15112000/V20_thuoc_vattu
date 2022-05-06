@@ -125,6 +125,7 @@
                       <h5 class="font-weight-bold">* Hướng dẫn sử dụng</h5>
                       <ol>
                           <li class="danhsachhuongdan">Danh sách phải tạo bằng Excel.</li>
+                          <li class="danhsachhuongdan">Thông tin xuất thuốc phải giống trong danh sách thuốc.</li>
                           <li class="danhsachhuongdan">Danh sách gồm 11 cột theo thứ tự (tên thuốc, số lượng, hàm lượng, dạng trình bày, dạng tế bào, đơn vị, đơn giá, hãng sản xuất, nước sản xuất hạn dùng, số phiếu).</li>
                           <li class="danhsachhuongdan"><strong>Lưu ý:</strong> ở cột số phiếu <strong>phải nhập đúng số phiếu ở phiếu xuất chi tiết</strong> ở trang trước đó.</li>
                       </ol>

@@ -60,6 +60,7 @@
       @include('thuoc_vattu.layouts.sidebar')
       @endrole
       <!-- Content Wrapper. Contains page content -->
+     
   @yield('content')
   <!-- /.content-wrapper -->
   <footer class="main-footer">
