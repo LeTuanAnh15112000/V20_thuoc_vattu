@@ -85,7 +85,7 @@ class PhieulapController extends Controller
     public function import_csv(Request $request){
         $path = $request->file('file')->getRealPath();
         Excel::import(new PhieunhapthuocchitietImport, $path);
-        session()->flash('success', 'Gưi yêu cầu nhập thuốc thành công');
+        session()->flash('success', 'Gửi yêu cầu nhập thuốc thành công');
         return back();
     }
 

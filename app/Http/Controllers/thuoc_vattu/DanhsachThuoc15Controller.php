@@ -9,7 +9,7 @@ class DanhsachThuoc15Controller extends Controller
 {
     //
     public function list($idHealthFacility, $idMedicalStation){
-        $title = "Danh sách thuốc dưới 65 ngày";
+        $title = "Danh sách thuốc có hạn sử dụng dưới 15 ngày";
         $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
         $medicine = DB::table('danhmucthuoc')->where('handung', '<', 15)->where('handung', '>', 7)->where('id_tramyte', $idMedicalStation)->get();

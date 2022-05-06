@@ -9,7 +9,7 @@ class DanhsachThuoc7Controller extends Controller
 {
     //
     public function list($idHealthFacility, $idMedicalStation){
-        $title = "Danh sách thuốc";
+        $title = "Danh sách thuốc hạn sử dụng dưới 7 ngày";
         // $tramyte = DB::select('select * from danhmucthuoc where handung = :id', ['id' => $id]);
         $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
         $nameMedicalStation = $MedicalStation->ten_co_so_y_te;
