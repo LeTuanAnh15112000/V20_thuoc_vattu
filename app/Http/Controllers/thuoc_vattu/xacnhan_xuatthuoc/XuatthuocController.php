@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Thuoc_vattu\xacnhan_xuatthuoc;
 
 use App\Http\Controllers\Controller;
+use App\Models\Thuoc;
+use App\Models\Thuoc_vattu\Phieuxuatchitiet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class XuatthuocController extends Controller
@@ -33,9 +35,38 @@ class XuatthuocController extends Controller
                 'idHealthFacility'=> $idHealthFacility,
                 'nameMedicalStation'=> $nameMedicalStation,
                 'phieuxuat'=>$phieuxuat,
-               'alert'=>$alert
+                'alert'=>$alert
                 ]);
         }
       
+    }
+    public function duyetphieuxuat($idHealthFacility, $idMedicalStation){
+        $phieuxuatchitiet = DB::table('phieuxuatchitiet')
+        ->join('phieuxuat','phieuxuat.id','phieuxuatchitiet.sophieu')
+        ->where('phieuxuat.trangthai',0)
+        ->get();
+        foreach($phieuxuatchitiet as $value)
+        {
+            $id_thuoc = DB::table('danhmucthuoc')
+                        ->where('tenthuoc',$value->tenthuoc)
+                        ->where('id_tramyte', 1)
+                        ->where('soluong','<=',$value->soluong)
+                        ->first()->id;
+         
+            $thuoc = Thuoc::find($id_thuoc);
+            if($thuoc->soluong == $value->soluong)
+            {
+                $thuoc->delete();
+            }
+            else{
+                $thuoc->soluong = $thuoc->soluong - $value->soluong;
+                $thuoc->save();
+            }
+            
+  
+        }
+        $phieuxuat = DB::table('phieuxuat')->where('trangthai', '=', 0)->update(['trangthai' => 1]);
+        return back();
+        
     }
 }

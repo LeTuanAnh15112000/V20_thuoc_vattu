@@ -270,6 +270,8 @@ Route::prefix('manager')->name('manager.')->group(function(){
             
             // Xác nhận xuất thuốc bên trung tâm y tế
             Route::get('/xacnhan_xuatthuoc/{idHealthFacility}/{idMedicalStation}',[XuatthuocController::class, 'xemchitiet'])->name('xemchitietxuat');
+            Route::get('/duyetphieuxuat/{idHealthFacility}/{idMedicalStation}',[XuatthuocController::class, 'duyetphieuxuat'])->name('xemchitietxuat');
+
             //   phân loại thuốc
 
             Route::get('/phanloaithuoc/{idHealthFacility}/{idMedicalStation}',[PhanloaithuocController::class, 'phanloai'])->name('phanloai');
