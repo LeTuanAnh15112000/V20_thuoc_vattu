@@ -20,4 +20,5 @@ class DuyetController extends Controller
     ]);
     }
 }
+
  

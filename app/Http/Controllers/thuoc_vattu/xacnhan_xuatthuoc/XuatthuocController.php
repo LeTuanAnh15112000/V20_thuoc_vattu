@@ -41,6 +41,9 @@ class XuatthuocController extends Controller
       
     }
     public function duyetphieuxuat($idHealthFacility, $idMedicalStation){
+        $MedicalStation = DB::table('health_facilities')->find($idHealthFacility);
+        $id = $MedicalStation->id_medical_station;
+        session()->flash('success', 'Xác nhận xuất thuốc thành công');
         $phieuxuatchitiet = DB::table('phieuxuatchitiet')
         ->join('phieuxuat','phieuxuat.id','phieuxuatchitiet.sophieu')
         ->where('phieuxuat.trangthai',0)
@@ -49,7 +52,7 @@ class XuatthuocController extends Controller
         {
             $id_thuoc = DB::table('danhmucthuoc')
                         ->where('tenthuoc',$value->tenthuoc)
-                        ->where('id_tramyte', 1)
+                        ->where('id_tramyte', $id)
                         ->where('soluong','<=',$value->soluong)
                         ->first()->id;
          
@@ -66,7 +69,10 @@ class XuatthuocController extends Controller
   
         }
         $phieuxuat = DB::table('phieuxuat')->where('trangthai', '=', 0)->update(['trangthai' => 1]);
-        return back();
+        return redirect()->route('manager.thuoc_vattu.dashboard',
+        ['idHealthFacility'=>$idHealthFacility,
+         'idMedicalStation'=>$idMedicalStation
+    ]);
         
     }
 }
