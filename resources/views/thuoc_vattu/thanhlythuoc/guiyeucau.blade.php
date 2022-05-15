@@ -121,7 +121,7 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <span class="step">3</span>
-                                <label>Số phiếu:</label>
+                                <label>Mã phiếu:</label>
                                 <label for="">
                                   <input type="number" name="sophieu" id=""  placeholder="Số phiếu"><br>
                                 </label>

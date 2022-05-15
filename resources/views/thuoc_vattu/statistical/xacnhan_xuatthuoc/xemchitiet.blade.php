@@ -33,7 +33,7 @@
           <!-- info row -->
           <div class="row invoice-info">
             <div class="col-sm-4 invoice-col">
-              <p class="text-dark"><strong>Số phiếu: </strong>{{$px->sophieu}} </p>
+              <p class="text-dark"><strong>Mã phiếu: </strong>{{$px->sophieu}} </p>
               <p class="text-dark"><strong>Họ tên người lập phiếu:</strong> {{$px->nguoilap}}</p>
               <p class="text-dark"><strong>Ghi chú:</strong> {{$px->ghichu}}</p>
               <p class="text-dark"><strong>Trạng thái: {{$px->trangthai}}</strong> (0: chưa duyệt, 1: đã duyệt)</p>

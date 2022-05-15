@@ -110,7 +110,7 @@
                                    <div class="col-md-4">
                                      <div class="form-group" style="margin-bottom: 4px">
                                        <span class="step">2</span>
-                                       <label>Số phiếu: </label>
+                                       <label>Mã phiếu: </label>
                                        <label for="">
                                          <input type="number" value="" name="sophieu" id="">
                                        </label>
