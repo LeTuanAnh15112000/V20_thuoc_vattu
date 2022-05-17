@@ -92,7 +92,7 @@
                       <input type="file" class="form-control mr-3 mb-2" id="file" accept=".xlsx" name="file" required />
                     </div>
                     <div class="col-6">
-                      <input type="submit" value="Import file Excel" name="import_csv" class="btn btn-warning mr-2">
+                      <input type="submit" value="Gửi phiếu xuất" name="import_csv" class="btn btn-warning mr-2">
                     </div>
                   </div>
                   </form>

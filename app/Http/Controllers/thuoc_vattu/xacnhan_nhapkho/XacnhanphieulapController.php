@@ -49,7 +49,7 @@ class XacnhanphieulapController extends Controller
     }
     //nút duyệt phiếu Thêm
     public function them($idHealthFacility, $idMedicalStation){
-        session()->flash('success', 'Xác nhận nhập thuốc thành công');
+        session()->flash('success', 'Xác nhận lập phiếu thành công');
         $phieunhapthuocchitiet = DB::table('phieunhapthuocchitiet')
         ->join('phieunhapthuoc','phieunhapthuoc.id','phieunhapthuocchitiet.sophieu')
         ->where('phieunhapthuoc.trangthai',0)

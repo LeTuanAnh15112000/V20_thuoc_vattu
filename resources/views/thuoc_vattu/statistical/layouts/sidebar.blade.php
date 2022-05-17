@@ -101,7 +101,7 @@
             <a href="#" onclick="click_xacnhan()" class="nav-link click_xacnhan">
               <i class="nav-icon	fas fa-edit"></i>
               <p>
-                Xác nhận nhập thuốc
+                Xác nhận phiếu nhập
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -118,7 +118,7 @@
             <a href="#" onclick="click_xuat()" class="nav-link click_xuat">
               <i class="nav-icon 	fas fa-edit"></i>
               <p>
-                Xác nhận xuất thuốc
+                Xác nhận phiếu xuất
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
